@@ -13,8 +13,7 @@ export default function QuotesPage() {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="font-serif text-3xl text-paper">명대사</h1>
       <p className="mt-2 text-sm text-muted">
-        1966년 시리즈 위키백과가 적은 임무 테이프 문장입니다. 극장판의 수신인과
-        매체는 작품마다 다릅니다.
+        위키백과 줄거리가 따옴표로 적은 문장만 모았습니다. 한국어는 그 문장의 번역입니다.
       </p>
       <p className="mt-2 text-xs text-muted">
         {quoteGroups.length}개 그룹 · {itemCount}개 인용

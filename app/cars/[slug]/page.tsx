@@ -8,7 +8,7 @@ import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { carDetails, getCar } from "@/data/cars";
 import { carImages } from "@/data/licensedImages";
-import { MI_CAR_CTA_LABEL } from "@/lib/site";
+import { FF_CAR_CTA_LABEL } from "@/lib/site";
 
 export function generateStaticParams() {
   return Object.keys(carDetails).map((slug) => ({ slug }));
@@ -159,7 +159,7 @@ export default async function CarDetailPage({
           촬영 차량을 판매하지 않습니다. 자동차 용품은 오토픽스에서 봅니다.
         </p>
         <div className="mt-4">
-          <SisterCta label={MI_CAR_CTA_LABEL} />
+          <SisterCta label={FF_CAR_CTA_LABEL} />
         </div>
       </div>
 

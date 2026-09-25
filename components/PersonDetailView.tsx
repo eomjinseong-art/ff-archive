@@ -4,7 +4,7 @@ import { CreditedMedia } from "@/components/CreditedMedia";
 import { ImageSearchLink } from "@/components/ImageSearchLink";
 import { NationalityLine } from "@/components/NationalityLine";
 import { Fn, Sources } from "@/components/Sources";
-import type { ArchivePerson } from "@/data/agents";
+import type { ArchivePerson } from "@/data/crew";
 import { displayFilmTitle, films } from "@/data/films";
 import { personImage, portraitOrAtmosphere } from "@/data/licensedImages";
 import { personLookQuery } from "@/lib/googleImages";

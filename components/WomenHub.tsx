@@ -7,7 +7,7 @@ import { personImage, portraitOrAtmosphere } from "@/data/licensedImages";
 import { women } from "@/data/women";
 import { personLookQuery } from "@/lib/googleImages";
 
-const FILTERS = ["전체", "요원", "협력", "조연"] as const;
+const FILTERS = ["전체", "패밀리", "협력", "해커", "레이서"] as const;
 
 export function WomenHub() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("전체");

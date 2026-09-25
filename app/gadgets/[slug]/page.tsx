@@ -19,7 +19,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const gadget = getGadget(slug);
-  if (!gadget) return { title: "가젯" };
+  if (!gadget) return { title: "장비" };
   return { title: `${gadget.nameKo} (${gadget.nameEn})` };
 }
 

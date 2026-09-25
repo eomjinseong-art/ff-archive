@@ -24,7 +24,7 @@ export function FilmGadgetsBlock({
 
   return (
     <section className="mt-8">
-      <h2 className="font-serif text-xl text-gold">이 영화의 가젯</h2>
+      <h2 className="font-serif text-xl text-gold">이 영화의 장비</h2>
       <p className="mt-2 text-xs text-muted">
         {filmTitleKo ? `${filmTitleKo}의 장비와 스턴트.` : "장비와 스턴트."} 차량은 영화 속 차량 칸에 있습니다.
       </p>

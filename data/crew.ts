@@ -1,0 +1,453 @@
+import type { Footnote, Source } from "./types";
+import { WIKI_2F2F, WIKI_FIVE, WIKI_SERIES, WIKI_SIX, WIKI_TOKYO, wiki, wikiKo } from "./sources";
+
+export type PersonNote = { slug: string; text: string };
+
+export type ArchivePerson = {
+  slug: string;
+  nameKo: string;
+  nameEn: string;
+  performerKo: string;
+  performerEn: string;
+  nationalityKo: string;
+  nationalityEn: string;
+  affiliation: string;
+  years: string;
+  filmCount: number;
+  filmSlugs: string[];
+  roleKind: string;
+  featuredOnHome: boolean;
+  oneLiner: string;
+  posterTone: string;
+  bio: string[];
+  notes: string[];
+  filmNotes: PersonNote[];
+  sources: Source[];
+  footnotes: Footnote[];
+};
+
+const gold = "linear-gradient(165deg,#2a2418 0%,#0B0D10 50%,#C6A75E33 100%)";
+const heat = "linear-gradient(165deg,#3a2018 0%,#0B0D10 50%,#c65e3222 100%)";
+const bay = "linear-gradient(165deg,#14283a 0%,#0B0D10 50%,#3aa0c633 100%)";
+const night = "linear-gradient(165deg,#1c2430 0%,#0B0D10 48%,#c6a75e33 100%)";
+
+export const crew: ArchivePerson[] = [
+  {
+    slug: "dominic-toretto",
+    nameKo: "도미닉 토레토",
+    nameEn: "Dominic Toretto",
+    performerKo: "빈 디젤",
+    performerEn: "Vin Diesel",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "패밀리",
+    years: "2001–2023",
+    filmCount: 9,
+    filmSlugs: [
+      "the-fast-and-the-furious",
+      "tokyo-drift",
+      "fast-and-furious",
+      "fast-five",
+      "fast-and-furious-6",
+      "furious-7",
+      "fate-of-the-furious",
+      "f9",
+      "fast-x",
+    ],
+    roleKind: "중심",
+    featuredOnHome: true,
+    oneLiner: "스트리트 레이서이자 패밀리의 중심. 본편에서 그가 빠지는 작품은 2편뿐입니다.",
+    posterTone: gold,
+    bio: [
+      "도미닉 토레토는 2001년 작품의 트럭 습격단 리더로 소개됩니다. 프로 레이서였고, 아버지를 죽인 것으로 믿은 사람에게 보복한 뒤 정규 레이스에서 쫓겨났다고 같은 문서의 출연 소개가 적습니다. 빈 디젤이 맡습니다.",
+      "2편만 그가 없는 본편입니다. 도쿄 드리프트 결말에서 카메오로 돌아오고, 2009년 작품부터 브라이언과 다시 맞붙습니다. 언리미티드 이후 이야기는 레이스에서 습격과 패밀리로 넓어집니다.",
+    ],
+    notes: [
+      "아버지의 1970 Dodge Charger R/T는 2001년 작품 줄거리가 지목하는 차입니다. 배우는 출연 크레딧으로만 적고, 인물 설명은 캐릭터에 둡니다.",
+    ],
+    filmNotes: [
+      { slug: "the-fast-and-the-furious", text: "브라이언의 잠입 대상입니다. 결말에서 아버지의 차저를 몰다 트럭에 받히고, 수프라 열쇠를 받습니다." },
+      { slug: "tokyo-drift", text: "결말에서 1970 Plymouth Road Runner를 몰고 션에게 한은 패밀리였다고 말합니다." },
+      { slug: "fast-x", text: "에르난 레예스의 아들 단테가 패밀리를 노립니다. 시점은 더 얼티메이트 이후 2년, 언리미티드 이후 10년이라고 시리즈 문서가 적습니다." },
+    ],
+    sources: [WIKI_SERIES, wiki("The_Fast_and_the_Furious_(2001_film)", "The Fast and the Furious (2001 film)")],
+    footnotes: [
+      { n: 1, text: "2편에만 도미닉이 없다는 문장과 편별 줄거리는 영어 위키백과 시리즈 문서입니다." },
+    ],
+  },
+  {
+    slug: "brian-oconner",
+    nameKo: "브라이언 오코너",
+    nameEn: "Brian O'Conner",
+    performerKo: "폴 워커",
+    performerEn: "Paul Walker",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "패밀리",
+    years: "2001–2015",
+    filmCount: 6,
+    filmSlugs: [
+      "the-fast-and-the-furious",
+      "2-fast-2-furious",
+      "fast-and-furious",
+      "fast-five",
+      "fast-and-furious-6",
+      "furious-7",
+    ],
+    roleKind: "잠입",
+    featuredOnHome: true,
+    oneLiner: "LAPD로 잠입했다가 돔 편에 남는 사람. 더 세븐이 폴 워커의 마지막 출연입니다.",
+    posterTone: bay,
+    bio: [
+      "브라이언 오코너는 2001년 작품에서 트럭 습격단을 쫓는 LAPD 잠입 요원입니다. 결말에서 돔을 체포하지 않고 수프라 열쇠를 넘깁니다. 2편은 그 뒤로 마이애미에 숨어 지내다 세관 수사에 들어가는 이야기입니다.",
+      "2009년 작품에서는 FBI 요원으로 돔과 다시 만납니다. 언리미티드에서 미아와 리우로 떠나고, 더 세븐이 폴 워커가 브라이언으로 나온 마지막 편입니다. 시리즈 문서는 2013년 그의 죽음을 그 이유로 적습니다.",
+    ],
+    notes: ["1995 Mitsubishi Eclipse RS, 1999 Nissan Skyline GT-R R34, 2002 Lancer Evolution VII가 위키백과가 이름을 붙인 그의 차입니다."],
+    filmNotes: [
+      { slug: "2-fast-2-furious", text: "테지 파커의 레이스에서 1999 Nissan R34 Skyline GT-R을 몰고, 임무 차로는 2002 Mitsubishi Lancer Evolution VII를 받습니다." },
+      { slug: "furious-7", text: "폴 워커의 마지막 브라이언입니다. 제작 중 사망 이후의 마무리는 이슈 글에 둡니다." },
+    ],
+    sources: [WIKI_SERIES, WIKI_2F2F],
+    footnotes: [{ n: 1, text: "잠입과 2편의 차종은 각 작품 위키백과 줄거리·출연 소개입니다." }],
+  },
+  {
+    slug: "letty-ortiz",
+    nameKo: "레티 오티즈",
+    nameEn: "Letty Ortiz",
+    performerKo: "미셸 로드리게스",
+    performerEn: "Michelle Rodriguez",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "패밀리",
+    years: "2001–2023",
+    filmCount: 7,
+    filmSlugs: [
+      "the-fast-and-the-furious",
+      "fast-and-furious",
+      "fast-and-furious-6",
+      "furious-7",
+      "fate-of-the-furious",
+      "f9",
+      "fast-x",
+    ],
+    roleKind: "패밀리",
+    featuredOnHome: true,
+    oneLiner: "돔의 연인. 2009년 작품에서 죽은 것으로 처리됐다가, 더 맥시멈에서 기억 없이 돌아옵니다.",
+    posterTone: heat,
+    bio: [
+      "레티 오티즈는 2001년 작품에서 돔의 크루이자 여자 친구입니다. 미셸 로드리게스가 맡습니다. 2009년 작품의 줄거리는 그녀의 죽음을 갚고 아르투로 브라가를 잡는 이야기입니다.",
+      "더 맥시멈에서 홉스가 사진을 보여 주며, 레티가 오언 쇼 쪽에 있다고 알립니다. 폭발에서 살아남았고 기억이 없습니다. 더 얼티메이트 한국어 위키백과 출연표에 미셸 로드리게스가 다시 있습니다.",
+    ],
+    notes: ["언리미티드 엔딩 크레딧의 사진은 출연이 아니라 사진이라고 시리즈 문서가 구분합니다. 그 편은 편수에 넣지 않습니다."],
+    filmNotes: [
+      { slug: "fast-and-furious-6", text: "오언 쪽에서 돔을 쏘고, 이후 거리 레이스 뒤에도 오언 쪽에 남았다가 작전 중 돔 편으로 돌아옵니다." },
+    ],
+    sources: [WIKI_SERIES, WIKI_SIX, wikiKo("%EB%B6%84%EB%85%B8%EC%9D%98_%EC%A7%88%EC%A3%BC:_%EB%8D%94_%EC%96%BC%ED%8B%B0%EB%A9%94%EC%9D%B4%ED%8A%B8", "분노의 질주: 더 얼티메이트")],
+    footnotes: [{ n: 1, text: "2009년의 죽음과 더 맥시멈의 기억상실은 영어 위키백과 줄거리입니다." }],
+  },
+  {
+    slug: "mia-toretto",
+    nameKo: "미아 토레토",
+    nameEn: "Mia Toretto",
+    performerKo: "조더나 브루스터",
+    performerEn: "Jordana Brewster",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "패밀리",
+    years: "2001–2023",
+    filmCount: 6,
+    filmSlugs: [
+      "the-fast-and-the-furious",
+      "fast-five",
+      "fast-and-furious-6",
+      "furious-7",
+      "f9",
+      "fast-x",
+    ],
+    roleKind: "패밀리",
+    featuredOnHome: true,
+    oneLiner: "돔의 동생. 더 세븐에서는 브라이언과 아들 잭과 자리 잡은 사람으로 소개됩니다.",
+    posterTone: night,
+    bio: [
+      "미아 토레토는 2001년 작품에서 돔의 동생이고, 토레토 가게의 주인으로 소개됩니다. 브라이언과 가까워집니다. 조더나 브루스터가 맡습니다.",
+      "언리미티드에서 돔과 브라이언과 함께 리우에 있고, 브라이언의 아이를 가졌다고 말합니다. 더 맥시멈에서는 오언 쪽에 납치됩니다. 더 세븐 위키백과는 브라이언과 아들 잭과 자리 잡았다고 소개합니다. 시리즈 문서는 더 익스트림이 도쿄 드리프트 이후 처음으로 미아가 없는 편이라고 적고, 더 얼티메이트에서 돌아옵니다.",
+    ],
+    notes: ["배우 소개보다 가족 안의 위치에 초점을 둡니다."],
+    filmNotes: [
+      { slug: "fast-five", text: "버스에서 돔을 빼내고, 리우에서 팀이 레예스의 돈을 노리는 계획에 있습니다." },
+    ],
+    sources: [WIKI_SERIES, WIKI_FIVE],
+    footnotes: [{ n: 1, text: "더 익스트림 결석과 더 얼티메이트 복귀는 시리즈 위키백과입니다." }],
+  },
+  {
+    slug: "roman-pearce",
+    nameKo: "로먼 피어스",
+    nameEn: "Roman Pearce",
+    performerKo: "타이리스 깁슨",
+    performerEn: "Tyrese Gibson",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "패밀리",
+    years: "2003–2023",
+    filmCount: 7,
+    filmSlugs: [
+      "2-fast-2-furious",
+      "fast-five",
+      "fast-and-furious-6",
+      "furious-7",
+      "fate-of-the-furious",
+      "f9",
+      "fast-x",
+    ],
+    roleKind: "패밀리",
+    featuredOnHome: true,
+    oneLiner: "브라이언의 어릴 적 친구. 2편에서 합류하고, 언리미티드에서 리우 팀으로 돌아옵니다.",
+    posterTone: heat,
+    bio: [
+      "로먼 피어스는 2편에서 브라이언이 직접 고른 파트너입니다. 가택 연금 중인 어릴 적 친구이고, 자신이 감옥에 간 일을 브라이언 탓으로 여깁니다. 타이리스 깁슨이 맡습니다. 위키백과는 그가 2003 Mitsubishi Eclipse GTS Spyder를 몬다고 적습니다.",
+      "언리미티드에서 브라이언의 마이애미 동료로 다시 불립니다. 더 맥시멈에서는 오언의 탱크를 브라이언과 함께 뒤집는 장면에 이름이 나옵니다. 더 얼티메이트 한국어 위키백과 출연표에 타이리스 깁슨이 있습니다.",
+    ],
+    notes: ["2편 결말에서 니트로스로 즉석 사출 좌석을 씁니다. 장비 칸에 따로 있습니다."],
+    filmNotes: [
+      { slug: "fast-five", text: "엔딩에서 테지와 함께 Koenigsegg CCXR Edition을 한 대씩 샀다고 줄거리가 적습니다." },
+    ],
+    sources: [WIKI_2F2F, WIKI_FIVE, WIKI_SIX],
+    footnotes: [{ n: 1, text: "차종과 합류 경위는 2편·언리미티드 위키백과입니다." }],
+  },
+  {
+    slug: "tej-parker",
+    nameKo: "테지 파커",
+    nameEn: "Tej Parker",
+    performerKo: "크리스 브리지스",
+    performerEn: "Chris Bridges",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "패밀리",
+    years: "2003–2023",
+    filmCount: 7,
+    filmSlugs: [
+      "2-fast-2-furious",
+      "fast-five",
+      "fast-and-furious-6",
+      "furious-7",
+      "fate-of-the-furious",
+      "f9",
+      "fast-x",
+    ],
+    roleKind: "기술",
+    featuredOnHome: false,
+    oneLiner: "마이애미의 레이스 주최자이자 정비사. 화면 이름 루다크리스.",
+    posterTone: bay,
+    bio: [
+      "테지 파커는 2편에서 브라이언의 친구이자 레이스를 여는 정비사입니다. 크리스 브리지스가 맡았고, 크레딧에는 루다크리스로도 올라갑니다. 브라이언은 그의 행사에서 스카이라인으로 달립니다.",
+      "언리미티드에서 로먼과 함께 리우 팀에 합류합니다. 더 맥시멈에서는 오언의 다음 목표를 추적합니다.",
+    ],
+    notes: ["제작 문서는 레드맨이 빠지면서 루다크리스가 들어왔다고 적습니다. 인물 설명은 그 캐스팅 일화에 기대지 않습니다."],
+    filmNotes: [
+      { slug: "2-fast-2-furious", text: "키로 가는 길에 경찰을 흩뜨리는 스크램블을 준비합니다." },
+    ],
+    sources: [WIKI_2F2F, WIKI_FIVE],
+    footnotes: [{ n: 1, text: "역할 소개는 2편 위키백과 출연 단락입니다." }],
+  },
+  {
+    slug: "han-lue",
+    nameKo: "한 루",
+    nameEn: "Han Lue",
+    performerKo: "성강",
+    performerEn: "Sung Kang",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "패밀리",
+    years: "2006–2023",
+    filmCount: 6,
+    filmSlugs: ["tokyo-drift", "fast-and-furious", "fast-five", "fast-and-furious-6", "f9", "fast-x"],
+    roleKind: "패밀리",
+    featuredOnHome: true,
+    oneLiner: "도쿄에서 션에게 드리프트를 가르친 사람. 개봉 순서와 이야기 순서가 어긋나는 축입니다.",
+    posterTone: night,
+    bio: [
+      "한 루는 도쿄 드리프트에서 성강이 맡습니다. 타카시의 사업 파트너였고, 돔의 오랜 친구로 소개됩니다. 션에게 드리프트를 가르치고, 1994 Mazda RX-7 베일사이드가 메르세데스에 받힌 뒤 죽은 것처럼 보입니다.",
+      "위키백과는 이 인물이 저스틴 린의 《베터 럭 투모로우》에서 왔고, 린과 성강이 같은 인물이라고 확인해 그 영화가 기원이 된다고 적습니다. 그 작품은 이 아카이브의 본편 목록에 넣지 않습니다. 2009년 작품에 짧게 나온 뒤 언리미티드와 더 맥시멈의 주요 인물이 되고, 더 얼티메이트에서 살아 있음이 드러나 패스트 X까지 이어집니다.",
+    ],
+    notes: ["도쿄 드리프트의 죽음은 더 맥시멈 엔딩과 더 세븐으로 이어집니다. 연속성은 이슈 글에 있습니다."],
+    filmNotes: [
+      { slug: "tokyo-drift", text: "베일사이드 RX-7을 몰다 1992 Mercedes-Benz W140에 받힙니다. 나중에 그 운전자가 데커드 쇼로 밝혀집니다." },
+    ],
+    sources: [WIKI_TOKYO, WIKI_SERIES],
+    footnotes: [{ n: 1, text: "베터 럭 투모로우와의 연결은 도쿄 드리프트 위키백과 제작·연속성 단락입니다." }],
+  },
+  {
+    slug: "luke-hobbs",
+    nameKo: "루크 홉스",
+    nameEn: "Luke Hobbs",
+    performerKo: "드웨인 존슨",
+    performerEn: "Dwayne Johnson",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "DSS",
+    years: "2011–2023",
+    filmCount: 6,
+    filmSlugs: ["fast-five", "fast-and-furious-6", "furious-7", "fate-of-the-furious", "hobbs-and-shaw", "fast-x"],
+    roleKind: "추적",
+    featuredOnHome: true,
+    oneLiner: "외교안보국 요원으로 들어와, 나중에는 패밀리 쪽 사람이 됩니다. 홉스&쇼의 공동 주인공.",
+    posterTone: gold,
+    bio: [
+      "루크 홉스는 언리미티드에서 리우로 파견된 미국 외교안보국(DSS) 요원입니다. 드웨인 존슨이 맡습니다. 처음에는 돔 일행을 체포하려다, 레예스에게 팀을 잃은 뒤 금고 작전에 협조합니다.",
+      "더 맥시멈에서는 사면을 대가로 오언 쇼를 잡자고 돔을 설득합니다. 시리즈 문서는 더 얼티메이트가 2009년 작품 이후 처음으로 드웨인 존슨의 홉스가 없는 본편이라고 적습니다. 그 사이 본편에 그가 있었다는 뜻으로 더 세븐과 더 익스트림을 편수에 넣었습니다. 스핀오프 홉스&쇼에서는 데커드와 짝을 이루고, 라이드 오어 다이 중간 크레딧에서 본편으로 돌아옵니다.",
+    ],
+    notes: ["홉스&쇼는 본편이 아닙니다. 스핀오프 표시는 영화 칸에 있습니다."],
+    filmNotes: [
+      { slug: "fast-five", text: "호송은 Gurkha LAPV입니다. 엘레나 네베스가 현지 경찰로 붙습니다." },
+      { slug: "hobbs-and-shaw", text: "데커드의 동생 해티와 함께 브릭스턴 로어에 맞섭니다." },
+    ],
+    sources: [WIKI_SERIES, WIKI_FIVE, wikiKo("%EB%B6%84%EB%85%B8%EC%9D%98_%EC%A7%88%EC%A3%BC:_%ED%99%89%EC%8A%A4%26%EC%87%BC", "분노의 질주: 홉스&쇼")],
+    footnotes: [{ n: 1, text: "더 얼티메이트의 존슨 결석은 시리즈 위키백과 그 편 단락입니다." }],
+  },
+  {
+    slug: "gisele-yashar",
+    nameKo: "지젤 야샤",
+    nameEn: "Gisele Yashar",
+    performerKo: "갈 가도트",
+    performerEn: "Gal Gadot",
+    nationalityKo: "이스라엘",
+    nationalityEn: "Israel",
+    affiliation: "패밀리",
+    years: "2011–2023",
+    filmCount: 3,
+    filmSlugs: ["fast-five", "fast-and-furious-6", "fast-x"],
+    roleKind: "패밀리",
+    featuredOnHome: false,
+    oneLiner: "언리미티드에서 합류했다가 더 맥시멈에서 죽은 듯 보이고, 라이드 오어 다이 엔딩에서 살아 있습니다.",
+    posterTone: night,
+    bio: [
+      "지젤 야샤는 언리미티드에서 돔의 예전 동료로 리우 팀에 불립니다. 갈 가도트가 맡습니다. 엔딩에서는 한과 함께 독일 아우토반을 달립니다.",
+      "더 맥시멈에서 한을 구한 뒤 죽은 것처럼 처리됩니다. 시리즈 문서는 라이드 오어 다이 엔딩에서 더 맥시멈의 사건 이후에도 살아 있음이 드러난다고 적습니다.",
+    ],
+    notes: ["2009년 작품 출연은 이 아카이브가 확인한 시리즈 요약에 없어 편수에서 뺐습니다."],
+    filmNotes: [
+      { slug: "fast-and-furious-6", text: "안토노프 기내에서 한을 살리고 추락하는 쪽으로 처리됩니다." },
+    ],
+    sources: [WIKI_FIVE, WIKI_SERIES],
+    footnotes: [{ n: 1, text: "생존이 드러나는 시점은 시리즈 문서의 라이드 오어 다이 단락입니다." }],
+  },
+  {
+    slug: "ramsey",
+    nameKo: "램지",
+    nameEn: "Ramsey",
+    performerKo: "내털리 이매뉴얼",
+    performerEn: "Nathalie Emmanuel",
+    nationalityKo: "영국",
+    nationalityEn: "United Kingdom",
+    affiliation: "패밀리",
+    years: "2015–2023",
+    filmCount: 4,
+    filmSlugs: ["furious-7", "fate-of-the-furious", "f9", "fast-x"],
+    roleKind: "해커",
+    featuredOnHome: true,
+    oneLiner: "갓스 아이를 만든 영국 해커. 더 세븐에서 자칸데에게서 구출된 뒤 패밀리 쪽에 섭니다.",
+    posterTone: bay,
+    bio: [
+      "메건 램지는 더 세븐에서 내털리 이매뉴얼이 맡은 영국인 해커입니다. 위키백과는 갓스 아이의 제작자이고, 자칸데에게서 구출된 뒤 돔 팀과 함께 그 프로그램을 다시 막으려 한다고 적습니다.",
+      "더 얼티메이트 한국어 위키백과 출연표에도 내털리 이매뉴얼이 있습니다. 화면 이름은 램지로 둡니다.",
+    ],
+    notes: ["풀네임 Megan Ramsey는 더 세븐 위키백과 출연 소개입니다."],
+    filmNotes: [{ slug: "furious-7", text: "아부다비 에티하드 타워의 라이칸 하이퍼스포츠에 칩이 숨겨져 있습니다." }],
+    sources: [wiki("Furious_7", "Furious 7"), wikiKo("%EB%B6%84%EB%85%B8%EC%9D%98_%EC%A7%88%EC%A3%BC:_%EB%8D%94_%EC%96%BC%ED%8B%B0%EB%A9%94%EC%9D%B4%ED%8A%B8", "분노의 질주: 더 얼티메이트"), WIKI_SERIES],
+    footnotes: [{ n: 1, text: "갓스 아이의 이름은 시리즈 문서의 더 세븐 줄거리입니다. 램지와의 연결은 그 문단에 없습니다." }],
+  },
+  {
+    slug: "deckard-shaw",
+    nameKo: "데커드 쇼",
+    nameEn: "Deckard Shaw",
+    performerKo: "제이슨 스테이섬",
+    performerEn: "Jason Statham",
+    nationalityKo: "영국",
+    nationalityEn: "United Kingdom",
+    affiliation: "쇼",
+    years: "2013–2023",
+    filmCount: 6,
+    filmSlugs: [
+      "fast-and-furious-6",
+      "furious-7",
+      "fate-of-the-furious",
+      "hobbs-and-shaw",
+      "f9",
+      "fast-x",
+    ],
+    roleKind: "적에서 협력",
+    featuredOnHome: true,
+    oneLiner: "오언의 형. 한을 친 뒤 적이었다가, 홉스&쇼에서는 홉스와 한 팀입니다.",
+    posterTone: heat,
+    bio: [
+      "데커드 쇼는 제이슨 스테이섬이 맡습니다. 더 맥시멈 중간 크레딧에서 도쿄의 한을 들이받은 뒤 돔에게 전화를 겁니다. 대사는 “너는 나를 모르지만, 곧 알게 될 거다”입니다. 도쿄 드리프트 문서는 그 메르세데스 운전자가 나중에 데커드로 밝혀진다고 적습니다.",
+      "더 세븐은 그 엔딩에 이어집니다. 홉스&쇼에서는 동생 해티, 홉스와 함께 브릭스턴 로어에 맞섭니다. 더 얼티메이트 중간 크레딧에 다시 나옵니다. 악당 칸에는 더 세븐의 적대 역할만 따로 둡니다.",
+    ],
+    notes: ["한 인물을 패밀리 칸과 악당 칸에 나눈 이유는, 적에서 협력으로 위치가 바뀌기 때문입니다."],
+    filmNotes: [
+      { slug: "hobbs-and-shaw", text: "스핀오프의 공동 주인공입니다. 본편 합계에는 넣지 않습니다." },
+    ],
+    sources: [WIKI_SIX, WIKI_TOKYO, WIKI_SERIES],
+    footnotes: [{ n: 1, text: "영어 대사는 더 맥시멈 위키백과 줄거리의 인용입니다. 한국어는 그 문장의 번역입니다." }],
+  },
+  {
+    slug: "elena-neves",
+    nameKo: "엘레나 네베스",
+    nameEn: "Elena Neves",
+    performerKo: "엘사 파타키",
+    performerEn: "Elsa Pataky",
+    nationalityKo: "스페인",
+    nationalityEn: "Spain",
+    affiliation: "경찰",
+    years: "2011–2017",
+    filmCount: 3,
+    filmSlugs: ["fast-five", "fast-and-furious-6", "fate-of-the-furious"],
+    roleKind: "협력",
+    featuredOnHome: false,
+    oneLiner: "리우의 경찰로 홉스 팀에 붙었다가, 더 맥시멈 끝에서 돔과 레티 사이를 물러납니다.",
+    posterTone: gold,
+    bio: [
+      "엘레나 네베스는 언리미티드에서 홉스를 돕는 리우 주 경찰입니다. 엘사 파타키가 맡습니다. 레예스 쪽 총격에서 돔이 그를 감싸고, 이후 금고 작전에 홉스와 함께 협조합니다.",
+      "더 맥시멈 결말에서 홉스와 일하고 있고, 돔이 레티를 사랑한다는 것을 받아들인 뒤 떠납니다.",
+    ],
+    notes: ["더 익스트림에서 사이퍼가 엘레나와 돔의 아들을 인질로 잡습니다. 그 이후의 죽음 여부는 이 문서에 단정하지 않습니다."],
+    filmNotes: [{ slug: "fast-five", text: "외교안보국 팀이 아니라 현지 경찰로 시작합니다." }],
+    sources: [WIKI_FIVE, WIKI_SIX],
+    footnotes: [{ n: 1, text: "소속과 결말은 언리미티드·더 맥시멈 위키백과 줄거리입니다." }],
+  },
+  {
+    slug: "sean-boswell",
+    nameKo: "션 보스웰",
+    nameEn: "Sean Boswell",
+    performerKo: "루카스 블랙",
+    performerEn: "Lucas Black",
+    nationalityKo: "미국",
+    nationalityEn: "United States",
+    affiliation: "도쿄",
+    years: "2006–2021",
+    filmCount: 2,
+    filmSlugs: ["tokyo-drift", "f9"],
+    roleKind: "드리프트",
+    featuredOnHome: false,
+    oneLiner: "도쿄로 보내진 고등학생. 이야기 순서상 더 맥시멈과 더 세븐 사이에 있습니다.",
+    posterTone: neonTone(),
+    bio: [
+      "션 보스웰은 도쿄 드리프트의 중심입니다. 애리조나에서 사고를 낸 뒤 도쿄의 아버지에게 보내지고, 드리프트 모임에 들어갑니다. 루카스 블랙이 맡습니다. 한에게 드리프트를 배운 뒤 타카시에게 도전합니다.",
+      "위키백과는 이 작품의 시점을 더 맥시멈과 더 세븐 사이로 적습니다. 더 세븐은 도쿄 드리프트 엔딩에 이어지고 루카스 블랙이 션으로 돌아옵니다. 더 얼티메이트에서는 트윙키, 얼과 함께 독일에서 로켓을 다룹니다.",
+    ],
+    notes: ["로켓 개발로 넘어간 경위는 시리즈가 설명하지 않는다고 도쿄 드리프트 문서가 적습니다. 이 아카이브도 그 공백을 채우지 않습니다."],
+    filmNotes: [
+      { slug: "tokyo-drift", text: "2003 Lancer Evolution VIII로 연습하고, 결말 드리프트는 1967 Ford Mustang Fastback입니다." },
+    ],
+    sources: [WIKI_TOKYO, WIKI_SERIES],
+    footnotes: [{ n: 1, text: "시점 배치는 도쿄 드리프트 위키백과 첫 문단입니다." }],
+  },
+];
+
+function neonTone() {
+  return "linear-gradient(165deg,#241830 0%,#0B0D10 48%,#c6a75e44 100%)";
+}
+
+export function getCrew(slug: string) {
+  return crew.find((person) => person.slug === slug);
+}

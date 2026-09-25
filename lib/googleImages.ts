@@ -21,5 +21,5 @@ export function personLookQuery(person: {
   performerKo: string;
   performerEn: string;
 }) {
-  return `${person.nameEn} ${person.performerEn} Mission Impossible ${person.nameKo} ${person.performerKo}`.trim();
+  return `${person.nameEn} ${person.performerEn} Fast Furious ${person.nameKo} ${person.performerKo}`.trim();
 }

@@ -7,7 +7,7 @@ import { RelatedLinks } from "@/components/RelatedLinks";
 import { LandmarkList, TripList } from "@/components/PlaceLists";
 import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
-import { getAgent } from "@/data/agents";
+import { getCrew } from "@/data/crew";
 import { getDirectorByFilmSlug } from "@/data/directors";
 import type { CastChip, FilmDetail } from "@/data/filmDetails";
 import { displayFilmTitle, getFilm, officialNeighbors } from "@/data/films";
@@ -22,7 +22,7 @@ import { secondaryRelated } from "@/lib/relatedLinks";
 
 function castHref(person: CastChip) {
   if (!person.slug || !person.kind) return undefined;
-  if (person.kind === "agent" && getAgent(person.slug)) return `/agents/${person.slug}`;
+  if (person.kind === "crew" && getCrew(person.slug)) return `/crew/${person.slug}`;
   if (person.kind === "woman" && getWoman(person.slug)) return `/women/${person.slug}`;
   if (person.kind === "villain" && getVillain(person.slug)) return `/villains/${person.slug}`;
   return undefined;
@@ -39,7 +39,7 @@ export function FilmDetailView({ detail }: { detail: FilmDetail }) {
   const hero = filmImages[film.slug] ?? atmospherePlaceholder;
   const related = secondaryRelated(
     [
-      { href: "/origin", label: "원작 · 1966년 텔레비전" },
+      { href: "/origin", label: "원작 · Racer X" },
       ...(director
         ? [{ href: `/directors/${director.slug}`, label: `감독 · ${director.nameKo}` }]
         : []),
@@ -128,29 +128,33 @@ export function FilmDetailView({ detail }: { detail: FilmDetail }) {
 
       <FilmGadgetsBlock gadgets={detail.gadgets} filmTitleKo={film.titleKo} />
 
-      <section className="mt-8">
-        <h2 className="font-serif text-xl text-gold">명대사</h2>
-        <p className="mt-2 text-xs text-muted">
-          영어는 1966년 시리즈 위키백과가 적은 공식입니다. 극장판의 수신인과 매체는 작품마다 다릅니다.
-        </p>
-        <ul className="mt-3 space-y-3">
-          {detail.quotes.map((q) => (
-            <li key={q.textEn} className="rounded-lg border border-line p-4">
-              <p className="font-serif text-paper">“{q.textKo}”</p>
-              <p className="mt-1 text-xs text-muted">
-                {q.speaker} · {q.textEn}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {detail.quotes.length > 0 ? (
+        <section className="mt-8">
+          <h2 className="font-serif text-xl text-gold">명대사</h2>
+          <p className="mt-2 text-xs text-muted">
+            영어는 위키백과 줄거리가 인용한 문장입니다. 한국어는 그 문장의 번역입니다.
+          </p>
+          <ul className="mt-3 space-y-3">
+            {detail.quotes.map((q) => (
+              <li key={q.textEn} className="rounded-lg border border-line p-4">
+                <p className="font-serif text-paper">“{q.textKo}”</p>
+                <p className="mt-1 text-xs text-muted">
+                  {q.speaker} · {q.textEn}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
-      <section className="mt-8">
-        <h2 className="font-serif text-xl text-gold">공식 예고편</h2>
-        <div className="mt-3">
-          <YouTubeEmbed id={detail.trailerYoutubeId} title={`${displayFilmTitle(film)} 예고편`} />
-        </div>
-      </section>
+      {detail.trailerYoutubeId ? (
+        <section className="mt-8">
+          <h2 className="font-serif text-xl text-gold">공식 영상</h2>
+          <div className="mt-3">
+            <YouTubeEmbed id={detail.trailerYoutubeId} title={`${displayFilmTitle(film)} 공식 영상`} />
+          </div>
+        </section>
+      ) : null}
 
       {landmarks.length > 0 ? (
         <section className="mt-8">

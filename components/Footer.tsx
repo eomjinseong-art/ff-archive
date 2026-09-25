@@ -1,6 +1,6 @@
 import { AUTOPIX_LABEL, BOND_ARCHIVE_LABEL, SITE_NAME, autopixUrl, bondArchiveUrl } from "@/lib/site";
 
-const OFFICIAL_CHANNEL = "https://www.youtube.com/@MissionImpossible";
+const OFFICIAL_CHANNEL = "https://www.youtube.com/channel/UCJCx8aQrdx_ueXPmxTD2odQ";
 
 export function Footer() {
   return (
@@ -11,9 +11,9 @@ export function Footer() {
         </h2>
         <div className="mt-3 max-w-3xl space-y-3">
           <p>
-            「{SITE_NAME}」는 비공식 팬 아카이브이며, 파라마운트, 스카이댄스,
-            배우와 사진의 권리자를 포함한 저작권·상표권자와 무관합니다. 상업적
-            공식 사이트가 아닙니다.
+            {SITE_NAME}는 비공식 팬 아카이브이며, 유니버설 픽처스, 배우와 사진의
+            권리자를 포함한 저작권·상표권자와 무관합니다. 상업적 공식 사이트가
+            아닙니다.
           </p>
           <p>
             본문은 바깥 자료를 참고한 재서술입니다. 출처는 각 페이지 하단에
@@ -28,7 +28,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            공식 채널 · YouTube @MissionImpossible
+            공식 채널 · YouTube The Fast Saga
           </a>
           <a
             href={autopixUrl("footer")}

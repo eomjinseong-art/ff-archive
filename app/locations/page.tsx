@@ -14,7 +14,7 @@ export default function LocationsPage() {
     <div className="mx-auto max-w-6xl px-4 py-10">
       <h1 className="font-serif text-3xl text-paper">영화 속 명소</h1>
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
-        극장판 8편의 촬영지와 화면의 랜드마크입니다.{" "}
+        본편과 스핀오프에서 문서가 특정한 도시와 촬영지입니다.{" "}
         <Link href="/map" className="text-gold hover:underline">
           세계 지도
         </Link>

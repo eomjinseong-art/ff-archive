@@ -4,7 +4,7 @@ import { PosterCard } from "@/components/PosterCard";
 import { ORIGIN_HREF } from "@/data/origin";
 import { displayFilmTitle, filmsByDirector } from "@/data/films";
 import { atmospherePlaceholder, filmImages } from "@/data/licensedImages";
-import { SERIES_FRAMING, SERIES_FRAMING_NOTE, SERIES_TOTAL } from "@/data/series";
+import { SERIES_FRAMING, SERIES_FRAMING_NOTE, SERIES_TOTAL, SERIES_WITH_SPINOFF } from "@/data/series";
 
 export const metadata: Metadata = { title: "영화" };
 
@@ -17,9 +17,9 @@ export default function FilmsPage() {
       <p className="mt-3 max-w-3xl text-sm leading-7 text-paper">{SERIES_FRAMING}</p>
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">{SERIES_FRAMING_NOTE}</p>
       <p className="mt-3 text-sm text-muted">
-        극장판 {SERIES_TOTAL}편 ·{" "}
+        본편 {SERIES_TOTAL}편 · 스핀오프 포함 {SERIES_WITH_SPINOFF}편 ·{" "}
         <Link href={ORIGIN_HREF} className="text-gold hover:underline">
-          원작 1966년 텔레비전
+          원작 Racer X
         </Link>
         {" · "}
         <Link href="/series" className="text-gold hover:underline">

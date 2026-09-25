@@ -1,43 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CreditedMedia } from "@/components/CreditedMedia";
 import { Sources } from "@/components/Sources";
 import { displayFilmTitle, getFilm } from "@/data/films";
-import { directorImages, portraitOrAtmosphere } from "@/data/licensedImages";
-import { CreditedMedia } from "@/components/CreditedMedia";
-import {
-  mcquarrieEra,
-  mcquarrieFilmSlugs,
-  mcquarrieSections,
-  mcquarrieSources,
-} from "@/data/mcquarrie";
+import { linEra, linFilmSlugs, linSections, linSources } from "@/data/linEra";
+import { portraitOrAtmosphere } from "@/data/licensedImages";
 
-export const metadata: Metadata = { title: mcquarrieEra.titleKo };
+export const metadata: Metadata = { title: linEra.titleKo };
 
-export default function McQuarrieEraPage() {
-  const image = directorImages["christopher-mcquarrie"];
-
+export default function LinEraPage() {
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
-      <p className="text-[11px] uppercase tracking-wide text-gold">{mcquarrieEra.years}</p>
+      <p className="text-[11px] uppercase tracking-wide text-gold">{linEra.years}</p>
       <CreditedMedia
-        image={portraitOrAtmosphere(image)}
+        image={portraitOrAtmosphere()}
         tone="linear-gradient(165deg,#1a2030 0%,#0B0D10 48%,#8a734033 100%)"
-        alt={image?.alt ?? "크리스토퍼 맥쿼리"}
+        alt="저스틴 린"
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}
+        overlay={{ title: "저스틴 린", meta: linEra.years }}
       />
       <h1 className="mt-4 font-serif text-3xl text-paper sm:text-4xl">
-        {mcquarrieEra.titleKo} ({mcquarrieEra.titleEn})
+        {linEra.titleKo} ({linEra.titleEn})
       </h1>
-      <p className="mt-4 text-base leading-relaxed text-paper">{mcquarrieEra.oneLiner}</p>
+      <p className="mt-4 text-base leading-relaxed text-paper">{linEra.oneLiner}</p>
       <p className="mt-3 text-sm">
-        <Link href="/directors/christopher-mcquarrie" className="text-gold">
+        <Link href="/directors/justin-lin" className="text-gold">
           감독 상세
         </Link>
       </p>
 
-      {mcquarrieSections.map((section) => (
+      {linSections.map((section) => (
         <section key={section.heading} className="mt-8">
           <h2 className="font-serif text-xl text-gold">{section.heading}</h2>
           <div className="mt-3 space-y-4">
@@ -51,9 +45,9 @@ export default function McQuarrieEraPage() {
       ))}
 
       <section className="mt-8">
-        <h2 className="font-serif text-xl text-gold">5편부터 8편</h2>
+        <h2 className="font-serif text-xl text-gold">다섯 편</h2>
         <ul className="mt-3 space-y-3">
-          {mcquarrieFilmSlugs.map((slug) => {
+          {linFilmSlugs.map((slug) => {
             const film = getFilm(slug);
             if (!film) return null;
             return (
@@ -67,7 +61,7 @@ export default function McQuarrieEraPage() {
         </ul>
       </section>
 
-      <Sources sources={mcquarrieSources} />
+      <Sources sources={linSources} />
     </article>
   );
 }

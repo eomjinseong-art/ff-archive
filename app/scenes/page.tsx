@@ -11,10 +11,10 @@ export default function ScenesPage() {
     <div className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="font-serif text-3xl text-paper">명장면</h1>
       <p className="mt-2 text-sm text-muted">
-        공식 예고편을 개봉 연도 순으로 모았습니다.
+        The Fast Saga 채널에서 확인한 영상만 모았습니다. 예고편 ID를 만들지 않습니다.
       </p>
       <p className="mt-2 text-xs text-muted">
-        공식 예고 {officialScenes.length}편 · 팬 링크 {fanClips.length}건
+        공식 영상 {officialScenes.length}편 · 채널 링크 {fanClips.length}건
       </p>
 
       <div className="mt-8 space-y-10">

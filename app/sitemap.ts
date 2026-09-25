@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { agents } from "@/data/agents";
 import { cars } from "@/data/cars";
+import { crew } from "@/data/crew";
 import { directors } from "@/data/directors";
 import { films } from "@/data/films";
 import { gadgets } from "@/data/gadgets";
@@ -17,8 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/records",
     "/origin",
     "/directors",
-    "/agents",
-    "/mcquarrie-era",
+    "/crew",
+    "/lin-era",
     "/women",
     "/villains",
     "/cars",
@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const dynamicPaths = [
     ...films.map((film) => `/films/${film.slug}`),
     ...directors.map((director) => `/directors/${director.slug}`),
-    ...agents.map((person) => `/agents/${person.slug}`),
+    ...crew.map((person) => `/crew/${person.slug}`),
     ...women.map((person) => `/women/${person.slug}`),
     ...villains.map((person) => `/villains/${person.slug}`),
     ...cars.filter((car) => car.hasL2).map((car) => `/cars/${car.slug}`),

@@ -55,7 +55,7 @@ export default function VideosPage() {
       <section className="mt-10">
         <h2 className="font-serif text-xl text-gold">채널 안 공식 분류</h2>
         <p className="mt-2 text-xs text-muted">
-          @MissionImpossible 채널 안 검색 결과입니다.
+          The Fast Saga 채널 안 검색 결과입니다.
         </p>
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {officialCategoryLinks.map((item) => (

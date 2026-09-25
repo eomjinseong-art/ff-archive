@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "mi-archive:visits:day";
-const NAMESPACE = "mi-archive";
+const STORAGE_KEY = "ff-archive:visits:day";
+const NAMESPACE = "ff-archive";
 const KEY = "visits";
 
 export function VisitorCounter() {
