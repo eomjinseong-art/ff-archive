@@ -1,5 +1,5 @@
 import type { Source } from "./types";
-import { BMW_FALLOUT, imcdb } from "./sources";
+import { WIKI_FIVE, WIKI_SIX } from "./sources";
 
 export type OtherVehicle = {
   nameKo: string;
@@ -10,34 +10,30 @@ export type OtherVehicle = {
   sources?: Source[];
 };
 
-const GHOST_MOVIE = imcdb(
-  "m1229238",
-  "Ghost Protocol vehicle list",
-);
-
-const FALLOUT_MOVIE = imcdb("m4912910", "Fallout vehicle list");
-
-/**
- * Vehicles that are documented, but not promoted to a detail page.
- * Background cars and disputed generations stay out.
- */
 const other: Record<string, OtherVehicle[]> = {
-  "ghost-protocol": [
+  "fast-five": [
     {
-      nameKo: "BMW 118i (F20)",
-      nameEn: "BMW 118i (F20)",
-      note: "IMCDb가 고스트 프로토콜의 BMW 118i F20을 짧은 등장으로 분류합니다. 헌트의 추격은 비전 이피션트다이내믹스와 6시리즈 컨버터블입니다. 배경으로만 잡힌 E90 3시리즈와 E39 5시리즈는 적지 않습니다.",
-      popularity: "파트너 차량 옆의 짧은 등장입니다. 허브 상세 페이지는 없습니다.",
-      sources: [GHOST_MOVIE],
+      nameKo: "1972 데 토마소 판테라",
+      nameEn: "1972 De Tomaso Pantera",
+      note: "열차 습격용으로 싸게 복제할 수 있는 차로 골랐다고 제작 단락이 적습니다. 포드 GT40, 2007 콜벳과 한 문장에 있습니다.",
+      popularity: "상세 페이지는 GT40에만 둡니다. 판테라는 복제 차로 적힌 이름입니다.",
+      sources: [WIKI_FIVE],
+    },
+    {
+      nameKo: "2007 콜벳 GS 로드스터",
+      nameEn: "2007 Chevrolet Corvette GS Roadster",
+      note: "같은 문장의 열차 습격 복제차입니다. 트림을 더 좁히지 않습니다.",
+      popularity: "아이콘 상세로 올리지 않습니다.",
+      sources: [WIKI_FIVE],
     },
   ],
-  fallout: [
+  "fast-and-furious-6": [
     {
-      nameKo: "BMW 7시리즈 세단",
-      nameEn: "BMW 7 Series sedan",
-      note: "파트너십 보도자료는 BMW 7시리즈 세단을 다른 BMW와 함께 적습니다. IMCDb 목록의 표기는 2017년 740Le [G12]입니다. 두 문장을 한 트림으로 합치지 않고, M5·R nineT·E28 상세와 분리합니다.",
-      popularity: "보도자료에 이름이 있으나, 파리 추격의 주인공 차로는 적지 않습니다.",
-      sources: [BMW_FALLOUT, FALLOUT_MOVIE],
+      nameKo: "닷지 차저",
+      nameEn: "Dodge Charger",
+      note: "안토노프 기수 쪽으로 공압 대포에 실려 쏘인 차입니다. 위키백과는 연식을 적지 않습니다. 1970 Charger R/T와 같은 차로 보지 않습니다.",
+      popularity: "돔 아버지의 차와 분리합니다.",
+      sources: [WIKI_SIX],
     },
   ],
 };

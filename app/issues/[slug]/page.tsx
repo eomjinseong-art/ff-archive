@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { GossipBoard } from "@/components/GossipBoard";
 import { Sources } from "@/components/Sources";
 import { getIssue, issues } from "@/data/issues";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return issues.map((issue) => ({ slug: issue.slug }));
@@ -17,7 +18,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const issue = getIssue(slug);
   if (!issue) return { title: "이슈" };
-  return { title: `이슈 · ${issue.title}` };
+  return pageMetadata({
+    title: issue.title,
+    description: issue.teaser,
+    path: `/issues/${issue.slug}`,
+  });
 }
 
 export default async function IssueDetailPage({

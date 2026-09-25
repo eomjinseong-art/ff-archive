@@ -47,7 +47,7 @@ export function FilmVehiclesBlock({
     <section className="mt-8">
       <h2 className="font-serif text-xl text-gold">이 영화의 차량</h2>
       <p className="mt-2 text-xs text-muted">
-        문서가 있는 추격 차량과, 그 밖의 차입니다. 사진은 같은 모델의 공용 사진입니다.
+        문서가 있는 차량과, 그 밖의 차입니다. 포스터와 스틸은 쓰지 않고 플레이스홀더만 둡니다.
       </p>
 
       {cars ? (

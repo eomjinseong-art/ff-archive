@@ -1,14 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CreditedMedia } from "@/components/CreditedMedia";
+import { JsonLd } from "@/components/JsonLd";
 import { GossipBoard } from "@/components/GossipBoard";
+import { SameBrandCars } from "@/components/SameBrandCars";
 import { SisterCta } from "@/components/SisterCta";
 import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
-import { carDetails, getCar } from "@/data/cars";
-import { carImages } from "@/data/licensedImages";
-import { MI_CAR_CTA_LABEL } from "@/lib/site";
+import { ERA_LABEL, carDetails, getCar } from "@/data/cars";
+import { atmospherePlaceholder, carImages } from "@/data/licensedImages";
+import { FF_CAR_CTA_LABEL } from "@/lib/site";
+import {
+  breadcrumbLd,
+  carSeoDescription,
+  carSeoTitle,
+  carThingLd,
+  jsonLd,
+  pageMetadata,
+  placeholderAlt,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return Object.keys(carDetails).map((slug) => ({ slug }));
@@ -22,7 +34,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const car = getCar(slug);
   if (!car) return { title: "영화 속 차량" };
-  return { title: `${car.nameKo} (${car.nameEn})` };
+  return pageMetadata({
+    title: carSeoTitle(car),
+    description: carSeoDescription(car),
+    path: `/cars/${car.slug}`,
+  });
 }
 
 function Prose({
@@ -53,15 +69,34 @@ export default async function CarDetailPage({
   const car = getCar(slug);
   const detail = carDetails[slug];
   if (!car || !detail) notFound();
+  const image = carImages[car.slug] ?? atmospherePlaceholder;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
+      <JsonLd
+        data={jsonLd([
+          breadcrumbLd([
+            { name: "홈", path: "/" },
+            { name: "차 종류", path: "/cars" },
+            { name: car.nameKo, path: `/cars/${car.slug}` },
+          ]),
+          carThingLd(car),
+        ])}
+      />
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "홈" },
+          { href: "/cars", label: "분노의 질주 차 종류" },
+          { label: car.nameKo },
+        ]}
+      />
       <CreditedMedia
-        image={carImages[car.slug]}
+        image={image}
         tone={car.posterTone}
-        alt={carImages[car.slug]?.alt ?? `${car.nameKo} (${car.nameEn})`}
+        alt={image.isPlaceholder ? placeholderAlt(`${car.nameKo} (${car.nameEn})`) : image.alt}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
+        priority
         compactCredit={false}
       />
       <div className="mt-4 flex flex-wrap gap-2">
@@ -78,7 +113,7 @@ export default async function CarDetailPage({
         {car.nameKo} ({car.nameEn})
       </h1>
       <p className="mt-2 text-sm text-muted">
-        {car.brandKo} · {car.era} ·{" "}
+        {car.brandKo} · {ERA_LABEL[car.era]} ·{" "}
         <Link href={`/films/${car.filmSlug}`} className="hover:text-gold">
           {car.filmTitleKo}
         </Link>
@@ -98,17 +133,19 @@ export default async function CarDetailPage({
         />
       </section>
 
-      <section className="mt-8">
-        <h2 className="font-serif text-xl text-gold">타임라인</h2>
-        <ol className="mt-3 space-y-3">
-          {detail.timeline.map((row, index) => (
-            <li key={`${row.year}-${index}`} className="rounded-lg border border-line p-4">
-              <p className="text-xs text-gold">{row.year}</p>
-              <p className="mt-1 text-sm leading-6 text-paper">{row.text}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
+      {detail.timeline.length > 0 ? (
+        <section className="mt-8">
+          <h2 className="font-serif text-xl text-gold">타임라인</h2>
+          <ol className="mt-3 space-y-3">
+            {detail.timeline.map((row, index) => (
+              <li key={`${row.year}-${index}`} className="rounded-lg border border-line p-4">
+                <p className="text-xs text-gold">{row.year}</p>
+                <p className="mt-1 text-sm leading-6 text-paper">{row.text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
 
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">화면에서</h2>
@@ -159,9 +196,11 @@ export default async function CarDetailPage({
           촬영 차량을 판매하지 않습니다. 자동차 용품은 오토픽스에서 봅니다.
         </p>
         <div className="mt-4">
-          <SisterCta label={MI_CAR_CTA_LABEL} />
+          <SisterCta label={FF_CAR_CTA_LABEL} />
         </div>
       </div>
+
+      <SameBrandCars brand={car.brand} brandKo={car.brandKo} />
 
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">관련</h2>

@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { ArchiveProse } from "@/components/ArchiveProse";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
 import { CreditedMedia } from "@/components/CreditedMedia";
 import { ImageSearchLink } from "@/components/ImageSearchLink";
 import { NationalityLine } from "@/components/NationalityLine";
 import { Fn, Sources } from "@/components/Sources";
-import type { ArchivePerson } from "@/data/agents";
+import type { ArchivePerson } from "@/data/crew";
 import { displayFilmTitle, films } from "@/data/films";
 import { personImage, portraitOrAtmosphere } from "@/data/licensedImages";
 import { personLookQuery } from "@/lib/googleImages";
+import { breadcrumbLd, jsonLd, placeholderAlt } from "@/lib/seo";
 
 export function PersonDetailView({
   person,
@@ -19,14 +22,33 @@ export function PersonDetailView({
   kindLabel: string;
 }) {
   const image = personImage(person.slug);
+  const hubLabel =
+    basePath === "/villains" ? "악당" : basePath === "/women" ? "여성" : "등장인물";
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
+      <JsonLd
+        data={jsonLd([
+          breadcrumbLd([
+            { name: "홈", path: "/" },
+            { name: hubLabel, path: basePath },
+            { name: person.nameKo, path: `${basePath}/${person.slug}` },
+          ]),
+        ])}
+      />
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "홈" },
+          { href: basePath, label: hubLabel },
+          { label: person.nameKo },
+        ]}
+      />
       <CreditedMedia
         image={portraitOrAtmosphere(image)}
         tone={person.posterTone}
-        alt={image?.alt ?? `${person.nameKo} (${person.nameEn})`}
+        alt={image?.alt ?? placeholderAlt(`${person.nameKo} (${person.nameEn})`)}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
+        priority
         compactCredit={false}
         overlay={image ? undefined : { title: person.nameKo, meta: person.performerKo }}
       />

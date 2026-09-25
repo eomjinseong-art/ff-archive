@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FilmDetailView } from "@/components/FilmDetailView";
 import { filmDetails } from "@/data/filmDetails";
-import { displayFilmTitle, getFilm } from "@/data/films";
+import { getFilm } from "@/data/films";
+import { filmSeoDescription, filmSeoTitle, pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return Object.keys(filmDetails).map((slug) => ({ slug }));
@@ -15,8 +16,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const film = getFilm(slug);
-  if (!film) return { title: "영화" };
-  return { title: displayFilmTitle(film) };
+  const detail = filmDetails[slug];
+  if (!film || !detail) return { title: "영화" };
+  return pageMetadata({
+    title: filmSeoTitle(film),
+    description: filmSeoDescription(film, detail),
+    path: `/films/${film.slug}`,
+  });
 }
 
 export default async function FilmDetailPage({

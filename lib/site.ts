@@ -1,22 +1,27 @@
-export const SITE_NAME = "미션 임파서블 아카이브";
+export const SITE_NAME = "분노의 질주 아카이브";
 export const SITE_TAGLINE =
-  "1996년 《미션 임파서블》부터 2025년 《파이널 레코닝》까지";
+  "2001년 《분노의 질주》부터 2023년 《라이드 오어 다이》까지";
 export const SITE_SUB =
-  "극장판 8편과 IMF 요원, 여성 캐릭터, 악당, 영화 속 차량, 가젯, 감독, 스턴트를 모았습니다.";
+  "본편 10편과 스핀오프 《홉스&쇼》, 패밀리, 악당, 영화 속 차량, 감독, 스턴트를 모았습니다.";
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mi-archive.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ff-archive.vercel.app";
 
+/** Live 007 film archive. bond-archive.vercel.app is a different photo service. */
 export const BOND_ARCHIVE_URL =
   process.env.NEXT_PUBLIC_BOND_ARCHIVE_URL ??
   "https://bond-archive-two.vercel.app";
 
+export const MI_ARCHIVE_URL =
+  process.env.NEXT_PUBLIC_MI_ARCHIVE_URL ?? "https://mi-archive.vercel.app";
+
 export const SISTER_SITE_URL =
   process.env.NEXT_PUBLIC_SISTER_SITE_URL ?? "https://car-parts-cpang.vercel.app";
 
-export const BOND_ARCHIVE_LABEL = "본드 필름 아카이브";
+export const BOND_ARCHIVE_LABEL = "007 본드 아카이브";
+export const MI_ARCHIVE_LABEL = "미션 임파서블 아카이브";
 export const AUTOPIX_LABEL = "오토픽스";
-export const MI_CAR_CTA_LABEL = "이 차량 용품 보러 가기 · 오토픽스";
+export const FF_CAR_CTA_LABEL = "이 차량 용품 보러 가기 · 오토픽스";
 
 export const NAV = [
   { href: "/", label: "홈" },
@@ -24,12 +29,12 @@ export const NAV = [
   { href: "/records", label: "기록" },
   { href: "/origin", label: "원작" },
   { href: "/directors", label: "감독" },
-  { href: "/agents", label: "요원" },
-  { href: "/mcquarrie-era", label: "맥쿼리" },
+  { href: "/crew", label: "패밀리" },
+  { href: "/lin-era", label: "린" },
   { href: "/women", label: "여성" },
   { href: "/villains", label: "악당" },
   { href: "/cars", label: "차량" },
-  { href: "/gadgets", label: "가젯" },
+  { href: "/gadgets", label: "장비" },
   { href: "/scenes", label: "명장면" },
   { href: "/videos", label: "영상" },
   { href: "/locations", label: "명소" },
@@ -46,17 +51,26 @@ function withUtm(
   opts?: { medium?: string; campaign?: string },
 ) {
   const url = new URL(path, base);
-  url.searchParams.set("utm_source", "mi-archive");
+  url.searchParams.set("utm_source", "ff-archive");
   url.searchParams.set("utm_medium", opts?.medium ?? "header");
-  url.searchParams.set("utm_campaign", opts?.campaign ?? "sister-site");
+  url.searchParams.set("utm_campaign", opts?.campaign ?? "ff-car");
   return url.toString();
 }
 
-export function bondArchiveUrl(medium: "header" | "footer" | "home" = "header") {
-  return withUtm(BOND_ARCHIVE_URL, "/", {
-    medium,
-    campaign: "bond-archive",
-  });
+export function archiveNetworkUrl(
+  base: string,
+  path = "/",
+  medium: "header" | "footer" | "home" | "car" = "header",
+) {
+  return withUtm(base, path, { medium, campaign: "archive-network" });
+}
+
+export function bondArchiveUrl(medium: "header" | "footer" | "home" | "car" = "header") {
+  return archiveNetworkUrl(BOND_ARCHIVE_URL, "/", medium);
+}
+
+export function miArchiveUrl(medium: "header" | "footer" | "home" | "car" = "header") {
+  return archiveNetworkUrl(MI_ARCHIVE_URL, "/", medium);
 }
 
 export function sisterUrl(
@@ -67,11 +81,11 @@ export function sisterUrl(
 }
 
 export function autopixUrl(medium: "header" | "footer" | "home" = "header") {
-  return sisterUrl("/", { medium, campaign: "mi-car" });
+  return sisterUrl("/", { medium, campaign: "ff-car" });
 }
 
-export function miCarCta(path = "/") {
-  return sisterUrl(path, { medium: "cta", campaign: "mi-car" });
+export function ffCarCta(path = "/") {
+  return sisterUrl(path, { medium: "cta", campaign: "ff-car" });
 }
 
 export function displayTitle(titleKo: string, titleEn: string) {

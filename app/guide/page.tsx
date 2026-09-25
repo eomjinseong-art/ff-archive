@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { guides } from "@/data/guides";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "가이드",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 보는 법",
+  description:
+    "분노의 질주 보는 법. 개봉 순, 이야기 순, 처음 보는 길을 나누고 시리즈 순서는 별도 페이지에 둡니다.",
+  path: "/guide",
+});
 
 export default function GuidePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="font-serif text-3xl text-paper">가이드</h1>
-      <p className="mt-2 text-sm text-muted">
-        세 갈래. 처음 · 정통 · 액션. 각 경로 세 편입니다.
+      <h1 className="font-serif text-3xl text-paper">분노의 질주 보는 법</h1>
+      <p className="mt-2 text-sm leading-7 text-muted">
+        개봉 순, 이야기 순, 처음 보는 길입니다.{" "}
+        <Link href="/guide/order" className="text-gold hover:underline">
+          분노의 질주 순서
+        </Link>
+        에서 두 순서를 나란히 봅니다.
       </p>
       <div className="mt-8 grid grid-cols-1 gap-4">
         {guides.map((guide) => (

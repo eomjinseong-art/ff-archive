@@ -5,7 +5,13 @@ import { landmarks } from "@/data/landmarks";
 import { trips } from "@/data/trips";
 import { googleMapsSearchUrl } from "@/lib/googleImages";
 
-export const metadata: Metadata = { title: "여행" };
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 촬영지 여행",
+  description: "분노의 질주 촬영지를 걷는 코스. 추격 장면을 재현하지 않습니다.",
+  path: "/trips",
+});
 
 export default function TripsPage() {
   return (

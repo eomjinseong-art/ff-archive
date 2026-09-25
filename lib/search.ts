@@ -1,5 +1,5 @@
-import { agents } from "@/data/agents";
 import { cars } from "@/data/cars";
+import { crew } from "@/data/crew";
 import { directors } from "@/data/directors";
 import { displayFilmTitle, films } from "@/data/films";
 import { gadgets } from "@/data/gadgets";
@@ -29,19 +29,19 @@ export function buildSearchIndex(): SearchHit[] {
   }));
 
   const gadgetHits: SearchHit[] = gadgets.map((item) => ({
-    kind: "가젯",
+    kind: "장비",
     href: item.hasL2 ? `/gadgets/${item.slug}` : "/gadgets",
     title: `${item.nameKo} (${item.nameEn})`,
     hint: `${item.brandKo} · ${item.filmTitleKo}`,
     keywords: item.badges.join(" "),
   }));
 
-  const agentHits: SearchHit[] = agents.map((person) => ({
+  const crewHits: SearchHit[] = crew.map((person) => ({
     kind: "인물",
-    href: `/agents/${person.slug}`,
+    href: `/crew/${person.slug}`,
     title: `${person.nameKo} (${person.nameEn})`,
     hint: `${person.affiliation} · ${person.performerKo}`,
-    keywords: `${person.performerEn} 요원 IMF`,
+    keywords: `${person.performerEn} 패밀리`,
   }));
 
   const womanHits: SearchHit[] = women.map((person) => ({
@@ -57,7 +57,7 @@ export function buildSearchIndex(): SearchHit[] {
     href: `/villains/${person.slug}`,
     title: `${person.nameKo} (${person.nameEn})`,
     hint: `${person.roleKind} · ${person.performerKo}`,
-    keywords: `${person.performerEn} 악당 엔티티`,
+    keywords: `${person.performerEn} 악당`,
   }));
 
   const directorHits: SearchHit[] = directors.map((director) => ({
@@ -96,7 +96,7 @@ export function buildSearchIndex(): SearchHit[] {
     ...filmHits,
     ...carHits,
     ...gadgetHits,
-    ...agentHits,
+    ...crewHits,
     ...womanHits,
     ...villainHits,
     ...directorHits,
@@ -107,29 +107,29 @@ export function buildSearchIndex(): SearchHit[] {
       kind: "원작",
       href: "/origin",
       title: `${origin.nameKo} (${origin.nameEn})`,
-      hint: `1966 · 텔레비전`,
-      keywords: "브루스 겔러 Bruce Geller 짐 펠프스 랄로 시프린",
+      hint: "1998 · 바이브",
+      keywords: "켄 리 Racer X 로저 코먼",
     },
     {
       kind: "기록",
       href: "/records",
       title: "스턴트 기록",
-      hint: "부르즈 할리파 · A400M · HALO",
-      keywords: "흥행 박스오피스 복엽기 오토바이",
+      hint: "금고 · 탱크 · 라이칸",
+      keywords: "흥행 박스오피스",
     },
     {
       kind: "인물",
-      href: "/mcquarrie-era",
-      title: "맥쿼리 시대",
-      hint: "5편–8편",
-      keywords: "Christopher McQuarrie 로그네이션 폴아웃 엔티티",
+      href: "/lin-era",
+      title: "린의 다섯 편",
+      hint: "2006–2021",
+      keywords: "Justin Lin 도쿄 드리프트 언리미티드",
     },
     {
       kind: "영상",
       href: "/videos",
       title: "공식 영상",
-      hint: "YouTube @MissionImpossible",
-      keywords: "예고편 파라마운트",
+      hint: "YouTube The Fast Saga",
+      keywords: "예고편 유니버설",
     },
     {
       kind: "명소",
