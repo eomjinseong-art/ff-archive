@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CreditedMedia } from "@/components/CreditedMedia";
 import { cars } from "@/data/cars";
+import { otherVehicleImage } from "@/data/licensedImages";
+import { allOtherVehicles } from "@/data/otherVehicles";
 import { pageMetadata } from "@/lib/seo";
 import { FAN_SITE_DISCLAIMER } from "@/lib/site";
 
@@ -15,6 +17,10 @@ export const metadata: Metadata = pageMetadata({
 export default function CreditsPage() {
   const photographed = cars.flatMap((car) => (car.image ? [{ car, image: car.image }] : []));
   const missing = cars.filter((car) => !car.image);
+  const others = allOtherVehicles().flatMap((vehicle) => {
+    const image = otherVehicleImage(vehicle);
+    return image ? [{ vehicle, image }] : [];
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
@@ -44,6 +50,28 @@ export default function CreditsPage() {
               className="mt-2 block font-serif text-sm text-paper hover:text-gold"
             >
               {car.nameKo} ({car.nameEn})
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <h2 className="mt-12 font-serif text-xl text-gold">그 밖의 차량</h2>
+      <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {others.map(({ vehicle, image }) => (
+          <li key={vehicle.photoSlug} className="rounded-lg border border-line bg-card p-3">
+            <CreditedMedia
+              image={image}
+              tone="linear-gradient(165deg,#1a1a14 0%,#0B0D10 50%,#C6A75E22 100%)"
+              alt={image.alt}
+              aspectClass="aspect-video"
+              sizes="(max-width: 640px) 100vw, 50vw"
+              compactCredit={false}
+              href={`/films/${vehicle.filmSlug}`}
+            />
+            <Link
+              href={`/films/${vehicle.filmSlug}`}
+              className="mt-2 block font-serif text-sm text-paper hover:text-gold"
+            >
+              {vehicle.nameKo} ({vehicle.nameEn})
             </Link>
           </li>
         ))}

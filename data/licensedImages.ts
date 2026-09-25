@@ -30,7 +30,11 @@ export const personImages: Record<string, LicensedImage> = {};
 
 export const carImages: Record<string, LicensedImage> = carPhotos;
 
-export function otherVehicleImage(vehicle: { carSlug?: string }): LicensedImage | undefined {
+export function otherVehicleImage(vehicle: {
+  carSlug?: string;
+  photoSlug?: string;
+}): LicensedImage | undefined {
+  if (vehicle.photoSlug && carImages[vehicle.photoSlug]) return carImages[vehicle.photoSlug];
   if (vehicle.carSlug) return carImages[vehicle.carSlug];
   return undefined;
 }
