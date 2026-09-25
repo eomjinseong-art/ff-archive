@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CreditedMedia } from "@/components/CreditedMedia";
 import { cars } from "@/data/cars";
 import { pageMetadata } from "@/lib/seo";
+import { FAN_SITE_DISCLAIMER } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "사진 출처",
@@ -17,11 +18,14 @@ export default function CreditsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="font-serif text-3xl text-paper">사진 출처</h1>
+      <p className="max-w-3xl rounded-lg border border-line bg-card p-4 text-sm leading-7 text-muted">
+        {FAN_SITE_DISCLAIMER}
+      </p>
+      <h1 className="mt-8 font-serif text-3xl text-paper">사진 출처</h1>
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
         차량 사진은 위키미디어 공용의 퍼블릭 도메인, CC0, CC BY, CC BY-SA 사진만
-        씁니다. 영화 스틸이나 배급사 보도 사진이 아닙니다. 같은 제조사와 모델의
-        실제 차량입니다.
+        씁니다. 영화 스틸이나 배급사 보도 사진이 아닙니다. 같은 차종이 없으면
+        가까운 차종을 참고로 쓰고, 그 사실을 사진 설명에 적습니다.
       </p>
       <ul className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {photographed.map(({ car, image }) => (

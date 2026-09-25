@@ -67,6 +67,7 @@ export function ImageCredit({
       <CreditText href={image.sourceUrl || undefined} linkClass={linkClass}>
         {sourceLabel}
       </CreditText>
+      {image.referenceNote ? ` / ${image.referenceNote}` : null}
     </figcaption>
   );
 }

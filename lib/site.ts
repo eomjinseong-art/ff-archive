@@ -23,6 +23,9 @@ export const MI_ARCHIVE_LABEL = "미션 임파서블 아카이브";
 export const AUTOPIX_LABEL = "오토픽스";
 export const FF_CAR_CTA_LABEL = "이 차량 용품 보러 가기 · 오토픽스";
 
+export const FAN_SITE_DISCLAIMER =
+  "분노의 질주 아카이브는 영화를 좋아하는 팬이 만든 비공식 팬사이트입니다. 유니버설 픽처스 및 영화 제작사와 어떤 관계도 없으며, 영화 제목과 상표는 각 권리자의 것입니다. 차량 사진은 위키미디어 공용의 자유 이용 라이선스 사진이며, 각 사진의 출처와 라이선스를 표시합니다.";
+
 export const NAV = [
   { href: "/", label: "홈" },
   { href: "/films", label: "영화" },

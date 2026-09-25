@@ -89,6 +89,10 @@ export default function HomePage() {
               {SITE_SUB}
             </p>
             <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+              영화를 좋아하는 팬이 만든 비공식 팬사이트입니다. 유니버설 픽처스와
+              관계가 없습니다.
+            </p>
+            <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
               1998년 바이브 기사 「Racer X」는 원작 칸에 따로 있습니다.
             </p>
           </div>
