@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { fanClips, officialScenes } from "@/data/scenes";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "명장면",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 명장면",
+  description: "The Fast Saga 채널에서 확인한 분노의 질주 영상만 모았습니다. 예고편 ID를 만들지 않습니다.",
+  path: "/scenes",
+});
 
 export default function ScenesPage() {
   return (

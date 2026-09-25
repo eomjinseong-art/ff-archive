@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CreditedMedia } from "@/components/CreditedMedia";
+import { JsonLd } from "@/components/JsonLd";
 import { GossipBoard } from "@/components/GossipBoard";
 import { SameBrandCars } from "@/components/SameBrandCars";
 import { SisterCta } from "@/components/SisterCta";
@@ -10,6 +12,15 @@ import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { ERA_LABEL, carDetails, getCar } from "@/data/cars";
 import { atmospherePlaceholder, carImages } from "@/data/licensedImages";
 import { FF_CAR_CTA_LABEL } from "@/lib/site";
+import {
+  breadcrumbLd,
+  carSeoDescription,
+  carSeoTitle,
+  carThingLd,
+  jsonLd,
+  pageMetadata,
+  placeholderAlt,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return Object.keys(carDetails).map((slug) => ({ slug }));
@@ -23,7 +34,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const car = getCar(slug);
   if (!car) return { title: "영화 속 차량" };
-  return { title: `${car.nameKo} (${car.nameEn})` };
+  return pageMetadata({
+    title: carSeoTitle(car),
+    description: carSeoDescription(car),
+    path: `/cars/${car.slug}`,
+  });
 }
 
 function Prose({
@@ -58,10 +73,27 @@ export default async function CarDetailPage({
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
+      <JsonLd
+        data={jsonLd([
+          breadcrumbLd([
+            { name: "홈", path: "/" },
+            { name: "차 종류", path: "/cars" },
+            { name: car.nameKo, path: `/cars/${car.slug}` },
+          ]),
+          carThingLd(car),
+        ])}
+      />
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "홈" },
+          { href: "/cars", label: "분노의 질주 차 종류" },
+          { label: car.nameKo },
+        ]}
+      />
       <CreditedMedia
         image={image}
         tone={car.posterTone}
-        alt={image.alt}
+        alt={image.isPlaceholder ? placeholderAlt(`${car.nameKo} (${car.nameEn})`) : image.alt}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}

@@ -9,9 +9,13 @@ import {
   videosIntro,
 } from "@/data/officialVideos";
 
-export const metadata: Metadata = {
-  title: "영상",
-};
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 공식 영상",
+  description: "The Fast Saga 공식 채널에서 확인한 분노의 질주 영상.",
+  path: "/videos",
+});
 
 export default function VideosPage() {
   return (

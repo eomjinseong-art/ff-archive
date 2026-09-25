@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { GadgetExplorer } from "@/components/GadgetExplorer";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "장비" };
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 장비",
+  description:
+    "분노의 질주 장비. 니트로스 사출 좌석, 금고, 나이트셰이드, 갓스 아이. 추격 차량은 차 종류 칸에 있습니다.",
+  path: "/gadgets",
+});
 
 export default function GadgetsPage() {
   return (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { guides } from "@/data/guides";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -15,7 +16,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = guides.find((g) => g.slug === slug);
   if (!guide) return { title: "가이드" };
-  return { title: `가이드 · ${guide.titleKo}` };
+  return pageMetadata({
+    title: `분노의 질주 ${guide.titleKo}`,
+    description: guide.summary,
+    path: `/guide/${guide.slug}`,
+  });
 }
 
 export default async function GuideDetailPage({

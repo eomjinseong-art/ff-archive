@@ -3,7 +3,13 @@ import Link from "next/link";
 import { ArchiveMap } from "@/components/ArchiveMapClient";
 import { displayFilmTitle, films, getFilm } from "@/data/films";
 
-export const metadata: Metadata = { title: "지도" };
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 촬영지 지도",
+  description: "분노의 질주 극장판 촬영지와 랜드마크 지도.",
+  path: "/map",
+});
 
 export default async function MapPage({
   searchParams,

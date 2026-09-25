@@ -6,9 +6,13 @@ import { Fn, Sources } from "@/components/Sources";
 import { origin, originDetail } from "@/data/origin";
 import { atmospherePlaceholder } from "@/data/licensedImages";
 
-export const metadata: Metadata = {
-  title: `${origin.nameKo} (${origin.nameEn})`,
-};
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: `분노의 질주 원작 ${origin.nameKo}`,
+  description: `${origin.nameKo} (${origin.nameEn}). ${origin.oneLiner}`,
+  path: "/origin",
+});
 
 export default function OriginPage() {
   return (

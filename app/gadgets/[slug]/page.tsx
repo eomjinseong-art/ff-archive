@@ -7,6 +7,7 @@ import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { gadgetDetails, getGadget } from "@/data/gadgets";
 import { atmospherePlaceholder, gadgetImages } from "@/data/licensedImages";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return Object.keys(gadgetDetails).map((slug) => ({ slug }));
@@ -20,7 +21,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const gadget = getGadget(slug);
   if (!gadget) return { title: "장비" };
-  return { title: `${gadget.nameKo} (${gadget.nameEn})` };
+  return pageMetadata({
+    title: `분노의 질주 ${gadget.nameKo}`,
+    description: `${gadget.filmTitleKo}의 ${gadget.nameKo} (${gadget.nameEn}). ${gadget.oneLiner}`,
+    path: `/gadgets/${gadget.slug}`,
+  });
 }
 
 export default async function GadgetPage({ params }: { params: Promise<{ slug: string }> }) {

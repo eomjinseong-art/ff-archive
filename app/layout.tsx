@@ -2,6 +2,7 @@ import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { OG_IMAGE } from "@/lib/seo";
 import { SITE_NAME, SITE_SUB, SITE_TAGLINE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -31,13 +32,14 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: `${SITE_TAGLINE}. ${SITE_SUB}`,
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_NAME,
     description: `${SITE_TAGLINE}. ${SITE_SUB}`,
+    images: [OG_IMAGE.url],
   },
-  alternates: { canonical: SITE_URL },
 };
 
 export default function RootLayout({

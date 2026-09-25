@@ -3,10 +3,13 @@ import Link from "next/link";
 import { LandmarkList } from "@/components/PlaceLists";
 import { films, displayFilmTitle, getFilm } from "@/data/films";
 import { landmarksByCountry, landmarksForFilm } from "@/data/landmarks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "명소",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 촬영지",
+  description: "분노의 질주 촬영지와 화면의 명소. 로스앤젤레스, 리우, 런던, 아부다비.",
+  path: "/locations",
+});
 
 export default function LocationsPage() {
   const byCountry = landmarksByCountry();

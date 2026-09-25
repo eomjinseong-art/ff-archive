@@ -33,7 +33,11 @@ export function PosterCard({
       <CreditedMedia
         image={image}
         tone={tone}
-        alt={image?.alt ?? title}
+        alt={
+          image && !image.isPlaceholder
+            ? image.alt
+            : `${title}. 촬영 스틸이 아닌 아카이브 플레이스홀더입니다.`
+        }
         aspectClass={aspectClass}
         overlay={useOverlay ? { title, meta } : undefined}
         href={href}

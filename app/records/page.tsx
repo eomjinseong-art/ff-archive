@@ -10,7 +10,13 @@ import {
   worldBoxOffice,
 } from "@/data/records";
 
-export const metadata: Metadata = { title: "기록" };
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 흥행 기록",
+  description: "위키백과 정보 상자에 적힌 분노의 질주 편별 흥행과 확인된 스턴트 기록.",
+  path: "/records",
+});
 
 const nominalRank = [...worldBoxOffice].sort((a, b) => b.millions - a.millions);
 

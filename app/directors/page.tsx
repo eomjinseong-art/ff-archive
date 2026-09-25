@@ -3,10 +3,14 @@ import Link from "next/link";
 import { PosterCard } from "@/components/PosterCard";
 import { directors } from "@/data/directors";
 import { portraitOrAtmosphere } from "@/data/licensedImages";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "감독",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 감독",
+  description:
+    "분노의 질주 감독. 롭 코헨, 존 싱글턴, 저스틴 린, 제임스 완, F. 게리 그레이, 데이비드 리치, 루이 르테리에.",
+  path: "/directors",
+});
 
 export default function DirectorsPage() {
   return (

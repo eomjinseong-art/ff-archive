@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/quotes",
     "/issues",
     "/guide",
+    "/guide/order",
     "/series",
   ];
 

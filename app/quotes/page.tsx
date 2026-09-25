@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { quoteGroups } from "@/data/quotes";
 import { getFilm } from "@/data/films";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "명대사",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 명대사",
+  description: "확인한 출처에 인용된 분노의 질주 대사만 적습니다.",
+  path: "/quotes",
+});
 
 export default function QuotesPage() {
   const itemCount = quoteGroups.reduce((n, group) => n + group.items.length, 0);

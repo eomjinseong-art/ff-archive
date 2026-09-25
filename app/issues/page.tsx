@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { issues } from "@/data/issues";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "이슈",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 이슈",
+  description: "도쿄 드리프트의 순서, 폴 워커와 더 세븐, 제목 라이선스, 편별 흥행.",
+  path: "/issues",
+});
 
 export default function IssuesPage() {
   return (

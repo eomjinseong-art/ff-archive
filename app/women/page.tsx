@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { WomenHub } from "@/components/WomenHub";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "여성" };
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 여성 인물",
+  description:
+    "분노의 질주 여성 인물. 레티, 미아, 지젤, 램지, 엘레나, 해티, 수키. 패밀리 문서와 겹치면 그 칸에도 있습니다.",
+  path: "/women",
+});
 
 export default function WomenPage() {
   return (

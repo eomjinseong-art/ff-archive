@@ -1,19 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { PosterCard } from "@/components/PosterCard";
 import { ORIGIN_HREF } from "@/data/origin";
-import { displayFilmTitle, filmsByDirector } from "@/data/films";
+import { displayFilmTitle, films, filmsByDirector } from "@/data/films";
 import { atmospherePlaceholder, filmImages } from "@/data/licensedImages";
 import { SERIES_FRAMING, SERIES_FRAMING_NOTE, SERIES_TOTAL, SERIES_WITH_SPINOFF } from "@/data/series";
+import { itemListLd, jsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "영화" };
+export const metadata: Metadata = pageMetadata({
+  title: "분노의 질주 시리즈",
+  description:
+    "분노의 질주 시리즈 본편 10편과 스핀오프 홉스&쇼. 개봉 연도, 감독, 한국어 제목과 순서 안내.",
+  path: "/films",
+});
 
 export default function FilmsPage() {
   const byDirector = filmsByDirector();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="font-serif text-3xl text-paper">영화</h1>
+      <JsonLd
+        data={jsonLd([
+          itemListLd(
+            "분노의 질주 시리즈",
+            "/films",
+            films.filter((film) => film.hasDetail).map((film) => ({
+              name: `${film.titleKo} (${film.year})`,
+              path: `/films/${film.slug}`,
+            })),
+          ),
+        ])}
+      />
+      <h1 className="font-serif text-3xl text-paper">분노의 질주 시리즈</h1>
       <p className="mt-3 max-w-3xl text-sm leading-7 text-paper">{SERIES_FRAMING}</p>
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">{SERIES_FRAMING_NOTE}</p>
       <p className="mt-3 text-sm text-muted">
@@ -22,8 +41,12 @@ export default function FilmsPage() {
           원작 Racer X
         </Link>
         {" · "}
-        <Link href="/series" className="text-gold hover:underline">
-          시리즈 설명
+        <Link href="/guide/order" className="text-gold hover:underline">
+          분노의 질주 순서
+        </Link>
+        {" · "}
+        <Link href="/cars" className="text-gold hover:underline">
+          차 종류
         </Link>
       </p>
 

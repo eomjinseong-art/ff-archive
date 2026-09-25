@@ -45,9 +45,9 @@ export function CreditedMedia({
         <>
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
           <div className="absolute inset-x-3 bottom-3">
-            <h2 className="font-serif text-base leading-snug text-paper">
+            <p className="font-serif text-base leading-snug text-paper">
               {overlay?.title}
-            </h2>
+            </p>
             {overlay?.meta ? (
               <p className="mt-1 text-xs text-muted">{overlay.meta}</p>
             ) : null}

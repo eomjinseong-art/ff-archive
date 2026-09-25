@@ -9,6 +9,7 @@ import { directorDetails } from "@/data/directorDetails";
 import { directors } from "@/data/directors";
 import { displayFilmTitle, films } from "@/data/films";
 import { portraitOrAtmosphere } from "@/data/licensedImages";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return directors.map((d) => ({ slug: d.slug }));
@@ -22,7 +23,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const director = directors.find((d) => d.slug === slug);
   if (!director) return { title: "감독" };
-  return { title: `${director.nameKo} (${director.nameEn})` };
+  return pageMetadata({
+    title: `분노의 질주 감독 ${director.nameKo}`,
+    description: `${director.nameKo} (${director.nameEn}). ${director.oneLiner}`,
+    path: `/directors/${director.slug}`,
+  });
 }
 
 export default async function DirectorDetailPage({

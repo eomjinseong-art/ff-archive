@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CreditedMedia } from "@/components/CreditedMedia";
+import { JsonLd } from "@/components/JsonLd";
 import { FilmGadgetsBlock } from "@/components/FilmGadgetsBlock";
 import { FilmVehiclesBlock } from "@/components/FilmVehiclesBlock";
 import { FilmPrevNext } from "@/components/FilmPrevNext";
@@ -19,6 +21,7 @@ import { tripsForFilm } from "@/data/trips";
 import { getVillain } from "@/data/villains";
 import { getWoman } from "@/data/women";
 import { secondaryRelated } from "@/lib/relatedLinks";
+import { breadcrumbLd, jsonLd, movieLd, placeholderAlt } from "@/lib/seo";
 
 function castHref(person: CastChip) {
   if (!person.slug || !person.kind) return undefined;
@@ -50,10 +53,27 @@ export function FilmDetailView({ detail }: { detail: FilmDetail }) {
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
+      <JsonLd
+        data={jsonLd([
+          breadcrumbLd([
+            { name: "홈", path: "/" },
+            { name: "영화", path: "/films" },
+            { name: film.titleKo, path: `/films/${film.slug}` },
+          ]),
+          movieLd(film, detail),
+        ])}
+      />
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "홈" },
+          { href: "/films", label: "분노의 질주 시리즈" },
+          { label: film.titleKo },
+        ]}
+      />
       <CreditedMedia
         image={hero}
         tone={film.posterTone}
-        alt={hero.alt}
+        alt={hero.isPlaceholder ? placeholderAlt(displayFilmTitle(film)) : hero.alt}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}

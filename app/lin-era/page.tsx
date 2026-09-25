@@ -6,7 +6,13 @@ import { displayFilmTitle, getFilm } from "@/data/films";
 import { linEra, linFilmSlugs, linSections, linSources } from "@/data/linEra";
 import { portraitOrAtmosphere } from "@/data/licensedImages";
 
-export const metadata: Metadata = { title: linEra.titleKo };
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: `분노의 질주 ${linEra.titleKo}`,
+  description: linEra.oneLiner ?? "저스틴 린이 맡은 분노의 질주 본편.",
+  path: "/lin-era",
+});
 
 export default function LinEraPage() {
   return (

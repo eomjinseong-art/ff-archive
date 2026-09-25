@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AutopixBanner } from "@/components/AutopixBanner";
+import { JsonLd } from "@/components/JsonLd";
 import { CreditedMedia } from "@/components/CreditedMedia";
 import { ImageSearchLink } from "@/components/ImageSearchLink";
 import { PosterCard } from "@/components/PosterCard";
@@ -31,6 +32,7 @@ import { SERIES_FRAMING, SERIES_FRAMING_NOTE, SERIES_TOTAL } from "@/data/series
 import { villains } from "@/data/villains";
 import { women } from "@/data/women";
 import { personLookQuery } from "@/lib/googleImages";
+import { jsonLd, pageMetadata, websiteLd } from "@/lib/seo";
 import {
   BOND_ARCHIVE_LABEL,
   MI_ARCHIVE_LABEL,
@@ -40,6 +42,15 @@ import {
   bondArchiveUrl,
   miArchiveUrl,
 } from "@/lib/site";
+
+const homeDescription =
+  "분노의 질주 시리즈 순서, 차 종류, 등장인물과 악당을 모은 비공식 아카이브. 2001년 분노의 질주부터 2023년 라이드 오어 다이까지.";
+
+export const metadata = pageMetadata({
+  title: "분노의 질주 아카이브",
+  description: homeDescription,
+  path: "/",
+});
 
 const homeCrew = crew.filter((person) => person.featuredOnHome);
 const homeWomen = women.filter((person) => person.featuredOnHome);
@@ -63,6 +74,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <JsonLd data={jsonLd([websiteLd(homeDescription)])} />
       <section className="border-b border-line bg-[radial-gradient(circle_at_top,_#C6A75E22,_transparent_55%)]">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:py-20">
           <p className="text-xs uppercase tracking-[0.25em] text-gold">Fast Archive</p>
@@ -99,6 +111,14 @@ export default function HomePage() {
             {SERIES_FRAMING} {SERIES_FRAMING_NOTE}{" "}
             <Link href="/films" className="text-gold hover:underline">
               영화 허브
+            </Link>
+            {" · "}
+            <Link href="/guide/order" className="text-gold hover:underline">
+              분노의 질주 순서
+            </Link>
+            {" · "}
+            <Link href="/cars" className="text-gold hover:underline">
+              분노의 질주 차 종류
             </Link>
           </p>
         </div>
