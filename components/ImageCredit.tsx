@@ -24,43 +24,6 @@ function CreditText({
   );
 }
 
-function CreditLinks({
-  image,
-  linkClass,
-}: {
-  image: LicensedImage;
-  linkClass: string;
-}) {
-  const parts: { key: string; href?: string; label: string }[] = [];
-  if (image.license) {
-    parts.push({
-      key: "license",
-      href: image.licenseUrl || undefined,
-      label: image.license,
-    });
-  }
-  if (image.sourceLabel) {
-    parts.push({
-      key: "source",
-      href: image.sourceUrl || undefined,
-      label: image.sourceLabel,
-    });
-  }
-
-  return (
-    <>
-      {parts.map((part, index) => (
-        <span key={part.key}>
-          {index > 0 ? " · " : null}
-          <CreditText href={part.href} linkClass={linkClass}>
-            {part.label}
-          </CreditText>
-        </span>
-      ))}
-    </>
-  );
-}
-
 export function ImageCredit({
   image,
   compact = false,
@@ -85,22 +48,25 @@ export function ImageCredit({
     );
   }
 
-  if (compact) {
-    return (
-      <figcaption className="mt-1.5 break-words text-[10px] leading-4 text-muted">
-        <span className="block text-paper/80">{image.author}</span>
-        <span className="mt-0.5 block">
-          <CreditLinks image={image} linkClass={linkClass} />
-        </span>
-      </figcaption>
-    );
-  }
+  const sourceLabel = image.sourceLabel || "위키미디어 공용";
 
   return (
-    <figcaption className="mt-2 text-xs leading-5 text-muted">
-      <span className="text-paper/80">{image.author}</span>
-      {" · "}
-      <CreditLinks image={image} linkClass={linkClass} />
+    <figcaption
+      className={
+        compact
+          ? "mt-1.5 break-words text-[10px] leading-4 text-muted"
+          : "mt-2 break-words text-xs leading-5 text-muted"
+      }
+    >
+      사진: <span className="text-paper/80">{image.author}</span>
+      {" / "}
+      <CreditText href={image.licenseUrl || undefined} linkClass={linkClass}>
+        {image.license}
+      </CreditText>
+      {" / 출처: "}
+      <CreditText href={image.sourceUrl || undefined} linkClass={linkClass}>
+        {sourceLabel}
+      </CreditText>
     </figcaption>
   );
 }

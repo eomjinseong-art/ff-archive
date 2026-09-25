@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guide",
     "/guide/order",
     "/series",
+    "/credits",
   ];
 
   const dynamicPaths = [

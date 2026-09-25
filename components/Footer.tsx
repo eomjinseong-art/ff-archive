@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { NetworkStrip } from "@/components/NetworkStrip";
 import { AUTOPIX_LABEL, SITE_NAME, autopixUrl } from "@/lib/site";
 
@@ -38,6 +39,12 @@ export function Footer() {
           >
             자동차 용품 · {AUTOPIX_LABEL}
           </a>
+          <Link
+            href="/credits"
+            className="underline decoration-line underline-offset-4 hover:text-gold"
+          >
+            사진 출처
+          </Link>
         </p>
       </div>
     </footer>

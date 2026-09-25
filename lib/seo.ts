@@ -65,15 +65,20 @@ export function pageMetadata({
   title,
   description,
   path,
+  image,
 }: {
   title: string;
   description: string;
   path: string;
+  image?: { url: string; width: number; height: number; alt: string };
 }): Metadata {
   const isHome = path === "/" || path === "";
   const documentTitle = isHome ? SITE_NAME : `${title} · ${SITE_NAME}`;
   const url = canonicalUrl(path);
   const text = clip(description);
+  const ogImages = image
+    ? [{ url: image.url, width: image.width, height: image.height, alt: image.alt }]
+    : [OG_IMAGE];
   return {
     title: isHome ? { absolute: SITE_NAME } : title,
     description: text,
@@ -85,13 +90,13 @@ export function pageMetadata({
       siteName: SITE_NAME,
       title: documentTitle,
       description: text,
-      images: [OG_IMAGE],
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
       title: documentTitle,
       description: text,
-      images: [OG_IMAGE.url],
+      images: image ? [image.url] : [OG_IMAGE.url],
     },
   };
 }
@@ -185,7 +190,7 @@ export function movieLd(
 }
 
 /** Thing, not Product: this archive does not sell the car. */
-export function carThingLd(car: IconCar) {
+export function carThingLd(car: IconCar, imageUrl?: string) {
   return {
     "@type": "Thing",
     additionalType: "https://schema.org/Vehicle",
@@ -193,6 +198,7 @@ export function carThingLd(car: IconCar) {
     alternateName: car.nameEn,
     description: car.oneLiner,
     url: canonicalUrl(`/cars/${car.slug}`),
+    ...(imageUrl ? { image: imageUrl } : {}),
     brand: { "@type": "Brand", name: car.brandKo },
   };
 }

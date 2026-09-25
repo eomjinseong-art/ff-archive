@@ -37,6 +37,7 @@ export function CreditedMedia({
           className="object-cover"
           sizes={sizes}
           priority={priority}
+          loading={priority ? "eager" : "lazy"}
           style={
             image.objectPosition
               ? { objectPosition: image.objectPosition }
