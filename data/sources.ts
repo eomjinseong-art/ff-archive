@@ -29,6 +29,12 @@ export const WIKI_FIVE = wiki("Fast_Five", "Fast Five");
 
 export const WIKI_SIX = wiki("Fast_%26_Furious_6", "Fast & Furious 6");
 
+export const WIKI_FATE = wiki("The_Fate_of_the_Furious", "The Fate of the Furious");
+
+export const WIKI_F9 = wiki("F9_(film)", "F9 (film)");
+
+export const WIKI_X = wiki("Fast_X", "Fast X");
+
 export function imcdb(path: string, label: string): Source {
   return { label: `IMCDb — ${label}`, href: `https://www.imcdb.org/${path}` };
 }

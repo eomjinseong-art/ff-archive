@@ -3,11 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CreditedMedia } from "@/components/CreditedMedia";
 import { GossipBoard } from "@/components/GossipBoard";
+import { SameBrandCars } from "@/components/SameBrandCars";
 import { SisterCta } from "@/components/SisterCta";
 import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
-import { carDetails, getCar } from "@/data/cars";
-import { carImages } from "@/data/licensedImages";
+import { ERA_LABEL, carDetails, getCar } from "@/data/cars";
+import { atmospherePlaceholder, carImages } from "@/data/licensedImages";
 import { FF_CAR_CTA_LABEL } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -53,13 +54,14 @@ export default async function CarDetailPage({
   const car = getCar(slug);
   const detail = carDetails[slug];
   if (!car || !detail) notFound();
+  const image = carImages[car.slug] ?? atmospherePlaceholder;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
       <CreditedMedia
-        image={carImages[car.slug]}
+        image={image}
         tone={car.posterTone}
-        alt={carImages[car.slug]?.alt ?? `${car.nameKo} (${car.nameEn})`}
+        alt={image.alt}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}
@@ -78,7 +80,7 @@ export default async function CarDetailPage({
         {car.nameKo} ({car.nameEn})
       </h1>
       <p className="mt-2 text-sm text-muted">
-        {car.brandKo} · {car.era} ·{" "}
+        {car.brandKo} · {ERA_LABEL[car.era]} ·{" "}
         <Link href={`/films/${car.filmSlug}`} className="hover:text-gold">
           {car.filmTitleKo}
         </Link>
@@ -98,17 +100,19 @@ export default async function CarDetailPage({
         />
       </section>
 
-      <section className="mt-8">
-        <h2 className="font-serif text-xl text-gold">타임라인</h2>
-        <ol className="mt-3 space-y-3">
-          {detail.timeline.map((row, index) => (
-            <li key={`${row.year}-${index}`} className="rounded-lg border border-line p-4">
-              <p className="text-xs text-gold">{row.year}</p>
-              <p className="mt-1 text-sm leading-6 text-paper">{row.text}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
+      {detail.timeline.length > 0 ? (
+        <section className="mt-8">
+          <h2 className="font-serif text-xl text-gold">타임라인</h2>
+          <ol className="mt-3 space-y-3">
+            {detail.timeline.map((row, index) => (
+              <li key={`${row.year}-${index}`} className="rounded-lg border border-line p-4">
+                <p className="text-xs text-gold">{row.year}</p>
+                <p className="mt-1 text-sm leading-6 text-paper">{row.text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
 
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">화면에서</h2>
@@ -162,6 +166,8 @@ export default async function CarDetailPage({
           <SisterCta label={FF_CAR_CTA_LABEL} />
         </div>
       </div>
+
+      <SameBrandCars brand={car.brand} brandKo={car.brandKo} />
 
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">관련</h2>

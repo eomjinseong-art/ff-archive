@@ -2,14 +2,36 @@ import type { GossipItem, Source } from "./types";
 import {
   WIKI_2001,
   WIKI_2F2F,
+  WIKI_F9,
+  WIKI_FATE,
   WIKI_FIVE,
   WIKI_TOKYO,
+  WIKI_X,
   imcdb,
   wiki,
 } from "./sources";
 
-export type CarBadge = "추격" | "파트너" | "이륜";
-export type CarEra = "1980s" | "1990s" | "2000s" | "2010s" | "2020s";
+export type CarBadge = "추격" | "파트너" | "이륜" | "출연";
+export type CarEra =
+  | "1950s"
+  | "1960s"
+  | "1970s"
+  | "1980s"
+  | "1990s"
+  | "2000s"
+  | "2010s"
+  | "2020s";
+
+export const ERA_LABEL: Record<CarEra, string> = {
+  "1950s": "1950년대",
+  "1960s": "1960년대",
+  "1970s": "1970년대",
+  "1980s": "1980년대",
+  "1990s": "1990년대",
+  "2000s": "2000년대",
+  "2010s": "2010년대",
+  "2020s": "2020년대",
+};
 
 export type IconCar = {
   slug: string;
@@ -130,7 +152,7 @@ export const cars: IconCar[] = [
     nameEn: "1970 Dodge Charger R/T",
     brand: "Dodge",
     brandKo: "닷지",
-    era: "1980s",
+    era: "1970s",
     badges: ["추격"],
     filmSlug: "the-fast-and-the-furious",
     filmTitleKo: "분노의 질주",
@@ -228,7 +250,7 @@ export const cars: IconCar[] = [
     nameEn: "1969 Chevrolet Yenko Camaro SYC",
     brand: "Chevrolet",
     brandKo: "셰보레",
-    era: "1980s",
+    era: "1960s",
     badges: ["추격"],
     filmSlug: "2-fast-2-furious",
     filmTitleKo: "패스트 & 퓨리어스 2",
@@ -242,7 +264,7 @@ export const cars: IconCar[] = [
     nameEn: "1970 Dodge Challenger R/T",
     brand: "Dodge",
     brandKo: "닷지",
-    era: "1980s",
+    era: "1970s",
     badges: ["추격"],
     filmSlug: "2-fast-2-furious",
     filmTitleKo: "패스트 & 퓨리어스 2",
@@ -256,7 +278,7 @@ export const cars: IconCar[] = [
     nameEn: "1971 Chevrolet Monte Carlo",
     brand: "Chevrolet",
     brandKo: "셰보레",
-    era: "1980s",
+    era: "1970s",
     badges: ["추격"],
     filmSlug: "tokyo-drift",
     filmTitleKo: "패스트 & 퓨리어스: 도쿄 드리프트",
@@ -340,7 +362,7 @@ export const cars: IconCar[] = [
     nameEn: "1967 Ford Mustang Fastback",
     brand: "Ford",
     brandKo: "포드",
-    era: "1980s",
+    era: "1960s",
     badges: ["추격"],
     filmSlug: "tokyo-drift",
     filmTitleKo: "패스트 & 퓨리어스: 도쿄 드리프트",
@@ -354,7 +376,7 @@ export const cars: IconCar[] = [
     nameEn: "1970 Plymouth Road Runner",
     brand: "Plymouth",
     brandKo: "플리머스",
-    era: "1980s",
+    era: "1970s",
     badges: ["추격"],
     filmSlug: "tokyo-drift",
     filmTitleKo: "패스트 & 퓨리어스: 도쿄 드리프트",
@@ -459,6 +481,118 @@ export const cars: IconCar[] = [
     oneLiner: "IMCDb가 인물 차량으로 올린 R35. 토론은 브라이언이 몬다고 적습니다.",
     hasL2: true,
     posterTone: tone.blue,
+  },
+  {
+    slug: "civic-heist",
+    nameKo: "혼다 시빅",
+    nameEn: "Honda Civic",
+    brand: "Honda",
+    brandKo: "혼다",
+    era: "2000s",
+    badges: ["추격"],
+    filmSlug: "the-fast-and-the-furious",
+    filmTitleKo: "분노의 질주",
+    oneLiner: "항구 습격의 개조 시빅 세 대. 세대와 연식은 줄거리에 없습니다.",
+    hasL2: true,
+    posterTone: tone.silver,
+  },
+  {
+    slug: "chevelle-ss-1970",
+    nameKo: "1970 셰보레 셰벨 SS",
+    nameEn: "1970 Chevrolet Chevelle SS",
+    brand: "Chevrolet",
+    brandKo: "셰보레",
+    era: "1970s",
+    badges: ["추격"],
+    filmSlug: "the-fast-and-the-furious",
+    filmTitleKo: "분노의 질주",
+    oneLiner: "크레딧 뒤, 돔이 바하 캘리포니아에서 모는 차.",
+    hasL2: true,
+    posterTone: tone.gold,
+  },
+  {
+    slug: "fairlane-1956",
+    nameKo: "1956 포드 페어레인 크라운 빅토리아",
+    nameEn: "1956 Ford Fairlane Crown Victoria",
+    brand: "Ford",
+    brandKo: "포드",
+    era: "1950s",
+    badges: ["추격"],
+    filmSlug: "fate-of-the-furious",
+    filmTitleKo: "분노의 질주: 더 익스트림",
+    oneLiner: "아바나에서 랄도의 차. 페르난도의 플리트라인과 맞붙습니다.",
+    hasL2: true,
+    posterTone: tone.blue,
+  },
+  {
+    slug: "impala-1961",
+    nameKo: "1961 셰보레 임팔라",
+    nameEn: "1961 Chevrolet Impala",
+    brand: "Chevrolet",
+    brandKo: "셰보레",
+    era: "1960s",
+    badges: ["추격"],
+    filmSlug: "fate-of-the-furious",
+    filmTitleKo: "분노의 질주: 더 익스트림",
+    oneLiner: "돔이 아바나 레이스의 내기로 건 차. 이긴 뒤 페르난도에게 넘깁니다.",
+    hasL2: true,
+    posterTone: tone.red,
+  },
+  {
+    slug: "gtx-1971",
+    nameKo: "1971 플리머스 GTX",
+    nameEn: "1971 Plymouth GTX",
+    brand: "Plymouth",
+    brandKo: "플리머스",
+    era: "1970s",
+    badges: ["추격"],
+    filmSlug: "fate-of-the-furious",
+    filmTitleKo: "분노의 질주: 더 익스트림",
+    oneLiner: "뉴욕에서 돔이 핵 풋볼을 가지러 갈 때 몬 차.",
+    hasL2: true,
+    posterTone: tone.orange,
+  },
+  {
+    slug: "charger-1967",
+    nameKo: "1967 닷지 차저",
+    nameEn: "1967 Dodge Charger",
+    brand: "Dodge",
+    brandKo: "닷지",
+    era: "1960s",
+    badges: ["추격"],
+    filmSlug: "f9",
+    filmTitleKo: "분노의 질주: 더 얼티메이트",
+    oneLiner: "출소 후 돔이 야코프의 머스탱과 달릴 때 몬 차. 1970 R/T와 다릅니다.",
+    hasL2: true,
+    posterTone: tone.silver,
+  },
+  {
+    slug: "mustang-foxbody-1992",
+    nameKo: "1992 포드 머스탱 폭스바디",
+    nameEn: "1992 Ford Mustang Foxbody",
+    brand: "Ford",
+    brandKo: "포드",
+    era: "1990s",
+    badges: ["추격"],
+    filmSlug: "f9",
+    filmTitleKo: "분노의 질주: 더 얼티메이트",
+    oneLiner: "야코프의 차. 돔의 1967 차저와의 레이스에서 집니다.",
+    hasL2: true,
+    posterTone: tone.red,
+  },
+  {
+    slug: "gallardo",
+    nameKo: "람보르기니 가야르도",
+    nameEn: "Lamborghini Gallardo",
+    brand: "Lamborghini",
+    brandKo: "람보르기니",
+    era: "2000s",
+    filmSlug: "fast-x",
+    filmTitleKo: "분노의 질주: 라이드 오어 다이",
+    oneLiner: "제작 단락이 출연 차량으로 적은 이름. 연식, 운전자, 장면은 없습니다.",
+    hasL2: true,
+    posterTone: tone.gold,
+    badges: ["출연"],
   },
 ];
 
@@ -740,5 +874,181 @@ export const carDetails: Record<string, CarL2> = {
     sources: [imcdb("v754173.html", "2012 Nissan GT-R R35"), WIKI_F7],
     related: [{ href: "/films/furious-7", label: "더 세븐" }],
     footnotes: [{ n: 1, text: "차종은 IMCDb 항목입니다. 운전자는 그 페이지 토론의 문장입니다." }],
+  }),
+  "civic-heist": detail("civic-heist", {
+    overview: [
+      "2001년 작품은 로스앤젤레스 항구에서 습격 팀이 크게 개조한 혼다 시빅 세 대로 전자제품 트레일러를 빼앗고, 터미널 아일랜드 프리웨이로 빠지는 장면으로 시작합니다.",
+      "세대, 연식, 색, 운전자 이름은 그 문장에 없습니다. 세 대를 한 사람의 차로 적지 않습니다.",
+    ],
+    onScreen: [
+      "개조는 ‘heavily modified’라는 표현만 확인됩니다. 부품 목록, 출력, 배기량은 적지 않습니다.",
+    ],
+    timeline: [
+      {
+        year: "오프닝",
+        text: "습격 팀이 시빅 세 대로 세미트레일러의 전자제품을 가져갑니다.",
+      },
+      {
+        year: "이후",
+        text: "헥터는 해리의 차고에서 시빅용 퍼포먼스 부품을 사려 합니다. 브라이언은 습격에 쓰인 시빅을 헥터의 차고에서 찾다 돔과 빈스에게 들킵니다. 헥터가 오프닝의 운전대를 잡았다는 뜻은 아닙니다.",
+      },
+    ],
+    continuity: [
+      "2편의 수키 S2000, 트란의 S2000과 다른 차입니다. 시빅이라는 이름만 같습니다.",
+    ],
+    sources: [WIKI_2001],
+    related: [
+      { href: "/films/the-fast-and-the-furious", label: "분노의 질주" },
+      { href: "/cars/s2000-tran", label: "트란의 S2000" },
+    ],
+    footnotes: [
+      { n: 1, text: "시빅 세 대와 이후 헥터의 부품 이야기는 2001년 작품 위키백과 줄거리입니다." },
+    ],
+  }),
+  "chevelle-ss-1970": detail("chevelle-ss-1970", {
+    overview: [
+      "크레딧이 끝난 뒤, 돔은 멕시코 바하 캘리포니아를 1970 Chevrolet Chevelle SS로 달립니다.",
+    ],
+    onScreen: [
+      "색, 개조, 그 차가 어디서 왔는지는 그 한 문장에 없습니다.",
+    ],
+    timeline: [
+      { year: "크레딧 후", text: "돔이 바하 캘리포니아에서 1970 셰벨 SS를 몹니다." },
+    ],
+    continuity: [
+      "같은 편의 1970 Dodge Charger R/T는 아버지의 차이고, 트럭에 받힙니다. 셰벨과 다른 차입니다.",
+    ],
+    sources: [WIKI_2001],
+    related: [
+      { href: "/films/the-fast-and-the-furious", label: "분노의 질주" },
+      { href: "/cars/charger-rt-1970", label: "1970 차저 R/T" },
+      { href: "/crew/dominic-toretto", label: "도미닉 토레토" },
+    ],
+    footnotes: [{ n: 1, text: "바하 캘리포니아와 차종은 2001년 작품 위키백과의 크레딧 후 장면입니다." }],
+  }),
+  "fairlane-1956": detail("fairlane-1956", {
+    overview: [
+      "아바나에서 돔의 사촌 페르난도가 레이서 랄도에게 빚을 집니다. 돔은 레이스를 걸고, 맞붙는 차는 페르난도의 1949 Chevrolet Fleetline과 랄도의 1956 Ford Fairlane Crown Victoria입니다.",
+    ],
+    onScreen: [
+      "페어레인은 랄도의 차로 적혀 있습니다. 핸들을 랄도가 직접 잡았는지는 그 문장이 나누지 않아 운전자 이름으로 올리지 않습니다.",
+      "1949 플리트라인은 이 레이스의 반대편 차입니다. 별도 상세는 두지 않습니다.",
+    ],
+    timeline: [
+      { year: "아바나", text: "페르난도의 1949 플리트라인과 랄도의 1956 페어레인이 레이스를 합니다. 돔은 자신의 1961 임팔라를 내기로 겁니다." },
+    ],
+    continuity: [
+      "도쿄 드리프트의 1967 머스탱, F9의 1992 폭스바디와 다른 포드입니다.",
+    ],
+    sources: [WIKI_FATE],
+    related: [
+      { href: "/films/fate-of-the-furious", label: "더 익스트림" },
+      { href: "/cars/impala-1961", label: "1961 임팔라" },
+    ],
+    footnotes: [{ n: 1, text: "차종과 레이스 구도는 더 익스트림 위키백과 줄거리입니다." }],
+  }),
+  "impala-1961": detail("impala-1961", {
+    overview: [
+      "아바나 레이스에서 돔이 내기로 건 차는 자신의 1961 Chevrolet Impala입니다. 레이스에 나온 두 대는 페르난도의 1949 플리트라인과 랄도의 1956 페어레인입니다.",
+      "아슬하게 이긴 뒤, 돔은 페르난도가 임팔라를 갖게 둡니다.",
+    ],
+    onScreen: [
+      "임팔라가 레이스 자체의 주행 차였다는 문장은 없습니다. 내기 차로만 적습니다.",
+    ],
+    timeline: [
+      { year: "아바나", text: "돔이 1961 임팔라를 겁니다. 이긴 뒤 페르난도에게 넘깁니다." },
+    ],
+    continuity: [
+      "라이드 오어 다이 제작 단락의 Chevrolet Impala는 연식과 장면이 없어, 이 1961년 차와 같은 개체로 보지 않습니다.",
+    ],
+    sources: [WIKI_FATE],
+    related: [
+      { href: "/films/fate-of-the-furious", label: "더 익스트림" },
+      { href: "/cars/fairlane-1956", label: "1956 페어레인" },
+      { href: "/crew/dominic-toretto", label: "도미닉 토레토" },
+    ],
+    footnotes: [{ n: 1, text: "내기와 양도는 더 익스트림 위키백과 줄거리입니다." }],
+  }),
+  "gtx-1971": detail("gtx-1971", {
+    overview: [
+      "사이퍼는 엘레나 네베스와 돔의 아들을 인질로 잡고, 돔을 뉴욕으로 보냅니다. 목표는 러시아 국방장관이 가진 핵 풋볼이고, 그때 돔이 몬 차는 1971 Plymouth GTX입니다.",
+    ],
+    onScreen: [
+      "색과 개조, 출력은 그 문장에 없습니다.",
+    ],
+    timeline: [
+      { year: "뉴욕", text: "돔이 1971 GTX로 핵 풋볼을 가지러 갑니다." },
+    ],
+    continuity: [
+      "같은 편 후반에 사이퍼가 적외선 유도 미사일을 쏘는 대상은 ‘돔의 차저’라고만 적혀 있습니다. 1971 GTX와 같은 차로 적지 않습니다. 도쿄 드리프트의 1970 로드 러너와도 다릅니다.",
+    ],
+    sources: [WIKI_FATE],
+    related: [
+      { href: "/films/fate-of-the-furious", label: "더 익스트림" },
+      { href: "/villains/cipher", label: "사이퍼" },
+      { href: "/crew/dominic-toretto", label: "도미닉 토레토" },
+    ],
+    footnotes: [{ n: 1, text: "뉴욕, 핵 풋볼, 1971 GTX는 더 익스트림 위키백과 줄거리입니다." }],
+  }),
+  "charger-1967": detail("charger-1967", {
+    overview: [
+      "1989년, 아버지 잭 토레토가 쇼트 트랙 사고 이후 죽습니다. 돔은 켄니 린더를 때린 죄로 잡혀 들어갔다가 나옵니다. 출소 후 동생 야코프에게 레이스를 겁니다.",
+      "그때 돔의 차는 1967 Dodge Charger이고, 야코프의 차는 1992 Ford Mustang Foxbody입니다. 야코프가 지고, 돔은 그를 로스앤젤레스에서 떠나게 합니다.",
+    ],
+    onScreen: [
+      "레이스의 해는 ‘출소 후’로만 적혀 있습니다. 1989년이라고 단정하지 않습니다.",
+    ],
+    timeline: [
+      { year: "1989", text: "잭이 레이스 중 죽고, 일주일 뒤 돔이 체포됩니다." },
+      { year: "출소 후", text: "돔의 1967 차저가 야코프의 1992 머스탱과 달립니다. 야코프가 집니다." },
+    ],
+    continuity: [
+      "2001년의 1970 Dodge Charger R/T, 언리미티드의 2010 차저, 더 익스트림 후반의 ‘돔의 차저’와 연식이 다릅니다. 하나로 합치지 않습니다.",
+    ],
+    sources: [WIKI_F9],
+    related: [
+      { href: "/films/f9", label: "더 얼티메이트" },
+      { href: "/cars/mustang-foxbody-1992", label: "1992 머스탱 폭스바디" },
+      { href: "/villains/jakob-toretto", label: "야코프 토레토" },
+    ],
+    footnotes: [{ n: 1, text: "1967 차저와 1992 머스탱의 대결은 F9 위키백과 줄거리입니다." }],
+  }),
+  "mustang-foxbody-1992": detail("mustang-foxbody-1992", {
+    overview: [
+      "출소한 돔이 야코프에게 건 레이스에서, 야코프의 차는 1992 Ford Mustang Foxbody입니다. 야코프가 집니다.",
+    ],
+    onScreen: [
+      "폭스바디라는 이름은 줄거리에 있습니다. 색, 트림, 개조는 없습니다.",
+    ],
+    timeline: [
+      { year: "출소 후", text: "야코프의 1992 머스탱이 돔의 1967 차저에게 집니다. 야코프는 로스앤젤레스를 떠납니다." },
+    ],
+    continuity: [
+      "도쿄 드리프트의 1967 머스탱 패스트백, 더 익스트림의 1956 페어레인과 다른 포드입니다.",
+    ],
+    sources: [WIKI_F9],
+    related: [
+      { href: "/films/f9", label: "더 얼티메이트" },
+      { href: "/cars/charger-1967", label: "1967 차저" },
+      { href: "/cars/mustang-1967", label: "1967 머스탱 패스트백" },
+    ],
+    footnotes: [{ n: 1, text: "차종과 패배는 F9 위키백과 줄거리입니다." }],
+  }),
+  gallardo: detail("gallardo", {
+    overview: [
+      "Fast X 위키백과 제작 단락은 이 영화에 나온 외국 차 가운데 Lamborghini Gallardo를 적습니다. 알파 로메오 159, 2000 GTV, 닛산 실비아, 포르쉐 911 997 GT3 RS, 파가니 후에이라 트리콜로레, 닷선 240Z와 한 목록입니다.",
+    ],
+    onScreen: [
+      "누가 탔는지, 어느 도시인지, 연식과 색은 그 목록에 없습니다. 장면을 꾸며 적지 않습니다. 목록의 2000년대 칸은 화면에서 읽은 연식이 아닙니다.",
+    ],
+    production: [
+      "같은 단락은 전기차와 여러 닷지 차저, 베일사이드 RX-7도 따로 적습니다. 가야르도는 ‘other vehicles which featured’ 목록의 이름입니다.",
+    ],
+    continuity: [
+      "미션 임파서블 아카이브의 가야르도는 다른 영화의 차입니다. 같은 브랜드라는 이유로만 잇습니다.",
+    ],
+    sources: [WIKI_X],
+    related: [{ href: "/films/fast-x", label: "라이드 오어 다이" }],
+    footnotes: [{ n: 1, text: "출연 목록은 Fast X 위키백과 제작 단락입니다. 운전자는 확인하지 못했습니다." }],
   }),
 };

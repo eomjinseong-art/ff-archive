@@ -1,10 +1,12 @@
-import { AUTOPIX_LABEL, BOND_ARCHIVE_LABEL, SITE_NAME, autopixUrl, bondArchiveUrl } from "@/lib/site";
+import { NetworkStrip } from "@/components/NetworkStrip";
+import { AUTOPIX_LABEL, SITE_NAME, autopixUrl } from "@/lib/site";
 
 const OFFICIAL_CHANNEL = "https://www.youtube.com/channel/UCJCx8aQrdx_ueXPmxTD2odQ";
 
 export function Footer() {
   return (
     <footer className="mt-16 border-t border-line">
+      <NetworkStrip medium="footer" />
       <div className="mx-auto max-w-6xl px-4 py-8 text-sm leading-6 text-muted">
         <h2 className="font-serif text-xs tracking-[0.22em] text-gold">
           비공식 팬 아카이브
@@ -35,12 +37,6 @@ export function Footer() {
             className="underline decoration-line underline-offset-4 hover:text-gold"
           >
             자동차 용품 · {AUTOPIX_LABEL}
-          </a>
-          <a
-            href={bondArchiveUrl("footer")}
-            className="underline decoration-line underline-offset-4 hover:text-gold"
-          >
-            자매 사이트 · {BOND_ARCHIVE_LABEL}
           </a>
         </p>
       </div>

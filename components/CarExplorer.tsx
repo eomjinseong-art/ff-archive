@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CreditedMedia } from "@/components/CreditedMedia";
 import { ImageSearchLink } from "@/components/ImageSearchLink";
 import { PosterCard } from "@/components/PosterCard";
-import { cars, type CarEra } from "@/data/cars";
+import { ERA_LABEL, cars, type CarEra } from "@/data/cars";
 import { displayFilmTitle, films, getFilm } from "@/data/films";
 import {
   atmospherePlaceholder,
@@ -73,7 +73,16 @@ export function CarExplorer() {
   }, []);
 
   const byEra = useMemo(() => {
-    const order: CarEra[] = ["1980s", "1990s", "2000s", "2010s", "2020s"];
+    const order: CarEra[] = [
+      "1950s",
+      "1960s",
+      "1970s",
+      "1980s",
+      "1990s",
+      "2000s",
+      "2010s",
+      "2020s",
+    ];
     return order
       .map((era) => [era, cars.filter((car) => car.era === era)] as const)
       .filter(([, list]) => list.length > 0);
@@ -145,7 +154,7 @@ export function CarExplorer() {
             <div className="space-y-10">
               {byEra.map(([era, list]) => (
                 <section key={era}>
-                  <h2 className="mb-4 font-serif text-xl text-gold">{era}</h2>
+                  <h2 className="mb-4 font-serif text-xl text-gold">{ERA_LABEL[era]}</h2>
                   <CarGrid items={list} />
                 </section>
               ))}

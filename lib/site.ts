@@ -7,14 +7,19 @@ export const SITE_SUB =
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://ff-archive.vercel.app";
 
+/** Live 007 film archive. bond-archive.vercel.app is a different photo service. */
 export const BOND_ARCHIVE_URL =
   process.env.NEXT_PUBLIC_BOND_ARCHIVE_URL ??
   "https://bond-archive-two.vercel.app";
 
+export const MI_ARCHIVE_URL =
+  process.env.NEXT_PUBLIC_MI_ARCHIVE_URL ?? "https://mi-archive.vercel.app";
+
 export const SISTER_SITE_URL =
   process.env.NEXT_PUBLIC_SISTER_SITE_URL ?? "https://car-parts-cpang.vercel.app";
 
-export const BOND_ARCHIVE_LABEL = "본드 필름 아카이브";
+export const BOND_ARCHIVE_LABEL = "007 본드 아카이브";
+export const MI_ARCHIVE_LABEL = "미션 임파서블 아카이브";
 export const AUTOPIX_LABEL = "오토픽스";
 export const FF_CAR_CTA_LABEL = "이 차량 용품 보러 가기 · 오토픽스";
 
@@ -52,11 +57,20 @@ function withUtm(
   return url.toString();
 }
 
-export function bondArchiveUrl(medium: "header" | "footer" | "home" = "header") {
-  return withUtm(BOND_ARCHIVE_URL, "/", {
-    medium,
-    campaign: "bond-archive",
-  });
+export function archiveNetworkUrl(
+  base: string,
+  path = "/",
+  medium: "header" | "footer" | "home" | "car" = "header",
+) {
+  return withUtm(base, path, { medium, campaign: "archive-network" });
+}
+
+export function bondArchiveUrl(medium: "header" | "footer" | "home" | "car" = "header") {
+  return archiveNetworkUrl(BOND_ARCHIVE_URL, "/", medium);
+}
+
+export function miArchiveUrl(medium: "header" | "footer" | "home" | "car" = "header") {
+  return archiveNetworkUrl(MI_ARCHIVE_URL, "/", medium);
 }
 
 export function sisterUrl(

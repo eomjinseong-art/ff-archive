@@ -92,8 +92,8 @@ export const filmDetails: Record<string, FilmDetail> = {
     oneLiner: "로스앤젤레스 지하 레이스에 잠입한 브라이언이 돔의 크루와 겹칩니다.",
     spoilerWarning: warning,
     plot: [
-      "브라이언 오코너는 전자제품 습격을 쫓아 스트리트 레이스에 들어갑니다. 대상은 도미닉 토레토와 그의 크루입니다. 레티 오티즈와 동생 미아 토레토가 그 안에 있습니다.",
-      "제시는 조니 트란과 랜스의 오토바이에 죽습니다. 기종명은 위키백과 줄거리에 없습니다. 돔은 아버지의 1970 Dodge Charger를 몰다 트럭에 받히고, 브라이언은 수프라 열쇠를 넘깁니다.",
+      "로스앤젤레스 항구에서 습격 팀은 크게 개조한 혼다 시빅 세 대로 전자제품 트레일러를 빼앗고 터미널 아일랜드 프리웨이로 빠집니다. 브라이언 오코너는 그 습격을 쫓아 스트리트 레이스에 들어갑니다. 대상은 도미닉 토레토와 그의 크루입니다. 레티 오티즈와 동생 미아 토레토가 그 안에 있습니다.",
+      "제시는 조니 트란과 랜스의 오토바이에 죽습니다. 기종명은 위키백과 줄거리에 없습니다. 돔은 아버지의 1970 Dodge Charger를 몰다 트럭에 받히고, 브라이언은 수프라 열쇠를 넘깁니다. 크레딧 뒤, 돔은 멕시코 바하 캘리포니아에서 1970 Chevrolet Chevelle SS를 몹니다.",
       "촬영은 2000년 7월부터 10월까지 로스앤젤레스입니다. 다저 스타디움, 앤젤리노 하이츠, 실버 레이크, 에코 파크, 리틀 사이공, 그리고 레이스 워즈의 샌버너디노 공항이 문서에 있습니다.",
     ],
     cast: [
@@ -104,9 +104,9 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "johnny-tran", kind: "villain", nameKo: "조니 트란", nameEn: "Johnny Tran", role: "적대", note: "릭 윤." },
     ],
     cars: cars(
-      "이클립스, RX-7, 수프라, 차저",
-      "브라이언의 1995 Eclipse RS, 제시의 1993 RX-7, 1994 Supra, 돔 아버지의 1970 Charger R/T, 제타, 트란의 S2000을 상세로 올립니다. 오토바이 기종은 적지 않습니다.",
-      ["eclipse-rs", "rx7-fd", "supra-mk4", "charger-rt-1970", "jetta-mk3", "s2000-tran"],
+      "시빅, 이클립스, 셰벨, 차저",
+      "오프닝의 개조 시빅 세 대, 브라이언의 1995 Eclipse RS, 돔의 RX-7, 1994 Supra, 돔 아버지의 1970 Charger R/T, 제타, 트란의 S2000, 크레딧 뒤의 1970 Chevelle SS를 상세로 올립니다. 시빅의 세대는 적지 않습니다. 오토바이 기종도 적지 않습니다.",
+      ["civic-heist", "eclipse-rs", "rx7-fd", "supra-mk4", "charger-rt-1970", "jetta-mk3", "s2000-tran", "chevelle-ss-1970"],
     ),
     gadgets: thinGear("이 편의 확인된 장치는 차량입니다. 2편의 니트로스 사출 좌석은 여기 넣지 않습니다."),
     quotes: [],
@@ -396,7 +396,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     oneLiner: "사이퍼가 돔을 팀의 반대로 돌립니다. 레티와 자리를 잡은 뒤의 이야기입니다.",
     spoilerWarning: warning,
     plot: [
-      "돔과 레티는 아바나에서 신혼 여행 중입니다. 사이버 테러리스트 사이퍼가 돔을 자기 쪽으로 끌어, 팀이 돔을 찾고 사이퍼를 막게 됩니다.",
+      "돔과 레티는 아바나에서 신혼 여행 중입니다. 사촌 페르난도가 랄도에게 빚을 지자 돔이 레이스를 겁니다. 맞붙는 차는 페르난도의 1949 Chevrolet Fleetline과 랄도의 1956 Ford Fairlane Crown Victoria이고, 돔은 자신의 1961 Chevrolet Impala를 내기로 겁니다. 이긴 뒤 임팔라는 페르난도에게 넘깁니다. 사이버 테러리스트 사이퍼가 돔을 자기 쪽으로 끌어, 팀이 돔을 찾고 사이퍼를 막게 됩니다.",
       "홉스는 레티, 로먼, 테지, 램지와 베를린에서 장치를 확보하다 돔이 그것을 사이퍼에게 넘기는 것을 봅니다. 홉스는 데커드가 있는 교도소에 갇히고, 미스터 노바디가 둘을 빼 팀에 붙입니다.",
       "사이퍼는 엘레나 네베스와 돔의 아들을 인질로 잡아 돔을 붙듭니다. 뉴욕에서 돔은 1971 Plymouth GTX로 핵 풋볼을 가지러 갑니다. 팀은 기지를 공격당한 뒤 갓스 아이를 빼앗깁니다.",
     ],
@@ -412,9 +412,9 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "cipher", kind: "villain", nameKo: "사이퍼", nameEn: "Cipher", role: "적대", note: "샬리즈 테론." },
     ],
     cars: cars(
-      "1971 GTX",
-      "줄거리가 모델명을 적은 차는 돔의 1971 Plymouth GTX입니다. 연식과 차종 이외의 제원은 확인하지 않아 상세 페이지로 올리지 않습니다.",
-      [],
+      "아바나 레이스와 1971 GTX",
+      "아바나의 1956 Fairlane Crown Victoria, 내기로 걸린 1961 Impala, 뉴욕의 1971 Plymouth GTX를 상세로 올립니다. 1949 Fleetline은 페어레인 카드에만 적습니다. 출력은 적지 않습니다.",
+      ["fairlane-1956", "impala-1961", "gtx-1971"],
     ),
     gadgets: {
       density: "thick",
@@ -428,7 +428,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "상영 시간 136분, 미국 개봉 2017년 4월 14일, 흥행 12억 3,600만 달러, 예산 2억 5,000만–2억 7,000만 달러는 정보 상자입니다." },
       { n: 2, text: "아바나, 베를린, 엘레나, 1971 GTX, 갓스 아이는 더 익스트림 위키백과 줄거리입니다." },
-      { n: 3, text: "GTX는 줄거리의 차종만 확인하고, 상세 페이지는 만들지 않았습니다." },
+      { n: 3, text: "페어레인, 임팔라, 1971 GTX는 더 익스트림 위키백과 줄거리입니다. 제원은 그 문장 밖으로 적지 않습니다." },
     ],
     related: [{ href: "/villains/cipher", label: "악당 · 사이퍼" }],
   },
@@ -468,7 +468,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     oneLiner: "돔의 동생 야코프와 프로젝트 아레스. 한이 살아 있습니다.",
     spoilerWarning: warning,
     plot: [
-      "돔과 팀은 소원한 동생 야코프 토레토와 자금책 오토가 프로젝트 아레스를 켜는 것을 막습니다. 사이퍼는 노바디의 비행기에서 납치됩니다. 드웨인 존슨은 이 편에 없습니다.",
+      "아버지 잭은 1989년 쇼트 트랙에서 죽습니다. 출소한 돔은 1967 Dodge Charger로 야코프의 1992 Ford Mustang Foxbody와 달립니다. 야코프가 지고 로스앤젤레스를 떠납니다. 본편의 돔과 팀은 그 동생과 자금책 오토가 프로젝트 아레스를 켜는 것을 막습니다. 사이퍼는 노바디의 비행기에서 납치됩니다. 드웨인 존슨은 이 편에 없습니다.",
       "레티와 미아는 도쿄에서 한 루가 살아 있음을 확인합니다. 로먼과 테지는 독일에서 로켓 차를 만들던 션, 트윙키, 얼을 찾습니다. 그 공백을 메우는 이야기는 문서가 설명하지 않아 적지 않습니다.",
       "영어 위키백과 상영 시간은 143분, 한국어 위키백과는 142분입니다. 미국 개봉은 2021년 6월 25일, 한국 개봉은 5월 19일입니다. 흥행은 7억 2,620만 달러입니다.",
     ],
@@ -484,6 +484,11 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "jakob-toretto", kind: "villain", nameKo: "야코프 토레토", nameEn: "Jakob Toretto", role: "적대", note: "존 시나. 화해 이후는 패밀리 칸에 넣지 않습니다." },
       { slug: "cipher", kind: "villain", nameKo: "사이퍼", nameEn: "Cipher", role: "적대" },
     ],
+    cars: cars(
+      "1967 차저와 1992 머스탱",
+      "회상 레이스의 1967 Dodge Charger와 1992 Ford Mustang Foxbody를 상세로 올립니다. 1970 Charger R/T와 같은 차가 아닙니다.",
+      ["charger-1967", "mustang-foxbody-1992"],
+    ),
     gadgets: thinGear("프로젝트 아레스는 줄거리의 무기 프로그램입니다. 제원을 확인하지 못해 장비 상세로 만들지 않습니다."),
     quotes: [],
     trailerYoutubeId: "x6m43M92HPI",
@@ -491,6 +496,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "143분·개봉일·흥행 7억 2,620만 달러·예산 2억–2억 2,500만 달러는 영어 정보 상자입니다. 142분은 한국어 위키백과입니다." },
       { n: 2, text: "존슨의 결석, 한의 생존, 독일의 션은 F9 위키백과 줄거리와 제작 단락입니다." },
+      { n: 3, text: "1967 차저와 1992 머스탱은 같은 문서의 회상 레이스입니다. 레이스 연도를 1989년으로 적지 않습니다." },
     ],
     related: [
       { href: "/lin-era", label: "린의 다섯 편" },
@@ -524,6 +530,11 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "jakob-toretto", kind: "villain", nameKo: "야코프 토레토", nameEn: "Jakob Toretto", role: "협력", note: "이 편에서는 미아 쪽에 섭니다. 패밀리 고정 명단에는 넣지 않습니다." },
       { slug: "cipher", kind: "villain", nameKo: "사이퍼", nameEn: "Cipher", role: "적대에서 이동" },
     ],
+    cars: cars(
+      "람보르기니 가야르도",
+      "제작 단락이 출연 차량으로 적은 Lamborghini Gallardo만 상세로 올립니다. 운전자와 장면은 그 목록에 없습니다.",
+      ["gallardo"],
+    ),
     gadgets: thinGear("로마의 컴퓨터 칩은 줄거리의 목표입니다. 사양 문서가 없어 장비 상세로 만들지 않습니다."),
     quotes: [],
     trailerYoutubeId: "",
@@ -531,6 +542,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "141분, 2023년 5월 19일 미국 개봉, 흥행 7억 1,440만 달러, 순제작비 3억 7,880만 달러는 Fast X 위키백과 정보 상자입니다." },
       { n: 2, text: "지젤의 생존과 홉스의 중간 크레딧은 같은 문서의 줄거리입니다." },
+      { n: 3, text: "가야르도는 Fast X 위키백과 제작 단락의 출연 목록입니다. 같은 목록의 다른 차명은 상세로 올리지 않았습니다." },
     ],
     related: [{ href: "/villains/dante-reyes", label: "악당 · 단테" }],
   },

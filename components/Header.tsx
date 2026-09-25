@@ -3,16 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { NetworkStrip } from "@/components/NetworkStrip";
 import { SearchBox } from "@/components/SearchBox";
 import { VisitorCounter } from "@/components/VisitorCounter";
-import {
-  AUTOPIX_LABEL,
-  BOND_ARCHIVE_LABEL,
-  NAV,
-  SITE_NAME,
-  autopixUrl,
-  bondArchiveUrl,
-} from "@/lib/site";
+import { AUTOPIX_LABEL, NAV, SITE_NAME, autopixUrl } from "@/lib/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -20,6 +14,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-bg/90 backdrop-blur">
+      <NetworkStrip medium="header" />
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span
@@ -60,12 +55,6 @@ export function Header() {
           >
             {AUTOPIX_LABEL}
           </a>
-          <a
-            href={bondArchiveUrl("header")}
-            className="hidden text-xs text-muted underline decoration-line underline-offset-4 hover:text-gold sm:inline"
-          >
-            {BOND_ARCHIVE_LABEL}
-          </a>
           <button
             type="button"
             className="inline-flex h-9 w-9 items-center justify-center rounded border border-line text-paper lg:hidden"
@@ -101,12 +90,6 @@ export function Header() {
             className="mt-3 inline-block text-sm text-muted underline"
           >
             {AUTOPIX_LABEL}
-          </a>
-          <a
-            href={bondArchiveUrl("header")}
-            className="mt-3 ml-4 inline-block text-sm text-muted underline"
-          >
-            {BOND_ARCHIVE_LABEL}
           </a>
         </div>
       )}

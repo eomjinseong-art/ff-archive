@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { AutopixBanner } from "@/components/AutopixBanner";
 import { CreditedMedia } from "@/components/CreditedMedia";
 import { ImageSearchLink } from "@/components/ImageSearchLink";
 import { PosterCard } from "@/components/PosterCard";
-import { SisterCta } from "@/components/SisterCta";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { crew } from "@/data/crew";
 import { directors } from "@/data/directors";
@@ -31,7 +31,15 @@ import { SERIES_FRAMING, SERIES_FRAMING_NOTE, SERIES_TOTAL } from "@/data/series
 import { villains } from "@/data/villains";
 import { women } from "@/data/women";
 import { personLookQuery } from "@/lib/googleImages";
-import { AUTOPIX_LABEL, BOND_ARCHIVE_LABEL, FF_CAR_CTA_LABEL, SITE_NAME, SITE_SUB, SITE_TAGLINE, bondArchiveUrl } from "@/lib/site";
+import {
+  BOND_ARCHIVE_LABEL,
+  MI_ARCHIVE_LABEL,
+  SITE_NAME,
+  SITE_SUB,
+  SITE_TAGLINE,
+  bondArchiveUrl,
+  miArchiveUrl,
+} from "@/lib/site";
 
 const homeCrew = crew.filter((person) => person.featuredOnHome);
 const homeWomen = women.filter((person) => person.featuredOnHome);
@@ -94,6 +102,10 @@ export default function HomePage() {
             </Link>
           </p>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-8">
+        <AutopixBanner />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-8">
@@ -477,21 +489,33 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 pt-4">
-        <div className="rounded-xl border border-line bg-card p-5 sm:p-8">
-          <p className="text-[11px] uppercase tracking-wide text-gold">{AUTOPIX_LABEL}</p>
-          <h2 className="mt-2 font-serif text-2xl text-paper">영화 속 차량 다음, 자동차 용품</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
-            차량 목록과 각 상세 페이지의 버튼은 {AUTOPIX_LABEL}로 갑니다. 촬영 차량을 판매하지 않습니다.
-          </p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/cars" className="rounded-full border border-line px-4 py-2 text-sm text-paper hover:border-gold">
-              영화 속 차량
-            </Link>
-            <SisterCta label={FF_CAR_CTA_LABEL} />
-            <a href={bondArchiveUrl("home")} className="rounded-full border border-line px-4 py-2 text-sm text-muted hover:text-gold">
-              {BOND_ARCHIVE_LABEL}
-            </a>
-          </div>
+        <p className="text-[11px] tracking-[0.22em] text-gold">영화 속 자동차</p>
+        <h2 className="mt-2 font-serif text-2xl text-paper sm:text-3xl">세 아카이브</h2>
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
+          이 사이트는 분노의 질주 차량을 모은 허브입니다. 같은 네트워크에 007과 미션 임파서블
+          아카이브가 있고, 브랜드가 겹치는 차만 상세 페이지에서 잇습니다.
+        </p>
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a
+            href={bondArchiveUrl("home")}
+            className="rounded-xl border border-line bg-card p-5 hover:border-gold/60"
+          >
+            <p className="text-[11px] text-gold">자매 아카이브</p>
+            <h3 className="mt-2 font-serif text-xl text-paper">{BOND_ARCHIVE_LABEL}</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              본드 영화의 차량과 장비. 포드처럼 겹치는 브랜드는 차량 상세에서 이어집니다.
+            </p>
+          </a>
+          <a
+            href={miArchiveUrl("home")}
+            className="rounded-xl border border-line bg-card p-5 hover:border-gold/60"
+          >
+            <p className="text-[11px] text-gold">자매 아카이브</p>
+            <h3 className="mt-2 font-serif text-xl text-paper">{MI_ARCHIVE_LABEL}</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              미션 임파서블의 차량. 혼다와 람보르기니처럼 확인된 페이지만 연결합니다.
+            </p>
+          </a>
         </div>
       </section>
     </div>

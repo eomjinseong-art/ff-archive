@@ -36,20 +36,6 @@ const other: Record<string, OtherVehicle[]> = {
       sources: [WIKI_SIX],
     },
   ],
-  "fate-of-the-furious": [
-    {
-      nameKo: "1971 플리머스 GTX",
-      nameEn: "1971 Plymouth GTX",
-      note: "뉴욕에서 돔이 러시아 국방장관의 핵 풋볼을 가지러 갈 때 몬 차라고 줄거리가 적습니다. 출력과 색은 확인하지 않아 상세 페이지를 만들지 않습니다.",
-      popularity: "줄거리에 모델명이 있으나 제원이 없습니다.",
-      sources: [
-        {
-          label: "Wikipedia — The Fate of the Furious",
-          href: "https://en.wikipedia.org/wiki/The_Fate_of_the_Furious",
-        },
-      ],
-    },
-  ],
 };
 
 export function otherVehiclesForFilm(filmSlug: string): OtherVehicle[] {
