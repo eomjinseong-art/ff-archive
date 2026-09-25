@@ -96,6 +96,7 @@ export default async function CarDetailPage({
         alt={image.isPlaceholder ? placeholderAlt(`${car.nameKo} (${car.nameEn})`) : image.alt}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
+        priority
         compactCredit={false}
       />
       <div className="mt-4 flex flex-wrap gap-2">

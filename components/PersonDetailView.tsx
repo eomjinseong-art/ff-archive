@@ -48,6 +48,7 @@ export function PersonDetailView({
         alt={image?.alt ?? placeholderAlt(`${person.nameKo} (${person.nameEn})`)}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
+        priority
         compactCredit={false}
         overlay={image ? undefined : { title: person.nameKo, meta: person.performerKo }}
       />

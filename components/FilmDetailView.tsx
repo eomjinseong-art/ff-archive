@@ -76,6 +76,7 @@ export function FilmDetailView({ detail }: { detail: FilmDetail }) {
         alt={hero.isPlaceholder ? placeholderAlt(displayFilmTitle(film)) : hero.alt}
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
+        priority
         compactCredit={false}
         overlay={hero.isPlaceholder ? { title: film.titleKo, meta: film.titleEn } : undefined}
       />

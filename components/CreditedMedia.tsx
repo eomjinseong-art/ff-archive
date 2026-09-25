@@ -12,6 +12,7 @@ export function CreditedMedia({
   compactCredit = true,
   overlay,
   href,
+  priority = false,
 }: {
   image?: LicensedImage;
   tone: string;
@@ -21,6 +22,7 @@ export function CreditedMedia({
   compactCredit?: boolean;
   overlay?: { title: string; meta?: string };
   href?: string;
+  priority?: boolean;
 }) {
   const showOverlay = Boolean(overlay) && (!image || image.isPlaceholder);
 
@@ -34,6 +36,7 @@ export function CreditedMedia({
           fill
           className="object-cover"
           sizes={sizes}
+          priority={priority}
           style={
             image.objectPosition
               ? { objectPosition: image.objectPosition }
