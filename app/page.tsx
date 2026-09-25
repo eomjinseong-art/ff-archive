@@ -14,6 +14,7 @@ import { guides } from "@/data/guides";
 import { issues } from "@/data/issues";
 import {
   atmospherePlaceholder,
+  carImages,
   filmImages,
   gadgetImages,
   personImage,
@@ -86,6 +87,10 @@ export default function HomePage() {
               {SITE_TAGLINE}.
               <br />
               {SITE_SUB}
+            </p>
+            <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+              영화를 좋아하는 팬이 만든 비공식 팬사이트입니다. 유니버설 픽처스와
+              관계가 없습니다.
             </p>
             <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
               1998년 바이브 기사 「Racer X」는 원작 칸에 따로 있습니다.
@@ -374,14 +379,24 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-8">
         <h2 className="font-serif text-xl text-gold">에디토리얼</h2>
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Link href="/cars/charger-rt-1970" className="rounded-xl border border-line bg-card p-5 hover:border-gold/60">
-            <p className="text-[11px] uppercase tracking-wide text-gold">차량</p>
-            <h3 className="mt-2 font-serif text-xl text-paper">1970 차저 R/T</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              돔 아버지의 차입니다. 2편 스카이라인, 도쿄의 베일사이드, 더 세븐의 라이칸까지 차량 칸이 이 아카이브의 중심입니다.
-            </p>
-            <p className="mt-3 text-sm text-gold">차저 상세 →</p>
-          </Link>
+          <article className="overflow-hidden rounded-xl border border-line bg-card hover:border-gold/60">
+            <CreditedMedia
+              image={carImages["charger-rt-1970"]}
+              tone="linear-gradient(165deg,#1c2430 0%,#0B0D10 48%,#c6a75e44 100%)"
+              alt={carImages["charger-rt-1970"]?.alt ?? "1970 닷지 차저 R/T 실제 차량 사진"}
+              aspectClass="aspect-video"
+              sizes="(max-width: 640px) 100vw, 50vw"
+              href="/cars/charger-rt-1970"
+            />
+            <Link href="/cars/charger-rt-1970" className="block p-5">
+              <p className="text-[11px] uppercase tracking-wide text-gold">차량</p>
+              <h3 className="mt-2 font-serif text-xl text-paper">1970 차저 R/T</h3>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                돔 아버지의 차입니다. 2편 스카이라인, 도쿄의 베일사이드, 더 세븐의 라이칸까지 차량 칸이 이 아카이브의 중심입니다.
+              </p>
+              <p className="mt-3 text-sm text-gold">차저 상세 →</p>
+            </Link>
+          </article>
           <Link href="/guide/first" className="rounded-xl border border-line bg-card p-5 hover:border-gold/60">
             <p className="text-[11px] uppercase tracking-wide text-gold">처음이라면</p>
             <h3 className="mt-2 font-serif text-xl text-paper">언리미티드부터</h3>

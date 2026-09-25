@@ -48,6 +48,8 @@ export type LicensedImage = {
   sourceLabel: string;
   isPlaceholder?: boolean;
   objectPosition?: string;
+  /** Shown when the photo is a nearby model, not the film car's exact variant. */
+  referenceNote?: string;
 };
 
 export type SearchHit = {

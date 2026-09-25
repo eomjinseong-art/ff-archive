@@ -1,4 +1,5 @@
-import type { GossipItem, Source } from "./types";
+import { carPhotos } from "./carPhotos";
+import type { GossipItem, LicensedImage, Source } from "./types";
 import {
   WIKI_2001,
   WIKI_2F2F,
@@ -46,6 +47,7 @@ export type IconCar = {
   oneLiner: string;
   hasL2: boolean;
   posterTone: string;
+  image?: LicensedImage;
 };
 
 export type CarL2 = {
@@ -595,6 +597,11 @@ export const cars: IconCar[] = [
     badges: ["출연"],
   },
 ];
+
+for (const car of cars) {
+  const photo = carPhotos[car.slug];
+  if (photo) car.image = photo;
+}
 
 export function getCar(slug: string) {
   return cars.find((car) => car.slug === slug);

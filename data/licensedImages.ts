@@ -1,4 +1,5 @@
 import type { LicensedImage } from "./types";
+import { carPhotos } from "./carPhotos";
 
 /** Abstract stand-in. Not a film still. */
 export const atmospherePlaceholder: LicensedImage = {
@@ -27,7 +28,7 @@ export const directorImages: Record<string, LicensedImage> = {};
 
 export const personImages: Record<string, LicensedImage> = {};
 
-export const carImages: Record<string, LicensedImage> = {};
+export const carImages: Record<string, LicensedImage> = carPhotos;
 
 export function otherVehicleImage(vehicle: { carSlug?: string }): LicensedImage | undefined {
   if (vehicle.carSlug) return carImages[vehicle.carSlug];

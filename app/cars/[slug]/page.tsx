@@ -11,7 +11,7 @@ import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { ERA_LABEL, carDetails, getCar } from "@/data/cars";
 import { atmospherePlaceholder, carImages } from "@/data/licensedImages";
-import { FF_CAR_CTA_LABEL } from "@/lib/site";
+import { FF_CAR_CTA_LABEL, SITE_URL } from "@/lib/site";
 import {
   breadcrumbLd,
   carSeoDescription,
@@ -34,10 +34,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const car = getCar(slug);
   if (!car) return { title: "영화 속 차량" };
+  const photo = car.image;
   return pageMetadata({
     title: carSeoTitle(car),
     description: carSeoDescription(car),
     path: `/cars/${car.slug}`,
+    image: photo
+      ? {
+          url: `${SITE_URL}${photo.src}`,
+          width: photo.width,
+          height: photo.height,
+          alt: photo.alt,
+        }
+      : undefined,
   });
 }
 
@@ -69,7 +78,8 @@ export default async function CarDetailPage({
   const car = getCar(slug);
   const detail = carDetails[slug];
   if (!car || !detail) notFound();
-  const image = carImages[car.slug] ?? atmospherePlaceholder;
+  const image = car.image ?? carImages[car.slug] ?? atmospherePlaceholder;
+  const photoUrl = image.isPlaceholder ? undefined : `${SITE_URL}${image.src}`;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
@@ -80,7 +90,7 @@ export default async function CarDetailPage({
             { name: "차 종류", path: "/cars" },
             { name: car.nameKo, path: `/cars/${car.slug}` },
           ]),
-          carThingLd(car),
+          carThingLd(car, photoUrl),
         ])}
       />
       <Breadcrumbs
@@ -204,14 +214,33 @@ export default async function CarDetailPage({
 
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">관련</h2>
-        <ul className="mt-3 space-y-2">
-          {detail.related.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="text-sm text-paper hover:text-gold">
-                {item.label}
-              </Link>
-            </li>
-          ))}
+        <ul className="mt-3 space-y-4">
+          {detail.related.map((item) => {
+            const relatedSlug = item.href.startsWith("/cars/")
+              ? item.href.slice("/cars/".length).split(/[?#]/)[0]
+              : "";
+            const related = relatedSlug ? getCar(relatedSlug) : undefined;
+            const relatedImage = related?.image;
+            return (
+              <li key={item.href} className="flex items-start gap-3">
+                {relatedImage ? (
+                  <div className="w-28 shrink-0 sm:w-36">
+                    <CreditedMedia
+                      image={relatedImage}
+                      tone={related?.posterTone ?? car.posterTone}
+                      alt={relatedImage.alt}
+                      aspectClass="aspect-video"
+                      sizes="144px"
+                      href={item.href}
+                    />
+                  </div>
+                ) : null}
+                <Link href={item.href} className="pt-1 text-sm text-paper hover:text-gold">
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </section>
 
