@@ -320,9 +320,9 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "deckard-shaw", kind: "crew", nameKo: "데커드 쇼", nameEn: "Deckard Shaw", role: "엔딩", note: "제이슨 스테이섬. 악당 칸에도 있습니다." },
     ],
     cars: cars(
-      "기수에서 나온 차저",
-      "오언 쪽의 맞춤 플립 카를 상세로 올립니다. 기수로 쏜 닷지 차저는 연식이 없어 1970 R/T와 합치지 않고, 그 밖의 차량에 둡니다.",
-      ["flip-car"],
+      "플립 카, 데이토나, 탱크",
+      "오언의 플립 카, 돔의 데이토나 레플리카, 브라이언의 에스코트, 레티의 젠슨 인터셉터, 오언의 탱크, 중간 크레딧의 W140을 올립니다. 기수로 쏜 닷지 차저는 연식이 없어 1970 R/T와 합치지 않고, 그 밖의 차량에 둡니다. 에스코트 트림은 RS1600으로 확정하지 않습니다.",
+      ["flip-car", "charger-daytona-1969", "escort-mk1-f6", "jensen-interceptor-1971", "tank-chieftain-f6", "w140-han"],
     ),
     gadgets: {
       density: "thick",
@@ -344,7 +344,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "상영 시간 130분, 미국 개봉 2013년 5월 24일, 흥행 7억 8,870만 달러는 정보 상자입니다. 예산 칸은 1억 6,000만–2억 6,000만 달러로 폭이 있어 한 숫자로 적지 않습니다." },
       { n: 2, text: "나이트셰이드와 탱크, 안토노프 An-124, 공압 대포, 활주로 길이 지적은 더 맥시멈 위키백과 줄거리·제작입니다." },
-      { n: 3, text: "플립 카는 양산차가 아닙니다. 젠슨 인터셉터와 데이토나 차저는 확인한 줄거리에 이름이 없어 뺐습니다." },
+      { n: 3, text: "플립 카와 탱크, W140은 더 맥시멈 위키백과입니다. 데이토나 레플리카는 IMCDb 제목과 에드먼즈, 에스코트와 젠슨은 IMCDb 제목과 탑기어가 전한 매카시 인터뷰입니다. 에스코트는 RS1600으로 확정하지 않습니다." },
     ],
     related: [
       { href: "/issues/tokyo-order", label: "이슈 · 순서" },
@@ -376,9 +376,17 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "mose-jakande", kind: "villain", nameKo: "모세 자칸데", nameEn: "Mose Jakande", role: "적대", note: "지몬 운수." },
     ],
     cars: cars(
-      "라이칸과 R35",
-      "에티하드 타워의 라이칸 하이퍼스포츠와, IMCDb가 브라이언의 차로 적은 2012 GT-R R35를 올립니다. 헬리콥터에 충돌한 차저는 1970 R/T로 단정하지 않습니다.",
-      ["lykan-hypersport", "gtr-r35"],
+      "라이칸, 차저, 흰색 수프라",
+      "에티하드 타워의 라이칸과 IMCDb의 2012 GT-R R35, 오프로드 차저, 헬리콥터에 충돌한 차저, 결말의 흰색 수프라, 공중 투하 목록의 카마로와 챌린저를 올립니다. W 모터스 차는 라이칸과 그 복제입니다. 젠슨 인터셉터는 더 맥시멈 항목입니다.",
+      [
+        "lykan-hypersport",
+        "gtr-r35",
+        "charger-f7-offroad",
+        "charger-f7-la",
+        "supra-white-f7",
+        "camaro-f7-1968",
+        "challenger-srt-2015",
+      ],
     ),
     gadgets: {
       density: "solid",
@@ -393,7 +401,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "상영 시간 137분, 미국 개봉 2015년 4월 3일, 흥행 15억 1,500만 달러는 정보 상자입니다. 예산 칸은 본문에 범위가 있다고 적혀 한 숫자로 적지 않습니다." },
       { n: 2, text: "차량 340대 사용, 230대 이상 파괴, 액션의 약 10%만 CGI라는 문장은 더 세븐 위키백과 제작 단락입니다." },
-      { n: 3, text: "라이칸의 화면 가치 340만 달러와, 부서진 차가 양산 7대 중 하나가 아니라는 문장은 같은 문서입니다." },
+      { n: 3, text: "라이칸의 화면 가치 340만 달러와 복제 차 구분은 더 세븐 위키백과입니다. 오프로드 차저, 카마로, 챌린저, 흰색 수프라는 탑기어가 전한 매카시 인터뷰이고, 헬리콥터 차저의 연식은 한 해로 잠그지 않습니다." },
     ],
     related: [
       { href: "/issues/walker", label: "이슈 · 폴 워커" },
@@ -424,9 +432,9 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "cipher", kind: "villain", nameKo: "사이퍼", nameEn: "Cipher", role: "적대", note: "샬리즈 테론." },
     ],
     cars: cars(
-      "아바나 레이스와 1971 GTX",
-      "아바나의 1956 Fairlane Crown Victoria, 내기로 걸린 1961 Impala, 뉴욕의 1971 Plymouth GTX를 상세로 올립니다. 1949 Fleetline은 페어레인 카드에만 적습니다. 출력은 적지 않습니다.",
-      ["fairlane-1956", "impala-1961", "gtx-1971"],
+      "GTX, 돔의 차저, 무르시엘라고",
+      "아바나의 1956 페어레인과 1961 임팔라, 뉴욕의 1971 GTX, 미사일이 향하는 돔의 차저, IMCDb의 무르시엘라고와 랠리 파이터를 올립니다. 아이스 차저라는 별칭과 무르시엘라고의 얼음 주행은 확인한 문장에 없어 단정하지 않습니다.",
+      ["fairlane-1956", "impala-1961", "gtx-1971", "charger-dom-f8", "murcielago-f8", "rally-fighter-2011"],
     ),
     gadgets: {
       density: "thick",
@@ -440,7 +448,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "상영 시간 136분, 미국 개봉 2017년 4월 14일, 흥행 12억 3,600만 달러, 예산 2억 5,000만–2억 7,000만 달러는 정보 상자입니다." },
       { n: 2, text: "아바나, 베를린, 엘레나, 1971 GTX, 갓스 아이는 더 익스트림 위키백과 줄거리입니다." },
-      { n: 3, text: "페어레인, 임팔라, 1971 GTX는 더 익스트림 위키백과 줄거리입니다. 제원은 그 문장 밖으로 적지 않습니다." },
+      { n: 3, text: "페어레인, 임팔라, 1971 GTX, 돔의 차저는 더 익스트림 위키백과 줄거리입니다. 무르시엘라고와 랠리 파이터는 IMCDb 항목 제목입니다. 아이스 차저라는 별칭은 쓰지 않습니다." },
     ],
     related: [{ href: "/villains/cipher", label: "악당 · 사이퍼" }],
   },
@@ -463,9 +471,9 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "brixton-lore", kind: "villain", nameKo: "브릭스턴 로어", nameEn: "Brixton Lore", role: "적대", note: "이드리스 엘바." },
     ],
     cars: cars(
-      "런던의 맥라렌, 사모아의 피터빌트",
-      "시각효과 단락이 런던 추격에 적은 맥라렌은 IMCDb 항목 제목을 따라 2017 720S로 올립니다. 사모아 시퀀스에서 같은 단락이 이름으로 적은 피터빌트는 영화용 차로 올립니다. 운전자는 그 단락이 적지 않습니다.",
-      ["mclaren-720s", "peterbilt-samoa"],
+      "맥라렌, 피터빌트, 사모아",
+      "런던 추격의 2017 720S, 사모아의 영화용 피터빌트, 같은 시각효과 문장의 M37·랫로드·블랙 호크를 올립니다. M37의 제조사와 연식은 그 문장이 적지 않습니다.",
+      ["mclaren-720s", "peterbilt-samoa", "m37-hobbs", "ratrod-hobbs", "uh60-hobbs"],
     ),
     gadgets: thinGear("바이러스는 줄거리의 위협입니다. 별도의 장비 상세로 만들 만큼 제원을 확인하지 못했습니다."),
     quotes: [],
@@ -474,7 +482,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "스핀오프, 시점, 137분, 개봉일, 예산, 흥행은 영어 위키백과입니다. 136분은 한국어 위키백과 정보 상자입니다." },
       { n: 2, text: "바이러스의 이름과 제원은 적지 않습니다." },
-      { n: 3, text: "맥라렌과 피터빌트는 홉스&쇼 위키백과 시각효과 단락입니다. 2017 720S와 Made for Movie 표기는 IMCDb 항목 제목입니다." },
+      { n: 3, text: "맥라렌, 피터빌트, M37, 랫로드, 블랙 호크는 홉스&쇼 위키백과 시각효과 단락입니다. UH-60 일련번호는 제작 단락입니다. 2017 720S는 IMCDb 항목 제목입니다." },
     ],
     related: [{ href: "/crew/luke-hobbs", label: "패밀리 · 홉스" }],
   },
@@ -503,9 +511,17 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "cipher", kind: "villain", nameKo: "사이퍼", nameEn: "Cipher", role: "적대" },
     ],
     cars: cars(
-      "1967 차저와 1992 머스탱",
-      "회상 레이스의 1967 Dodge Charger와 1992 Ford Mustang Foxbody를 상세로 올립니다. 1970 Charger R/T와 같은 차가 아닙니다.",
-      ["charger-1967", "mustang-foxbody-1992"],
+      "차저, 피에로, 프로젝트 8",
+      "회상의 1967 차저와 1992 머스탱, 줄거리가 로켓 카로만 적은 피에로, 미드십 차저, 2020 헬캣 세단, 재규어 프로젝트 8, 노블 M600을 올립니다. 피에로 연식은 적지 않습니다.",
+      [
+        "charger-1967",
+        "mustang-foxbody-1992",
+        "fiero-f9",
+        "charger-mid-f9",
+        "charger-hellcat-f9",
+        "jaguar-project8-f9",
+        "noble-m600-f9",
+      ],
     ),
     gadgets: thinGear("프로젝트 아레스는 줄거리의 무기 프로그램입니다. 제원을 확인하지 못해 장비 상세로 만들지 않습니다."),
     quotes: [],
@@ -514,7 +530,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "143분·개봉일·흥행 7억 2,620만 달러·예산 2억–2억 2,500만 달러는 영어 정보 상자입니다. 142분은 한국어 위키백과입니다." },
       { n: 2, text: "존슨의 결석, 한의 생존, 독일의 션은 F9 위키백과 줄거리와 제작 단락입니다." },
-      { n: 3, text: "1967 차저와 1992 머스탱은 같은 문서의 회상 레이스입니다. 레이스 연도를 1989년으로 적지 않습니다." },
+      { n: 3, text: "1967 차저, 1992 머스탱, 로켓 카는 F9 위키백과입니다. 피에로, 미드십 차저, 프로젝트 8, M600은 IMCDb 또는 탑기어가 전한 매카시 인터뷰입니다. 피에로 연식은 적지 않습니다." },
     ],
     related: [
       { href: "/lin-era", label: "린의 다섯 편" },
@@ -549,9 +565,17 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "cipher", kind: "villain", nameKo: "사이퍼", nameEn: "Cipher", role: "적대에서 이동" },
     ],
     cars: cars(
-      "람보르기니 가야르도",
-      "제작 단락이 출연 차량으로 적은 Lamborghini Gallardo만 상세로 올립니다. 운전자와 장면은 그 목록에 없습니다.",
-      ["gallardo"],
+      "차저, 가야르도, 팬 아메리카",
+      "가야르도, 1970 Charger R/T, 2023 헬캣 레디아이, 2022 TorRed Charger R/T, 후에이라 트리콜로레, 리오의 포르쉐 911, 단테의 팬 아메리카를 올립니다. 1970 차저를 로마 장면으로 적지 않습니다. 유출된 밴시 콘셉트와 보도만 있던 베일사이드 RX-7은 빼 둡니다.",
+      [
+        "gallardo",
+        "charger-rt-1970-x",
+        "charger-hellcat-redeye-x",
+        "charger-torred-2022",
+        "huayra-x",
+        "porsche-911-x",
+        "pan-america-x",
+      ],
     ),
     gadgets: thinGear("로마의 컴퓨터 칩은 줄거리의 목표입니다. 사양 문서가 없어 장비 상세로 만들지 않습니다."),
     quotes: [],
@@ -560,7 +584,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "141분, 2023년 5월 19일 미국 개봉, 흥행 7억 1,440만 달러, 순제작비 3억 7,880만 달러는 Fast X 위키백과 정보 상자입니다." },
       { n: 2, text: "지젤의 생존과 홉스의 중간 크레딧은 같은 문서의 줄거리입니다." },
-      { n: 3, text: "가야르도는 Fast X 위키백과 제작 단락의 출연 목록입니다. 같은 목록의 다른 차명은 상세로 올리지 않았습니다." },
+      { n: 3, text: "차저 세 대, 가야르도, 후에이라, 팬 아메리카는 Fast X 위키백과 차량·제작 단락입니다. 포르쉐 911은 줄거리의 디오구 차이고, 목록의 997 GT3 RS와 합치지 않습니다. 1970 차저의 로마 장면은 적혀 있지 않습니다." },
     ],
     related: [{ href: "/villains/dante-reyes", label: "악당 · 단테" }],
   },
