@@ -42,6 +42,18 @@ export const WIKI_2009 = wiki(
 
 export const WIKI_HOBBS = wiki("Hobbs_%26_Shaw", "Hobbs & Shaw");
 
+export const WIKI_CHARS = wiki(
+  "List_of_Fast_%26_Furious_characters",
+  "List of Fast & Furious characters",
+);
+
+export function fandom(path: string, label: string): Source {
+  return {
+    label: `Fandom — ${label}`,
+    href: `https://fastandfurious.fandom.com/wiki/${path}`,
+  };
+}
+
 export function imcdb(path: string, label: string): Source {
   return { label: `IMCDb — ${label}`, href: `https://www.imcdb.org/${path}` };
 }

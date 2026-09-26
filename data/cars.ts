@@ -4,12 +4,15 @@ import {
   WIKI_2001,
   WIKI_2009,
   WIKI_2F2F,
+  WIKI_CHARS,
   WIKI_F9,
+  WIKI_FIVE,
   WIKI_FATE,
   WIKI_HOBBS,
   WIKI_SIX,
   WIKI_TOKYO,
   WIKI_X,
+  fandom,
   imcdb,
   wiki,
 } from "./sources";
@@ -266,10 +269,10 @@ export const cars: IconCar[] = [
   },
   {
     slug: "yenko-camaro",
-    nameKo: "1969 셰보레 옌코 카마로 SYC",
+    nameKo: "1969 쉐보레 옌코 카마로 SYC",
     nameEn: "1969 Chevrolet Yenko Camaro SYC",
     brand: "Chevrolet",
-    brandKo: "셰보레",
+    brandKo: "쉐보레",
     era: "1960s",
     badges: ["추격"],
     filmSlug: "2-fast-2-furious",
@@ -294,10 +297,10 @@ export const cars: IconCar[] = [
   },
   {
     slug: "monte-carlo",
-    nameKo: "1971 셰보레 몬테카를로",
+    nameKo: "1971 쉐보레 몬테카를로",
     nameEn: "1971 Chevrolet Monte Carlo",
     brand: "Chevrolet",
-    brandKo: "셰보레",
+    brandKo: "쉐보레",
     era: "1970s",
     badges: ["추격"],
     filmSlug: "tokyo-drift",
@@ -410,11 +413,11 @@ export const cars: IconCar[] = [
     nameEn: "Ford GT40",
     brand: "Ford",
     brandKo: "포드",
-    era: "2000s",
+    era: "1960s",
     badges: ["추격"],
     filmSlug: "fast-five",
     filmTitleKo: "분노의 질주: 언리미티드",
-    oneLiner: "리우 열차에서 레예스 쪽이 노리는 차. 촬영은 복제를 썼습니다.",
+    oneLiner: "리우 열차에서 레예스 쪽이 노리는 차. 촬영은 1960년대 GT40의 레플리카를 썼습니다.",
     hasL2: true,
     posterTone: tone.blue,
   },
@@ -518,10 +521,10 @@ export const cars: IconCar[] = [
   },
   {
     slug: "chevelle-ss-1970",
-    nameKo: "1970 셰보레 셰벨 SS",
+    nameKo: "1970 쉐보레 셰벨 SS",
     nameEn: "1970 Chevrolet Chevelle SS",
     brand: "Chevrolet",
-    brandKo: "셰보레",
+    brandKo: "쉐보레",
     era: "1970s",
     badges: ["추격"],
     filmSlug: "the-fast-and-the-furious",
@@ -546,10 +549,10 @@ export const cars: IconCar[] = [
   },
   {
     slug: "impala-1961",
-    nameKo: "1961 셰보레 임팔라",
+    nameKo: "1961 쉐보레 임팔라",
     nameEn: "1961 Chevrolet Impala",
     brand: "Chevrolet",
-    brandKo: "셰보레",
+    brandKo: "쉐보레",
     era: "1960s",
     badges: ["추격"],
     filmSlug: "fate-of-the-furious",
@@ -812,10 +815,10 @@ export const cars: IconCar[] = [
   },
   {
     slug: "camaro-f7-1968",
-    nameKo: "1968 셰보레 카마로 Z/28",
+    nameKo: "1968 쉐보레 카마로 Z/28",
     nameEn: "1968 Chevrolet Camaro Z/28",
     brand: "Chevrolet",
-    brandKo: "셰보레",
+    brandKo: "쉐보레",
     era: "1960s",
     badges: ["추격"],
     filmSlug: "furious-7",
@@ -1008,7 +1011,7 @@ export const cars: IconCar[] = [
   },
   {
     slug: "charger-hellcat-redeye-x",
-    nameKo: "2023 닷지 차저 SRT 헬캣 레디아이",
+    nameKo: "2023 닷지 차저 SRT 헬캣 레드아이",
     nameEn: "2023 Dodge Charger SRT Hellcat Redeye",
     brand: "Dodge",
     brandKo: "닷지",
@@ -1016,7 +1019,7 @@ export const cars: IconCar[] = [
     badges: ["출연"],
     filmSlug: "fast-x",
     filmTitleKo: "분노의 질주: 라이드 오어 다이",
-    oneLiner: "같은 단락이 출연 차량으로 적은 헬캣 레디아이. 운전자는 없습니다.",
+    oneLiner: "같은 단락이 출연 차량으로 적은 헬캣 레드아이. 운전자는 없습니다.",
     hasL2: true,
     posterTone: tone.red,
   },
@@ -1075,6 +1078,90 @@ export const cars: IconCar[] = [
     oneLiner: "단테가 타는 팬 아메리카. 배기와 가드가 개조되었다고 적혀 있습니다.",
     hasL2: true,
     posterTone: tone.orange,
+  },
+  {
+    slug: "buick-grand-national-1987",
+    nameKo: "1987 뷰익 그랜드 내셔널",
+    nameEn: "1987 Buick Grand National",
+    brand: "Buick",
+    brandKo: "뷰익",
+    era: "1980s",
+    badges: ["추격"],
+    filmSlug: "fast-and-furious",
+    filmTitleKo: "분노의 질주: 더 오리지널",
+    oneLiner: "도미니카 유조차 습격에서 돔이 몬다고 팬덤이 적은 그랜드 내셔널.",
+    hasL2: true,
+    posterTone: tone.silver,
+  },
+  {
+    slug: "ford-mustang-shelby-gt350-2015",
+    nameKo: "2015 포드 머스탱 셸비 GT350",
+    nameEn: "2015 Ford Mustang Shelby GT350",
+    brand: "Ford",
+    brandKo: "포드",
+    era: "2010s",
+    badges: ["추격"],
+    filmSlug: "f9",
+    filmTitleKo: "분노의 질주: 더 얼티메이트",
+    oneLiner: "팬덤이 야코프의 차로 적은 2015 GT350. 인물 목록은 Mustang GT로만 적습니다.",
+    hasL2: true,
+    posterTone: tone.red,
+  },
+  {
+    slug: "jeep-gladiator-2020",
+    nameKo: "2020 지프 글래디에이터",
+    nameEn: "2020 Jeep Gladiator",
+    brand: "Jeep",
+    brandKo: "지프",
+    era: "2020s",
+    badges: ["추격"],
+    filmSlug: "f9",
+    filmTitleKo: "분노의 질주: 더 얼티메이트",
+    oneLiner: "인물 목록이 9편에서 테지의 차로 적은 글래디에이터.",
+    hasL2: true,
+    posterTone: tone.green,
+  },
+  {
+    slug: "jeep-wrangler-rubicon-furious7",
+    nameKo: "지프 랭글러 루비콘",
+    nameEn: "Jeep Wrangler Rubicon",
+    brand: "Jeep",
+    brandKo: "지프",
+    era: "2010s",
+    badges: ["추격"],
+    filmSlug: "furious-7",
+    filmTitleKo: "분노의 질주: 더 세븐",
+    oneLiner: "공중 투하 목록에서 테지의 차로 적힌 랭글러 루비콘.",
+    hasL2: true,
+    posterTone: tone.green,
+  },
+  {
+    slug: "dodge-viper-furious7",
+    nameKo: "검은 닷지 바이퍼",
+    nameEn: "Dodge Viper",
+    brand: "Dodge",
+    brandKo: "닷지",
+    era: "2010s",
+    badges: ["추격"],
+    filmSlug: "furious-7",
+    filmTitleKo: "분노의 질주: 더 세븐",
+    oneLiner: "아부다비 모래길에서 로드리게스가 탄다고 적힌 검은 바이퍼.",
+    hasL2: true,
+    posterTone: tone.silver,
+  },
+  {
+    slug: "chevrolet-corvette-grand-sport-replica",
+    nameKo: "2007 쉐보레 콜벳 그랜드 스포츠 로드스터 레플리카",
+    nameEn: "2007 Chevrolet Corvette Grand Sport Roadster replica",
+    brand: "Chevrolet",
+    brandKo: "쉐보레",
+    era: "2000s",
+    badges: ["추격"],
+    filmSlug: "fast-five",
+    filmTitleKo: "분노의 질주: 언리미티드",
+    oneLiner: "리우 열차 습격의 복제 콜벳. 위키백과는 2007 GS 로드스터로 적습니다.",
+    hasL2: true,
+    posterTone: tone.gold,
   },
 ];
 
@@ -1308,7 +1395,9 @@ export const carDetails: Record<string, CarL2> = {
     overview: [
       "리우의 열차 습격에서 지지가 노리는 차는 Ford GT40입니다. 돔은 미아가 그 차를 직접 빼내게 합니다. 칩에 레예스 자금의 위치가 들어 있습니다.",
     ],
-    onScreen: ["열차의 다른 차는 1972 데 토마소 판테라와 2007 셰보레 콜벳 GS 로드스터입니다. 상세 페이지는 두지 않고 그 밖의 차량에 둡니다."],
+    onScreen: [
+      "열차의 다른 차는 1972 데 토마소 판테라와 2007 쉐보레 콜벳 GS 로드스터입니다. 콜벳 레플리카는 별도 카드이고, 판테라는 그 밖의 차량에 둡니다.",
+    ],
     production: [
       "제작진은 열차에서 뛰어내리는 차를 싸게 복제할 수 있는 기종으로 골랐습니다. 진짜 GT40를 약 200만 달러짜리로 바꾸지 않으려고입니다.",
     ],
@@ -2017,7 +2106,7 @@ export const carDetails: Record<string, CarL2> = {
       "회상의 1967 Dodge Charger, IMCDb의 2020 헬캣 와이드보디 세단과 다른 차입니다. 위키백과 줄거리는 이 개조를 이름하지 않습니다.",
     ],
     continuity: [
-      "더 익스트림의 돔의 차저, 라이드 오어 다이의 1970 R/T·헬캣 레디아이와도 합치지 않습니다.",
+      "더 익스트림의 돔의 차저, 라이드 오어 다이의 1970 R/T·헬캣 레드아이와도 합치지 않습니다.",
     ],
     sources: [TG_F9, WIKI_F9],
     related: [
@@ -2036,7 +2125,7 @@ export const carDetails: Record<string, CarL2> = {
     onScreen: [
       "미드십으로 만든 클래식 차저와 다른 항목입니다. 운전자는 제목이 적지 않습니다. 댓글의 변속기와 나이트러스는 사양으로 올리지 않습니다.",
     ],
-    continuity: ["F9 회상의 1967 차저, 라이드 오어 다이의 2023 헬캣 레디아이와 다른 차입니다."],
+    continuity: ["F9 회상의 1967 차저, 라이드 오어 다이의 2023 헬캣 레드아이와 다른 차입니다."],
     sources: [imcdb("v001346272.html", "2020 Charger SRT Hellcat Widebody"), WIKI_F9],
     related: [
       { href: "/films/f9", label: "더 얼티메이트" },
@@ -2077,7 +2166,7 @@ export const carDetails: Record<string, CarL2> = {
     related: [
       { href: "/films/fast-x", label: "라이드 오어 다이" },
       { href: "/cars/charger-rt-1970", label: "2001년 1970 R/T" },
-      { href: "/cars/charger-hellcat-redeye-x", label: "2023 헬캣 레디아이" },
+      { href: "/cars/charger-hellcat-redeye-x", label: "2023 헬캣 레드아이" },
     ],
     footnotes: [
       { n: 1, text: "1970 Charger R/T와 시리즈 단골이라는 말은 Fast X 위키백과 차량 단락입니다. 디젤이 몬다는 말은 같은 문서의 사진 설명입니다." },
@@ -2096,11 +2185,11 @@ export const carDetails: Record<string, CarL2> = {
       { href: "/films/fast-x", label: "라이드 오어 다이" },
       { href: "/cars/charger-torred-2022", label: "2022 토레드 차저 R/T" },
     ],
-    footnotes: [{ n: 1, text: "2023 헬캣 레디아이는 Fast X 위키백과 차량 단락입니다." }],
+    footnotes: [{ n: 1, text: "2023 헬캣 레드아이는 Fast X 위키백과 차량 단락입니다." }],
   }),
   "charger-torred-2022": detail("charger-torred-2022", {
     overview: [
-      "같은 문장은 2022 TorRed Dodge Charger R/T를 출연 차량으로 적습니다. 1970 R/T, 헬캣 레디아이와 다른 차입니다.",
+      "같은 문장은 2022 TorRed Dodge Charger R/T를 출연 차량으로 적습니다. 1970 R/T, 헬캣 레드아이와 다른 차입니다.",
     ],
     onScreen: ["운전자와 장면은 그 목록에 없습니다."],
     sources: [WIKI_X],
@@ -2152,5 +2241,154 @@ export const carDetails: Record<string, CarL2> = {
       { href: "/villains/dante-reyes", label: "단테" },
     ],
     footnotes: [{ n: 1, text: "팬 아메리카와 배기·가드 개조는 Fast X 위키백과 차량 단락입니다." }],
+  }),
+  "buick-grand-national-1987": detail("buick-grand-national-1987", {
+    overview: [
+      "팬덤의 1987 Buick Grand National 문서는 이 차가 2009년 작품에만 나오고, 도미니카 공화국에서 유조차를 빼앗을 때 돔이 몬다고 적습니다.",
+      "2009년 작품 위키백과 줄거리는 돔, 레티, 테고, 리코, 카라, 한이 도미니카 공화국에서 유조차를 습격한다고 적습니다. 그 문단에는 차 이름이 없습니다.",
+    ],
+    onScreen: [
+      "인물 목록은 돔이 가진 차 가운데 Buick GNX를 적습니다. 연식과 장면은 없고, 그랜드 내셔널과 같은 개체인지는 그 목록이 확인하지 않습니다.",
+    ],
+    continuity: ["같은 편의 1970 셰벨, 재건된 1970 차저와 다른 차입니다."],
+    sources: [
+      fandom("1987_Buick_Grand_National", "1987 Buick Grand National"),
+      WIKI_2009,
+      WIKI_CHARS,
+    ],
+    related: [
+      { href: "/films/fast-and-furious", label: "더 오리지널" },
+      { href: "/crew/dominic-toretto", label: "도미닉 토레토" },
+    ],
+    footnotes: [
+      {
+        n: 1,
+        text: "1987 그랜드 내셔널과 도미니카 유조차 습격은 팬덤 문서입니다. 차 이름 없는 습격 문장은 2009년 작품 위키백과 줄거리이고, Buick GNX는 인물 목록입니다.",
+      },
+    ],
+  }),
+  "ford-mustang-shelby-gt350-2015": detail("ford-mustang-shelby-gt350-2015", {
+    overview: [
+      "팬덤의 2015 Ford Mustang GT350 문서는 야코프 토레토가 F9에서 이 차를 몬다고 적습니다.",
+      "인물 목록의 야코프 차량은 9편에 2015 Ford Mustang GT를 올립니다. Shelby와 GT350은 그 목록에 없습니다.",
+    ],
+    onScreen: [
+      "회상의 1992 Ford Mustang Foxbody와 다른 항목입니다. 탑기어의 F9 차량 인터뷰에는 이 이름이 없습니다.",
+    ],
+    continuity: ["1992 폭스바디, 도쿄 드리프트의 1967 머스탱과 다른 포드입니다."],
+    sources: [
+      fandom("2015_Ford_Mustang_GT350", "2015 Ford Mustang GT350"),
+      WIKI_CHARS,
+      WIKI_F9,
+    ],
+    related: [
+      { href: "/films/f9", label: "더 얼티메이트" },
+      { href: "/villains/jakob-toretto", label: "야코프" },
+      { href: "/cars/mustang-foxbody-1992", label: "1992 폭스바디" },
+    ],
+    footnotes: [
+      {
+        n: 1,
+        text: "2015 GT350과 야코프는 팬덤 문서입니다. 2015 Ford Mustang GT는 인물 목록이고, F9 위키백과 줄거리의 머스탱은 1992 폭스바디입니다.",
+      },
+    ],
+  }),
+  "jeep-gladiator-2020": detail("jeep-gladiator-2020", {
+    overview: [
+      "인물 목록은 9편에서 테지 파커가 2020 Jeep Gladiator를 몰았다고 적습니다.",
+      "팬덤은 몬테킨토에서 테지가 이 차로 램지와 함께 이동하고, 로먼이 탄 뒤 무너지는 다리를 건넌다고 적습니다. F9 위키백과 줄거리에는 이 이름이 없습니다.",
+    ],
+    onScreen: ["연식은 2020년으로 목록에 있습니다. 색과 트림은 그 줄에 없습니다."],
+    continuity: ["더 세븐 공중 투하의 랭글러 루비콘과 다른 지프입니다."],
+    sources: [
+      WIKI_CHARS,
+      fandom("2020_Jeep_Gladiator", "2020 Jeep Gladiator"),
+      WIKI_F9,
+    ],
+    related: [
+      { href: "/films/f9", label: "더 얼티메이트" },
+      { href: "/crew/tej-parker", label: "테지" },
+      { href: "/cars/jeep-wrangler-rubicon-furious7", label: "랭글러 루비콘" },
+    ],
+    footnotes: [
+      {
+        n: 1,
+        text: "2020 Jeep Gladiator와 테지는 인물 목록입니다. 몬테킨토와 다리는 팬덤 문서입니다.",
+      },
+    ],
+  }),
+  "jeep-wrangler-rubicon-furious7": detail("jeep-wrangler-rubicon-furious7", {
+    overview: [
+      "탑기어의 공중 투하 목록은 돔의 1968 차저, 레티의 2015 챌린저 SRT, 로먼의 1968 카마로 Z/28, 브라이언의 스바루 WRX STI와 함께 테지의 Jeep Rubicon을 적습니다.",
+    ],
+    onScreen: [
+      "인물 목록은 7편에서 테지가 2015 Jeep Wrangler Unlimited를 몰았다고 적습니다. 루비콘인지, 공중 투하 차인지는 그 줄이 적지 않습니다.",
+      "위키백과 줄거리는 코카서스에서 개조한 차를 떨어뜨린다고만 하고, 랭글러를 이름하지 않습니다.",
+    ],
+    continuity: ["F9의 2020 글래디에이터와 다른 지프입니다."],
+    sources: [TG_F7, WIKI_F7, WIKI_CHARS],
+    related: [
+      { href: "/films/furious-7", label: "더 세븐" },
+      { href: "/crew/tej-parker", label: "테지" },
+      { href: "/cars/camaro-f7-1968", label: "1968 카마로 Z/28" },
+    ],
+    footnotes: [
+      {
+        n: 1,
+        text: "공중 투하의 Jeep Rubicon은 탑기어가 전한 매카시 인터뷰입니다. 2015 Jeep Wrangler Unlimited는 인물 목록입니다.",
+      },
+    ],
+  }),
+  "dodge-viper-furious7": detail("dodge-viper-furious7", {
+    overview: [
+      "탑기어는 라이칸이 나오기 직전, 아부다비 모래 위를 달리는 차로 워커의 맥라렌 12C, 루다크리스의 페라리 458, 타이레스의 부가티 베이론, 빈의 새 닷지 차저, 로드리게스의 검은 바이퍼를 적습니다.",
+      "차저를 뺀 그 차들은 소유자의 차였다고 같은 문단이 말합니다. 연식은 없습니다.",
+    ],
+    onScreen: [
+      "인물 목록은 7편에서 레티가 2010 Dodge Viper를 몰았다고 적습니다. 검은색과 아부다비는 그 줄에 없습니다.",
+      "공중 투하 목록의 레티 차는 2015 Challenger SRT입니다. 바이퍼와 다른 항목입니다.",
+    ],
+    continuity: ["도쿄 드리프트의 2003 Viper SRT-10은 클레이의 차입니다."],
+    sources: [TG_F7, WIKI_CHARS, WIKI_F7],
+    related: [
+      { href: "/films/furious-7", label: "더 세븐" },
+      { href: "/women/letty-ortiz", label: "레티" },
+      { href: "/cars/viper-srt10", label: "2003 바이퍼 SRT-10" },
+      { href: "/cars/challenger-srt-2015", label: "2015 챌린저 SRT" },
+    ],
+    footnotes: [
+      {
+        n: 1,
+        text: "검은 바이퍼와 아부다비는 탑기어가 전한 매카시 인터뷰입니다. 2010 Dodge Viper는 인물 목록입니다.",
+      },
+    ],
+  }),
+  "chevrolet-corvette-grand-sport-replica": detail("chevrolet-corvette-grand-sport-replica", {
+    overview: [
+      "언리미티드 제작 단락은 열차에서 뛰어내릴 차를 싸게 복제할 수 있는 기종으로 골랐다고 적습니다. 그 문장의 세 차는 Ford GT40, 1972 데 토마소 판테라, 2007 Chevrolet Corvette GS Roadster입니다.",
+      "문장은 GS를 그랜드 스포츠로 풀어 쓰지 않습니다. 카드 제목의 그랜드 스포츠는 그 약칭을 따른 것이고, 연식과 로드스터 너머의 트림은 더하지 않습니다.",
+    ],
+    onScreen: [
+      "돔이 미아에게 빼내게 한 차는 GT40입니다. 콜벳의 운전자는 그 문단이 적지 않습니다.",
+    ],
+    production: [
+      "같은 단락은 진짜 GT40가 약 200만 달러라 그 차를 바꾸지 않으려고 복제할 수 있는 기종을 골랐다고 적습니다. 콜벳도 그 복제 차 문장 안에 있습니다.",
+    ],
+    continuity: ["GT40, 판테라와 한 장면의 다른 차입니다. 판테라는 상세 페이지 없이 그 밖의 차량에 둡니다."],
+    sources: [WIKI_FIVE],
+    related: [
+      { href: "/films/fast-five", label: "언리미티드" },
+      { href: "/cars/ford-gt40", label: "포드 GT40" },
+    ],
+    footnotes: [
+      {
+        n: 1,
+        text: "2007 Chevrolet Corvette GS Roadster와 복제 차 문장은 언리미티드 위키백과 제작 단락입니다.",
+      },
+      {
+        n: 3,
+        text: "200만 달러는 같은 단락이 적은 진품 GT40의 이유입니다. 콜벳 촬영 차의 가격은 아닙니다.",
+      },
+    ],
   }),
 };
