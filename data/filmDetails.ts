@@ -1,8 +1,10 @@
 import type { Footnote, GossipItem, QuoteItem, Source } from "./types";
 import {
   WIKI_2001,
+  WIKI_2009,
   WIKI_2F2F,
   WIKI_FIVE,
+  WIKI_HOBBS,
   WIKI_SERIES,
   WIKI_SIX,
   WIKI_TOKYO,
@@ -58,21 +60,19 @@ export type FilmDetail = {
 const warning =
   "아래 줄거리는 결말을 포함합니다. 첫 시청 전이라면 한 줄 소개만 보고 넘어가도 됩니다.";
 
-const WIKI_2009 = wiki("Fast_%26_Furious_(2009_film)", "Fast & Furious (2009 film)");
 const WIKI_F7 = wiki("Furious_7", "Furious 7");
 const WIKI_FATE = wiki("The_Fate_of_the_Furious", "The Fate of the Furious");
-const WIKI_HOBBS = wiki("Hobbs_%26_Shaw", "Hobbs & Shaw");
 const WIKI_F9 = wiki("F9_(film)", "F9 (film)");
 const WIKI_X = wiki("Fast_X", "Fast X");
 
-function cars(title: string, body: string, carSlugs: string[]): CarL1 {
+function cars(title: string, body: string, carSlugs: string[], footnoteN = 3): CarL1 {
   return {
     title,
     body,
     carSlugs,
     ctaLabel: FF_CAR_CTA_LABEL,
     ctaPath: "/",
-    footnoteN: 3,
+    footnoteN,
   };
 }
 
@@ -144,8 +144,8 @@ export const filmDetails: Record<string, FilmDetail> = {
     ],
     cars: cars(
       "스카이라인, 에보, 옌코",
-      "R34, 에볼루션 VII, 로먼의 이클립스 스파이더, 수키의 S2000, 브라이언이 요트에 올린 1969 Yenko Camaro를 올립니다. 같은 장면에서 함께 구한 챌린저는 운전자를 특정하지 않습니다.",
-      ["skyline-r34", "evo-7", "eclipse-spyder", "s2000-suki", "yenko-camaro", "challenger-rt"],
+      "R34, 에볼루션 VII, 로먼의 이클립스 스파이더, 수키의 S2000, 브라이언이 요트에 올린 1969 Yenko Camaro를 올립니다. 같은 장면에서 함께 구한 챌린저는 운전자를 특정하지 않습니다. 1편의 MK4 수프라는 제작 단락이 슬랩 잭의 차로 다시 썼다고 적어, 그 문서도 이 편에 붙입니다.",
+      ["skyline-r34", "evo-7", "eclipse-spyder", "s2000-suki", "yenko-camaro", "challenger-rt", "supra-mk4"],
     ),
     gadgets: {
       density: "thick",
@@ -220,13 +220,25 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "han-lue", kind: "crew", nameKo: "한 루", nameEn: "Han Lue", role: "패밀리", note: "성강. 짧은 등장." },
       { slug: "arturo-braga", kind: "villain", nameKo: "아르투로 브라가", nameEn: "Arturo Braga", role: "적대", note: "존 오티즈." },
     ],
-    gadgets: thinGear("확인한 도입과 제작 단락에 별도 장비 이름이 없습니다. 차량 상세도 그 문서에서 차종을 확인하지 못한 것은 올리지 않습니다."),
+    cars: cars(
+      "스카이라인, 셰벨, 토리노, 스바루, 차저",
+      "브라이언이 압류장에서 고른 2002 Skyline GT-R R34, 돔의 1970 Chevelle SS, 페닉스의 초록 1972 Torino Sport, 이후 압류장에서 꺼낸 2008 Impreza WRX STI 해치백, 멕시코로 가는 재건된 1970 Charger R/T를 상세로 올립니다. 셰벨은 1편 크레딧 차와 같은 문서입니다. 2편의 1999 R34와는 다른 차입니다.",
+      [
+        "skyline-r34-2002",
+        "chevelle-ss-1970",
+        "torino-sport-1972",
+        "subaru-sti-2008",
+        "charger-rt-rebuilt",
+      ],
+      2,
+    ),
+    gadgets: thinGear("확인한 도입과 제작 단락에 별도 장비 이름이 없습니다. 차종은 위 차량 칸에 줄거리와 제작 단락이 적은 것만 올립니다."),
     quotes: [],
     trailerYoutubeId: "",
     sources: [WIKI_2009, WIKI_SERIES],
     footnotes: [
       { n: 1, text: "줄거리 한 줄, 상영 시간, 개봉일, 예산, 흥행은 2009년 작품 위키백과 도입과 정보 상자입니다." },
-      { n: 2, text: "장비와 차종을 비운 것은 이 편의 위키백과 도입에서 모델명을 확인하지 못했기 때문입니다." },
+      { n: 2, text: "다섯 차의 이름과 역할은 2009년 작품 위키백과 줄거리입니다. 셰벨이 1편 크레딧 차라는 점, 화면의 차저가 1969년 차라는 점은 제작 단락입니다." },
     ],
     related: [
       { href: "/origin", label: "단편 · Los Bandoleros" },
@@ -450,6 +462,11 @@ export const filmDetails: Record<string, FilmDetail> = {
       { slug: "hattie-shaw", kind: "woman", nameKo: "해티 쇼", nameEn: "Hattie Shaw", role: "협력", note: "버네사 커비. 한국어 위키는 헤티 쇼." },
       { slug: "brixton-lore", kind: "villain", nameKo: "브릭스턴 로어", nameEn: "Brixton Lore", role: "적대", note: "이드리스 엘바." },
     ],
+    cars: cars(
+      "런던의 맥라렌, 사모아의 피터빌트",
+      "시각효과 단락이 런던 추격에 적은 맥라렌은 IMCDb 항목 제목을 따라 2017 720S로 올립니다. 사모아 시퀀스에서 같은 단락이 이름으로 적은 피터빌트는 영화용 차로 올립니다. 운전자는 그 단락이 적지 않습니다.",
+      ["mclaren-720s", "peterbilt-samoa"],
+    ),
     gadgets: thinGear("바이러스는 줄거리의 위협입니다. 별도의 장비 상세로 만들 만큼 제원을 확인하지 못했습니다."),
     quotes: [],
     trailerYoutubeId: "",
@@ -457,6 +474,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "스핀오프, 시점, 137분, 개봉일, 예산, 흥행은 영어 위키백과입니다. 136분은 한국어 위키백과 정보 상자입니다." },
       { n: 2, text: "바이러스의 이름과 제원은 적지 않습니다." },
+      { n: 3, text: "맥라렌과 피터빌트는 홉스&쇼 위키백과 시각효과 단락입니다. 2017 720S와 Made for Movie 표기는 IMCDb 항목 제목입니다." },
     ],
     related: [{ href: "/crew/luke-hobbs", label: "패밀리 · 홉스" }],
   },

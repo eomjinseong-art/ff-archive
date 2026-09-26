@@ -2,10 +2,11 @@ import { carPhotos } from "./carPhotos";
 import type { GossipItem, LicensedImage, Source } from "./types";
 import {
   WIKI_2001,
+  WIKI_2009,
   WIKI_2F2F,
   WIKI_F9,
   WIKI_FATE,
-  WIKI_FIVE,
+  WIKI_HOBBS,
   WIKI_TOKYO,
   WIKI_X,
   imcdb,
@@ -508,7 +509,7 @@ export const cars: IconCar[] = [
     badges: ["추격"],
     filmSlug: "the-fast-and-the-furious",
     filmTitleKo: "분노의 질주",
-    oneLiner: "크레딧 뒤, 돔이 바하 캘리포니아에서 모는 차.",
+    oneLiner: "1편 크레딧 뒤 바하 캘리포니아. 2009년 작품 스트리트 레이스에도 돌아옵니다.",
     hasL2: true,
     posterTone: tone.gold,
   },
@@ -596,6 +597,90 @@ export const cars: IconCar[] = [
     posterTone: tone.gold,
     badges: ["출연"],
   },
+  {
+    slug: "skyline-r34-2002",
+    nameKo: "2002 닛산 스카이라인 GT-R R34",
+    nameEn: "2002 Nissan Skyline GT-R R34",
+    brand: "Nissan",
+    brandKo: "닛산",
+    era: "2000s",
+    badges: ["추격"],
+    filmSlug: "fast-and-furious",
+    filmTitleKo: "분노의 질주: 더 오리지널",
+    oneLiner: "브라이언이 압류장에서 골라 스트리트 레이스에 쓴 개조 차.",
+    hasL2: true,
+    posterTone: tone.blue,
+  },
+  {
+    slug: "torino-sport-1972",
+    nameKo: "1972 포드 토리노 스포츠",
+    nameEn: "1972 Ford Torino Sport",
+    brand: "Ford",
+    brandKo: "포드",
+    era: "1970s",
+    badges: ["추격"],
+    filmSlug: "fast-and-furious",
+    filmTitleKo: "분노의 질주: 더 오리지널",
+    oneLiner: "니트로메탄을 쓰는 초록 차. 페닉스가 몰고, 레티의 죽음과 이어집니다.",
+    hasL2: true,
+    posterTone: tone.green,
+  },
+  {
+    slug: "subaru-sti-2008",
+    nameKo: "2008 스바루 임프레자 WRX STI 해치백",
+    nameEn: "2008 Subaru Impreza WRX STI Hatchback",
+    brand: "Subaru",
+    brandKo: "스바루",
+    era: "2000s",
+    badges: ["추격"],
+    filmSlug: "fast-and-furious",
+    filmTitleKo: "분노의 질주: 더 오리지널",
+    oneLiner: "압류장에서 꺼내 돔의 집으로 가고, 멕시코로 갈 때도 쓰인 차.",
+    hasL2: true,
+    posterTone: tone.silver,
+  },
+  {
+    slug: "charger-rt-rebuilt",
+    nameKo: "재건된 1970 닷지 차저 R/T",
+    nameEn: "Rebuilt 1970 Dodge Charger R/T",
+    brand: "Dodge",
+    brandKo: "닷지",
+    era: "1970s",
+    badges: ["추격"],
+    filmSlug: "fast-and-furious",
+    filmTitleKo: "분노의 질주: 더 오리지널",
+    oneLiner: "멕시코에서 브라가를 쫓을 때 돔이 몬 차. 2001년 아버지 차와 다른 촬영 차입니다.",
+    hasL2: true,
+    posterTone: tone.orange,
+  },
+  {
+    slug: "mclaren-720s",
+    nameKo: "2017 맥라렌 720S",
+    nameEn: "2017 McLaren 720S",
+    brand: "McLaren",
+    brandKo: "맥라렌",
+    era: "2010s",
+    badges: ["추격"],
+    filmSlug: "hobbs-and-shaw",
+    filmTitleKo: "분노의 질주: 홉스&쇼",
+    oneLiner: "런던 추격의 맥라렌. 위키백과는 운전자를 적지 않습니다.",
+    hasL2: true,
+    posterTone: tone.orange,
+  },
+  {
+    slug: "peterbilt-samoa",
+    nameKo: "영화용 피터빌트",
+    nameEn: "Made-for-movie Peterbilt",
+    brand: "Peterbilt",
+    brandKo: "피터빌트",
+    era: "2010s",
+    badges: ["추격"],
+    filmSlug: "hobbs-and-shaw",
+    filmTitleKo: "분노의 질주: 홉스&쇼",
+    oneLiner: "사모아 추격에서 찍고 재현한 트럭. 양산 연식은 확정하지 않습니다.",
+    hasL2: true,
+    posterTone: tone.gold,
+  },
 ];
 
 for (const car of cars) {
@@ -658,9 +743,15 @@ export const carDetails: Record<string, CarL2> = {
     ],
     onScreen: ["IMCDb 항목 제목은 1970 Dodge Charger입니다. R/T라는 트림은 위키백과 줄거리가 적습니다."],
     production: ["블로어가 진짜인지, 스턴트 차의 연식이 다른지는 IMCDb 토론에 의견이 갈립니다. 그 토론을 사양으로 올리지 않습니다."],
-    continuity: ["더 맥시멈에서 돔이 기체 앞을 뚫고 나오는 차는 ‘a Charger’라고만 적혀 있습니다. 이 1970 R/T와 같은 개체라고 적지 않습니다."],
-    sources: [WIKI_2001, imcdb("v002077.html", "1970 Dodge Charger")],
-    related: [{ href: "/films/the-fast-and-the-furious", label: "2001년 작품" }],
+    continuity: [
+      "더 맥시멈에서 돔이 기체 앞을 뚫고 나오는 차는 ‘a Charger’라고만 적혀 있습니다. 이 1970 R/T와 같은 개체라고 적지 않습니다.",
+      "2009년 작품의 재건된 차저는 제작 단락이 다른 촬영 차라고 적습니다. 1969년 차의 그릴과 테일램프를 고쳐 1970년처럼 보이게 한 차입니다.",
+    ],
+    sources: [WIKI_2001, WIKI_2009, imcdb("v002077.html", "1970 Dodge Charger")],
+    related: [
+      { href: "/films/the-fast-and-the-furious", label: "2001년 작품" },
+      { href: "/cars/charger-rt-rebuilt", label: "재건된 1970 차저" },
+    ],
     footnotes: [{ n: 1, text: "R/T와 아버지 소유는 2001년 작품 위키백과 줄거리입니다." }],
   }),
   "jetta-mk3": detail("jetta-mk3", {
@@ -688,8 +779,13 @@ export const carDetails: Record<string, CarL2> = {
     onScreen: ["오프닝은 다른 세 명과 달리고, 열린 다리 점프가 있습니다. 수키가 그 레이스에 있습니다."],
     production: ["폴 워커는 기술 고문 크레이그 리버먼에게 빌린 R34를 오프닝에서 몰았다고 제작 단락이 적습니다."],
     videos: [{ id: "LiIdGRkz6G0", title: "The Fast Saga — Brian Races in the Nissan Skyline GT-R R34" }],
+    continuity: ["2009년 작품의 2002 R34는 압류장에서 고른 다른 차입니다. 이 1999년 차와 합치지 않습니다."],
     sources: [WIKI_2F2F],
-    related: [{ href: "/crew/brian-oconner", label: "브라이언" }, { href: "/films/2-fast-2-furious", label: "2편" }],
+    related: [
+      { href: "/crew/brian-oconner", label: "브라이언" },
+      { href: "/films/2-fast-2-furious", label: "2편" },
+      { href: "/cars/skyline-r34-2002", label: "2002 R34" },
+    ],
     footnotes: [{ n: 1, text: "차종과 리버먼의 차는 2편 위키백과입니다. 공식 채널 영상 제목은 그 클립을 가리킵니다." }],
   }),
   "evo-7": detail("evo-7", {
@@ -915,23 +1011,33 @@ export const carDetails: Record<string, CarL2> = {
   "chevelle-ss-1970": detail("chevelle-ss-1970", {
     overview: [
       "크레딧이 끝난 뒤, 돔은 멕시코 바하 캘리포니아를 1970 Chevrolet Chevelle SS로 달립니다.",
+      "2009년 작품 줄거리는 돔이 스트리트 레이스에 1970 Chevrolet Chevelle SS를 타고 나온다고 적습니다.",
     ],
     onScreen: [
-      "색, 개조, 그 차가 어디서 왔는지는 그 한 문장에 없습니다.",
+      "2001년 문장은 색과 개조를 적지 않습니다. 2009년 제작 단락은 그 빨간 차가 다시 나오고, 스트리트 레이스용으로 크게 개조된다고 적습니다.",
     ],
     timeline: [
       { year: "크레딧 후", text: "돔이 바하 캘리포니아에서 1970 셰벨 SS를 몹니다." },
+      { year: "2009", text: "같은 차가 스트리트 레이스에 돌아옵니다. 제작 단락은 1편 크레딧의 차라고 적습니다." },
+    ],
+    production: [
+      "2009년 작품 제작 단락은 1편 크레딧 뒤에 나온 빨간 1970 Chevelle SS가 다시 나오고, 이후 스트리트 레이스용으로 크게 개조된다고 적습니다.",
     ],
     continuity: [
       "같은 편의 1970 Dodge Charger R/T는 아버지의 차이고, 트럭에 받힙니다. 셰벨과 다른 차입니다.",
+      "2009년 작품에서 돔이 멕시코로 몰고 가는 재건된 차저는 이 셰벨이 아닙니다.",
     ],
-    sources: [WIKI_2001],
+    sources: [WIKI_2001, WIKI_2009],
     related: [
       { href: "/films/the-fast-and-the-furious", label: "분노의 질주" },
+      { href: "/films/fast-and-furious", label: "더 오리지널" },
       { href: "/cars/charger-rt-1970", label: "1970 차저 R/T" },
       { href: "/crew/dominic-toretto", label: "도미닉 토레토" },
     ],
-    footnotes: [{ n: 1, text: "바하 캘리포니아와 차종은 2001년 작품 위키백과의 크레딧 후 장면입니다." }],
+    footnotes: [
+      { n: 1, text: "바하 캘리포니아와 차종은 2001년 작품 위키백과의 크레딧 후 장면입니다." },
+      { n: 3, text: "2009년 귀환과 개조는 2009년 작품 위키백과 제작 단락입니다. 줄거리도 돔이 1970 Chevelle SS를 타고 나온다고 적습니다." },
+    ],
   }),
   "fairlane-1956": detail("fairlane-1956", {
     overview: [
@@ -1057,5 +1163,143 @@ export const carDetails: Record<string, CarL2> = {
     sources: [WIKI_X],
     related: [{ href: "/films/fast-x", label: "라이드 오어 다이" }],
     footnotes: [{ n: 1, text: "출연 목록은 Fast X 위키백과 제작 단락입니다. 운전자는 확인하지 못했습니다." }],
+  }),
+  "skyline-r34-2002": detail("skyline-r34-2002", {
+    overview: [
+      "2009년 작품 줄거리는 브라이언이 압류장에서 개조된 2002 Nissan Skyline GT-R R34를 고른다고 적습니다. 데이비드 박이 연결한 스트리트 레이스에 그 차를 타고 나갑니다.",
+      "돔은 1970 Chevrolet Chevelle SS로 나오고, 니트로 중에 브라이언의 차를 받아 이깁니다. 브라이언은 다른 드라이버를 체포한 뒤 그 자리를 차지합니다.",
+    ],
+    onScreen: [
+      "줄거리가 이 차의 이름을 주는 장면은 압류장과 그 다음 스트리트 레이스입니다. 돔이 니트로 중에 이 차를 받아 이깁니다.",
+    ],
+    production: [
+      "제작 단락은 파란 Nissan Skyline GT-R R34를 위해 스카이라인 25GT로 복제차를 만들었다고 적습니다. 사막에 쓴 스카이라인은 R34 껍데기를 씌운 듄 버기입니다. 압류장 레이스 차와 같은 개체인지는 그 문장이 말하지 않습니다.",
+    ],
+    continuity: [
+      "2편의 1999 Nissan R34 Skyline GT-R, 더 세븐의 2012 GT-R R35와 다른 차입니다.",
+    ],
+    sources: [WIKI_2009],
+    related: [
+      { href: "/films/fast-and-furious", label: "더 오리지널" },
+      { href: "/cars/skyline-r34", label: "1999 R34" },
+      { href: "/cars/chevelle-ss-1970", label: "1970 셰벨 SS" },
+      { href: "/crew/brian-oconner", label: "브라이언" },
+    ],
+    footnotes: [
+      { n: 1, text: "차종, 압류장, 레이스 결과는 2009년 작품 위키백과 줄거리입니다." },
+      { n: 3, text: "25GT 복제차와 사막의 듄 버기는 같은 문서의 제작 단락입니다." },
+    ],
+  }),
+  "torino-sport-1972": detail("torino-sport-1972", {
+    overview: [
+      "돔은 레티가 죽은 자리에서 니트로메탄 흔적을 찾습니다. 정비사는 그 동네에서 니트로메탄을 쓰는 차가 초록색 1972 Ford Torino Sport뿐이라고 말합니다.",
+      "국경을 넘는 팀에서 돔은 페닉스가 그 토리노를 모는 것을 알아봅니다. 페닉스는 일을 끝낸 드라이버를 죽이고, 레티도 그렇게 죽었다고 말합니다.",
+    ],
+    onScreen: [
+      "색은 초록으로 적혀 있습니다. 트림을 그란 토리노로 바꾸어 적지 않습니다. 줄거리의 이름은 Torino Sport입니다.",
+    ],
+    continuity: [
+      "1편의 1970 Chevelle SS, 재건된 1970 Charger R/T와 다른 포드·닷지입니다.",
+    ],
+    sources: [WIKI_2009],
+    related: [
+      { href: "/films/fast-and-furious", label: "더 오리지널" },
+      { href: "/villains/arturo-braga", label: "아르투로 브라가" },
+    ],
+    footnotes: [{ n: 1, text: "차종, 색, 니트로메탄, 페닉스는 2009년 작품 위키백과 줄거리입니다." }],
+  }),
+  "subaru-sti-2008": detail("subaru-sti-2008", {
+    overview: [
+      "브라이언은 헤로인을 실은 1999 Hummer H1을 빼앗아 로스앤젤레스로 돌아옵니다. 압류장에 헤로인을 숨긴 뒤, 둘은 개조된 2008 Subaru Impreza WRX STI 해치백을 집어 돔의 집으로 갑니다.",
+      "지젤의 도움으로 브라가를 잡으러 멕시코로 갈 때의 두 차는 이 스바루와 돔의 재건된 1970 Dodge Charger R/T입니다.",
+    ],
+    onScreen: [
+      "해치백이라는 차체는 줄거리에 있습니다. 색과 출력은 없습니다.",
+    ],
+    continuity: [
+      "앞선 레이스의 2002 R34, 돔의 셰벨이 불탄 뒤에 타는 차입니다. 그 두 대와 합치지 않습니다.",
+    ],
+    sources: [WIKI_2009],
+    related: [
+      { href: "/films/fast-and-furious", label: "더 오리지널" },
+      { href: "/cars/charger-rt-rebuilt", label: "재건된 1970 차저" },
+      { href: "/cars/skyline-r34-2002", label: "2002 R34" },
+    ],
+    footnotes: [{ n: 1, text: "해치백과 멕시코행은 2009년 작품 위키백과 줄거리입니다." }],
+  }),
+  "charger-rt-rebuilt": detail("charger-rt-rebuilt", {
+    overview: [
+      "줄거리는 브라이언과 돔이 멕시코로 갈 때 돔이 재건한 1970 Dodge Charger R/T를 몬다고 적습니다. 터널을 나와 페닉스를 받습니다.",
+      "경찰이 다가오자 돔은 더 도망치지 않겠다고 말하고, 형량을 받습니다.",
+    ],
+    onScreen: [
+      "줄거리의 이름은 재건된 1970 Dodge Charger R/T입니다. 1편에서 트럭에 받힌 아버지 차와 같은 문장으로 적지 않습니다.",
+    ],
+    production: [
+      "1편에 쓴 1970 Dodge Charger는 복원 때문에 분해되어 있었습니다. 이 영화의 화면 차는 1969 Dodge Charger R/T 426 Hemi의 그릴과 테일램프를 조금 고쳐 1970년처럼 보이게 한 차입니다.",
+    ],
+    continuity: [
+      "2001년의 아버지 차저, 언리미티드의 2010 경찰 차저, F9의 1967 차저와 같은 개체로 적지 않습니다.",
+    ],
+    sources: [WIKI_2009],
+    related: [
+      { href: "/films/fast-and-furious", label: "더 오리지널" },
+      { href: "/cars/charger-rt-1970", label: "2001년 1970 R/T" },
+      { href: "/cars/subaru-sti-2008", label: "2008 임프레자 WRX STI" },
+      { href: "/crew/dominic-toretto", label: "도미닉 토레토" },
+    ],
+    footnotes: [
+      { n: 1, text: "재건된 1970 R/T와 멕시코 추격은 2009년 작품 위키백과 줄거리입니다." },
+      { n: 3, text: "화면 차가 1969년 차저라는 점은 같은 문서의 제작 단락입니다." },
+    ],
+  }),
+  "mclaren-720s": detail("mclaren-720s", {
+    overview: [
+      "홉스&쇼 위키백과 시각효과 단락은 런던 추격이 블루스크린 환경과 차 실내, 맥라렌 외관의 CGI 반사로 이뤄진다고 적습니다.",
+      "같은 단락은 맥라렌과 브릭스턴의 바이크에 배우 대역을 썼다고 적습니다. 모델명과 운전자는 그 문장에 없습니다.",
+    ],
+    onScreen: [
+      "바이크의 기종도 적지 않습니다. 맥라렌만 차종 문서에 올립니다.",
+    ],
+    production: [
+      "IMCDb 항목 제목은 2017 McLaren 720S이고, 인물 또는 추격에 쓰인 차량으로 분류합니다. 연식과 모델은 그 제목을 따릅니다.",
+    ],
+    continuity: [
+      "더 세븐의 라이칸, 라이드 오어 다이의 가야르도와 다른 슈퍼카입니다.",
+    ],
+    sources: [WIKI_HOBBS, imcdb("v001231130.html", "2017 McLaren 720S")],
+    related: [
+      { href: "/films/hobbs-and-shaw", label: "홉스&쇼" },
+      { href: "/cars/peterbilt-samoa", label: "영화용 피터빌트" },
+    ],
+    footnotes: [
+      { n: 1, text: "런던 추격의 맥라렌은 홉스&쇼 위키백과 시각효과 단락입니다." },
+      { n: 3, text: "2017 720S는 IMCDb 항목 제목입니다. 운전자는 위키백과 그 단락이 적지 않습니다." },
+    ],
+  }),
+  "peterbilt-samoa": detail("peterbilt-samoa", {
+    overview: [
+      "시각효과 단락은 사모아 추격에 나온 차량으로 Peterbilt, M37, Ratrod, Black Hawk를 적습니다. 그 가운데 피터빌트를 트럭 문서로 올립니다.",
+      "M37, 랫로드, 헬리콥터는 같은 문장에 있지만 상세 페이지는 두지 않습니다.",
+    ],
+    onScreen: [
+      "누가 몰았는지, 견인 장치인지, 양산 연식인지는 위키백과 그 단락에 없습니다.",
+    ],
+    production: [
+      "IMCDb 항목 제목은 1966 Made for Movie Peterbilt이고, 견인차로 분류합니다. 항목 댓글은 공장에서 나온 피터빌트인지에 의견이 갈립니다. 연식은 그 댓글을 확정 사양으로 올리지 않고, 제목의 Made for Movie만 따릅니다.",
+    ],
+    continuity: [
+      "언리미티드의 Gurkha LAPV, 더 맥시멈의 플립 카와 다른 특수 차량입니다.",
+    ],
+    sources: [WIKI_HOBBS, imcdb("v001284845.html", "Made for Movie Peterbilt")],
+    related: [
+      { href: "/films/hobbs-and-shaw", label: "홉스&쇼" },
+      { href: "/cars/mclaren-720s", label: "2017 맥라렌 720S" },
+      { href: "/crew/luke-hobbs", label: "루크 홉스" },
+    ],
+    footnotes: [
+      { n: 1, text: "사모아 시퀀스의 피터빌트는 홉스&쇼 위키백과 시각효과 단락입니다." },
+      { n: 3, text: "Made for Movie 표기와 연식 논쟁은 IMCDb 항목과 그 댓글입니다. 연식은 확정하지 않습니다." },
+    ],
   }),
 };
