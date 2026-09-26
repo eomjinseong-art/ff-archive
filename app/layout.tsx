@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     description: `${SITE_TAGLINE}. ${SITE_SUB}`,
     images: [OG_IMAGE.url],
   },
+  verification: {
+    google: "LglMaYLzS6dacAPQ5ZgZdPgzdtfLbp_1Rk5vh3WNPlM",
+  },
 };
 
 export default function RootLayout({
