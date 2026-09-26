@@ -143,6 +143,7 @@ export function FilmDetailView({ detail }: { detail: FilmDetail }) {
       <FilmVehiclesBlock
         cars={detail.cars}
         extras={otherVehiclesForFilm(film.slug)}
+        filmSlug={film.slug}
         filmTitleKo={film.titleKo}
         filmTitleEn={film.titleEn}
       />

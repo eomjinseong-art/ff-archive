@@ -4,7 +4,8 @@ import { GossipBoard } from "@/components/GossipBoard";
 import { ImageSearchLink } from "@/components/ImageSearchLink";
 import { SisterCta } from "@/components/SisterCta";
 import { Fn } from "@/components/Sources";
-import { getCar } from "@/data/cars";
+import { cars as carCatalog, getCar } from "@/data/cars";
+import { FF_CAR_CTA_LABEL } from "@/lib/site";
 import type { CarL1 } from "@/data/filmDetails";
 import {
   atmospherePlaceholder,
@@ -15,33 +16,48 @@ import {
 import type { OtherVehicle } from "@/data/otherVehicles";
 import { otherVehicleLookQuery } from "@/lib/googleImages";
 
+function slugsForFilm(listed: string[] | undefined, filmSlug?: string) {
+  const owned = filmSlug
+    ? carCatalog.filter((car) => car.filmSlug === filmSlug).map((car) => car.slug)
+    : [];
+  const seen = new Set<string>();
+  const slugs: string[] = [];
+  for (const slug of [...(listed ?? []), ...owned]) {
+    if (seen.has(slug) || !getCar(slug)) continue;
+    seen.add(slug);
+    slugs.push(slug);
+  }
+  return slugs;
+}
+
 export function FilmVehiclesBlock({
   cars,
   extras,
+  filmSlug,
   filmTitleKo,
   filmTitleEn,
 }: {
   cars?: CarL1;
   extras: OtherVehicle[];
+  filmSlug?: string;
   filmTitleKo?: string;
   filmTitleEn?: string;
 }) {
-  const featured =
-    cars?.carSlugs
-      .map((slug) => {
-        const car = getCar(slug);
-        if (!car) return null;
-        return { car, slug };
-      })
-      .filter((row): row is { car: NonNullable<ReturnType<typeof getCar>>; slug: string } =>
-        Boolean(row),
-      ) ?? [];
+  const featured = slugsForFilm(cars?.carSlugs, filmSlug)
+    .map((slug) => {
+      const car = getCar(slug);
+      if (!car) return null;
+      return { car, slug };
+    })
+    .filter((row): row is { car: NonNullable<ReturnType<typeof getCar>>; slug: string } =>
+      Boolean(row),
+    );
   const featuredSlugs = new Set(featured.map((row) => row.slug));
   const extraRows = extras.filter(
     (vehicle) => !vehicle.carSlug || !featuredSlugs.has(vehicle.carSlug),
   );
 
-  if (!cars && extraRows.length === 0) return null;
+  if (!cars && featured.length === 0 && extraRows.length === 0) return null;
 
   return (
     <section className="mt-8">
@@ -174,9 +190,12 @@ export function FilmVehiclesBlock({
         </div>
       ) : null}
 
-      {cars ? (
+      {cars || featured.length > 0 ? (
         <div className="mt-5">
-          <SisterCta label={cars.ctaLabel} path={cars.ctaPath} />
+          <SisterCta
+            label={cars?.ctaLabel ?? FF_CAR_CTA_LABEL}
+            path={cars?.ctaPath ?? "/"}
+          />
         </div>
       ) : null}
     </section>
