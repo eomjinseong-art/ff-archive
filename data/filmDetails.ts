@@ -222,13 +222,14 @@ export const filmDetails: Record<string, FilmDetail> = {
     ],
     cars: cars(
       "스카이라인, 셰벨, 토리노, 스바루, 차저",
-      "브라이언이 압류장에서 고른 2002 Skyline GT-R R34, 돔의 1970 Chevelle SS, 페닉스의 초록 1972 Torino Sport, 이후 압류장에서 꺼낸 2008 Impreza WRX STI 해치백, 멕시코로 가는 재건된 1970 Charger R/T를 상세로 올립니다. 셰벨은 1편 크레딧 차와 같은 문서입니다. 2편의 1999 R34와는 다른 차입니다.",
+      "브라이언이 압류장에서 고른 2002 Skyline GT-R R34, 돔의 1970 Chevelle SS, 페닉스의 초록 1972 Torino Sport, 이후 압류장에서 꺼낸 2008 Impreza WRX STI 해치백, 멕시코로 가는 재건된 1970 Charger R/T를 상세로 올립니다. 팬덤이 도미니카 유조차 습격의 차로 적은 1987 그랜드 내셔널도 올립니다. 셰벨은 1편 크레딧 차와 같은 문서입니다. 2편의 1999 R34와는 다른 차입니다.",
       [
         "skyline-r34-2002",
         "chevelle-ss-1970",
         "torino-sport-1972",
         "subaru-sti-2008",
         "charger-rt-rebuilt",
+        "buick-grand-national-1987",
       ],
       2,
     ),
@@ -238,7 +239,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     sources: [WIKI_2009, WIKI_SERIES],
     footnotes: [
       { n: 1, text: "줄거리 한 줄, 상영 시간, 개봉일, 예산, 흥행은 2009년 작품 위키백과 도입과 정보 상자입니다." },
-      { n: 2, text: "다섯 차의 이름과 역할은 2009년 작품 위키백과 줄거리입니다. 셰벨이 1편 크레딧 차라는 점, 화면의 차저가 1969년 차라는 점은 제작 단락입니다." },
+      { n: 2, text: "스카이라인, 셰벨, 토리노, 스바루, 차저의 이름과 역할은 2009년 작품 위키백과 줄거리입니다. 셰벨이 1편 크레딧 차라는 점, 화면의 차저가 1969년 차라는 점은 제작 단락입니다. 1987 그랜드 내셔널은 팬덤 문서이고, 그 작품 줄거리는 차 이름을 적지 않습니다." },
     ],
     related: [
       { href: "/origin", label: "단편 · Los Bandoleros" },
@@ -271,8 +272,8 @@ export const filmDetails: Record<string, FilmDetail> = {
     ],
     cars: cars(
       "GT40, 경찰 차저, 구르카, 코닉세그",
-      "열차의 포드 GT40, 2010 Dodge Charger 경찰차, Gurkha LAPV, 엔딩의 Koenigsegg CCXR를 상세로 올립니다. 판테라와 콜벳은 복제 차라 기타 차량에 둡니다.",
-      ["ford-gt40", "charger-2010", "gurkha", "koenigsegg-ccxr"],
+      "열차의 포드 GT40 레플리카, 2007 콜벳 GS 로드스터 레플리카, 2010 Dodge Charger 경찰차, Gurkha LAPV, 엔딩의 Koenigsegg CCXR를 상세로 올립니다. 판테라는 복제 차라 그 밖의 차량에 둡니다.",
+      ["ford-gt40", "chevrolet-corvette-grand-sport-replica", "charger-2010", "gurkha", "koenigsegg-ccxr"],
     ),
     gadgets: {
       density: "solid",
@@ -286,7 +287,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "상영 시간 130분, 미국 개봉 2011년 4월 29일, 예산 1억 2,500만 달러는 정보 상자입니다. 도입의 흥행은 6억 3,000만 달러이고, 박스오피스 단락의 합계는 6억 2,610만 달러입니다." },
       { n: 2, text: "금고의 크기와 케이블은 언리미티드 위키백과 제작 단락입니다." },
-      { n: 3, text: "GT40가 진품 약 200만 달러라 복제차를 썼다는 문장은 같은 제작 단락입니다." },
+      { n: 3, text: "GT40가 진품 약 200만 달러라 복제차를 썼다는 문장, 그리고 같은 문장의 2007 콜벳 GS 로드스터는 언리미티드 위키백과 제작 단락입니다." },
     ],
     related: [
       { href: "/gadgets/vault", label: "장비 · 금고" },
@@ -377,7 +378,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     ],
     cars: cars(
       "라이칸, 차저, 흰색 수프라",
-      "에티하드 타워의 라이칸과 IMCDb의 2012 GT-R R35, 오프로드 차저, 헬리콥터에 충돌한 차저, 결말의 흰색 수프라, 공중 투하 목록의 카마로와 챌린저를 올립니다. W 모터스 차는 라이칸과 그 복제입니다. 젠슨 인터셉터는 더 맥시멈 항목입니다.",
+      "에티하드 타워의 라이칸과 IMCDb의 2012 GT-R R35, 오프로드 차저, 헬리콥터에 충돌한 차저, 결말의 흰색 수프라, 공중 투하 목록의 카마로와 챌린저, 테지의 랭글러 루비콘, 아부다비의 검은 바이퍼를 올립니다. W 모터스 차는 라이칸과 그 복제입니다. 젠슨 인터셉터는 더 맥시멈 항목입니다.",
       [
         "lykan-hypersport",
         "gtr-r35",
@@ -386,6 +387,8 @@ export const filmDetails: Record<string, FilmDetail> = {
         "supra-white-f7",
         "camaro-f7-1968",
         "challenger-srt-2015",
+        "jeep-wrangler-rubicon-furious7",
+        "dodge-viper-furious7",
       ],
     ),
     gadgets: {
@@ -401,7 +404,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "상영 시간 137분, 미국 개봉 2015년 4월 3일, 흥행 15억 1,500만 달러는 정보 상자입니다. 예산 칸은 본문에 범위가 있다고 적혀 한 숫자로 적지 않습니다." },
       { n: 2, text: "차량 340대 사용, 230대 이상 파괴, 액션의 약 10%만 CGI라는 문장은 더 세븐 위키백과 제작 단락입니다." },
-      { n: 3, text: "라이칸의 화면 가치 340만 달러와 복제 차 구분은 더 세븐 위키백과입니다. 오프로드 차저, 카마로, 챌린저, 흰색 수프라는 탑기어가 전한 매카시 인터뷰이고, 헬리콥터 차저의 연식은 한 해로 잠그지 않습니다." },
+      { n: 3, text: "라이칸의 화면 가치 340만 달러와 복제 차 구분은 더 세븐 위키백과입니다. 오프로드 차저, 카마로, 챌린저, 랭글러 루비콘, 검은 바이퍼, 흰색 수프라는 탑기어가 전한 매카시 인터뷰이고, 헬리콥터 차저의 연식은 한 해로 잠그지 않습니다." },
     ],
     related: [
       { href: "/issues/walker", label: "이슈 · 폴 워커" },
@@ -512,7 +515,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     ],
     cars: cars(
       "차저, 피에로, 프로젝트 8",
-      "회상의 1967 차저와 1992 머스탱, 줄거리가 로켓 카로만 적은 피에로, 미드십 차저, 2020 헬캣 세단, 재규어 프로젝트 8, 노블 M600을 올립니다. 피에로 연식은 적지 않습니다.",
+      "회상의 1967 차저와 1992 머스탱, 줄거리가 로켓 카로만 적은 피에로, 미드십 차저, 2020 헬캣 세단, 재규어 프로젝트 8, 노블 M600, 팬덤의 2015 GT350, 인물 목록의 2020 글래디에이터를 올립니다. 피에로 연식은 적지 않습니다.",
       [
         "charger-1967",
         "mustang-foxbody-1992",
@@ -521,6 +524,8 @@ export const filmDetails: Record<string, FilmDetail> = {
         "charger-hellcat-f9",
         "jaguar-project8-f9",
         "noble-m600-f9",
+        "ford-mustang-shelby-gt350-2015",
+        "jeep-gladiator-2020",
       ],
     ),
     gadgets: thinGear("프로젝트 아레스는 줄거리의 무기 프로그램입니다. 제원을 확인하지 못해 장비 상세로 만들지 않습니다."),
@@ -530,7 +535,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     footnotes: [
       { n: 1, text: "143분·개봉일·흥행 7억 2,620만 달러·예산 2억–2억 2,500만 달러는 영어 정보 상자입니다. 142분은 한국어 위키백과입니다." },
       { n: 2, text: "존슨의 결석, 한의 생존, 독일의 션은 F9 위키백과 줄거리와 제작 단락입니다." },
-      { n: 3, text: "1967 차저, 1992 머스탱, 로켓 카는 F9 위키백과입니다. 피에로, 미드십 차저, 프로젝트 8, M600은 IMCDb 또는 탑기어가 전한 매카시 인터뷰입니다. 피에로 연식은 적지 않습니다." },
+      { n: 3, text: "1967 차저, 1992 머스탱, 로켓 카는 F9 위키백과입니다. 피에로, 미드십 차저, 프로젝트 8, M600은 IMCDb 또는 탑기어가 전한 매카시 인터뷰입니다. 2015 GT350은 팬덤이고 인물 목록은 2015 Mustang GT로만 적습니다. 2020 글래디에이터는 인물 목록입니다. 피에로 연식은 적지 않습니다." },
     ],
     related: [
       { href: "/lin-era", label: "린의 다섯 편" },
@@ -566,7 +571,7 @@ export const filmDetails: Record<string, FilmDetail> = {
     ],
     cars: cars(
       "차저, 가야르도, 팬 아메리카",
-      "가야르도, 1970 Charger R/T, 2023 헬캣 레디아이, 2022 TorRed Charger R/T, 후에이라 트리콜로레, 리오의 포르쉐 911, 단테의 팬 아메리카를 올립니다. 1970 차저를 로마 장면으로 적지 않습니다. 유출된 밴시 콘셉트와 보도만 있던 베일사이드 RX-7은 빼 둡니다.",
+      "가야르도, 1970 Charger R/T, 2023 헬캣 레드아이, 2022 TorRed Charger R/T, 후에이라 트리콜로레, 리오의 포르쉐 911, 단테의 팬 아메리카를 올립니다. 1970 차저를 로마 장면으로 적지 않습니다. 유출된 밴시 콘셉트와 보도만 있던 베일사이드 RX-7은 빼 둡니다.",
       [
         "gallardo",
         "charger-rt-1970-x",

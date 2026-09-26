@@ -6,6 +6,7 @@ import { CreditedMedia } from "@/components/CreditedMedia";
 import { JsonLd } from "@/components/JsonLd";
 import { GossipBoard } from "@/components/GossipBoard";
 import { SameBrandCars } from "@/components/SameBrandCars";
+import { UsaMotorsLink } from "@/components/UsaMotorsLink";
 import { SisterCta } from "@/components/SisterCta";
 import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
@@ -211,6 +212,7 @@ export default async function CarDetailPage({
       </div>
 
       <SameBrandCars brand={car.brand} brandKo={car.brandKo} />
+      <UsaMotorsLink slug={car.slug} />
 
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">관련</h2>
