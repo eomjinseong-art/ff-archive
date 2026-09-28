@@ -46,7 +46,7 @@ export function PersonDetailView({
         image={portraitOrAtmosphere(image)}
         tone={person.posterTone}
         alt={image?.alt ?? placeholderAlt(`${person.nameKo} (${person.nameEn})`)}
-        aspectClass="aspect-[2/3] sm:aspect-[16/9]"
+        aspectClass="aspect-[3/4] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         priority
         compactCredit={false}

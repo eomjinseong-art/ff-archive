@@ -34,6 +34,20 @@ export function ImageCredit({
   const linkClass =
     "underline decoration-line underline-offset-2 hover:text-gold";
 
+  if (image.isSiteDefault) {
+    return (
+      <figcaption
+        className={
+          compact
+            ? "mt-1.5 text-[10px] leading-4 text-muted"
+            : "mt-2 text-xs leading-5 text-muted"
+        }
+      >
+        대표 이미지
+      </figcaption>
+    );
+  }
+
   if (image.isPlaceholder) {
     return (
       <figcaption

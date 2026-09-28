@@ -80,7 +80,8 @@ export default async function CarDetailPage({
   const detail = carDetails[slug];
   if (!car || !detail) notFound();
   const image = car.image ?? carImages[car.slug] ?? atmospherePlaceholder;
-  const photoUrl = image.isPlaceholder ? undefined : `${SITE_URL}${image.src}`;
+  const photoUrl =
+    image.isPlaceholder || image.isSiteDefault ? undefined : `${SITE_URL}${image.src}`;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
@@ -104,7 +105,13 @@ export default async function CarDetailPage({
       <CreditedMedia
         image={image}
         tone={car.posterTone}
-        alt={image.isPlaceholder ? placeholderAlt(`${car.nameKo} (${car.nameEn})`) : image.alt}
+        alt={
+          image.isSiteDefault
+            ? `${car.nameKo} (${car.nameEn})`
+            : image.isPlaceholder
+              ? placeholderAlt(`${car.nameKo} (${car.nameEn})`)
+              : image.alt
+        }
         aspectClass="aspect-[2/3] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         priority

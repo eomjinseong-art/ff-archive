@@ -1,32 +1,42 @@
 import type { LicensedImage } from "./types";
 import { carPhotos } from "./carPhotos";
+import { filmPhotos } from "./filmPhotos";
+import { directorPortraits, personPortraits } from "./portraits";
 
-/** Abstract stand-in. Not a film still. */
-export const atmospherePlaceholder: LicensedImage = {
-  src: "/images/placeholders/archive-atmosphere.png",
-  width: 1600,
-  height: 900,
-  alt: "어두운 바탕에 금색 호만 있는 아카이브 플레이스홀더",
-  author: "아카이브 플레이스홀더",
-  license: "사이트 제작 이미지",
+/** Owner photo. Used when no free-license photo exists, and when a photo fails to load. */
+export const defaultCarImage: LicensedImage = {
+  src: "/images/default-car.webp",
+  width: 1672,
+  height: 941,
+  alt: "밤의 젖은 도로 위 스포츠카 두 대. 사이트 대표 이미지",
+  author: "",
+  license: "",
   licenseUrl: "",
   sourceUrl: "",
   sourceLabel: "",
-  isPlaceholder: true,
-  objectPosition: "70% center",
+  isSiteDefault: true,
+  objectPosition: "center",
 };
 
-export function portraitOrAtmosphere(image?: LicensedImage): LicensedImage {
-  return image ?? atmospherePlaceholder;
+/** @deprecated Use defaultCarImage. Kept so existing fallbacks stay one image. */
+export const atmospherePlaceholder: LicensedImage = defaultCarImage;
+
+export function portraitOrAtmosphere(image?: LicensedImage, alt?: string): LicensedImage {
+  if (image) return image;
+  return alt ? { ...defaultCarImage, alt } : defaultCarImage;
 }
 
 export const placeImages: Record<string, LicensedImage> = {};
 
-export const filmImages: Record<string, LicensedImage> = {};
+export const filmImages: Record<string, LicensedImage> = filmPhotos;
 
-export const directorImages: Record<string, LicensedImage> = {};
+export const directorImages: Record<string, LicensedImage> = directorPortraits;
 
-export const personImages: Record<string, LicensedImage> = {};
+export const personImages: Record<string, LicensedImage> = personPortraits;
+
+export function directorImage(slug: string) {
+  return directorImages[slug];
+}
 
 export const carImages: Record<string, LicensedImage> = carPhotos;
 

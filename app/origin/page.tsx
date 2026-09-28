@@ -21,7 +21,7 @@ export default function OriginPage() {
         image={atmospherePlaceholder}
         tone={origin.posterTone}
         alt={`${origin.nameKo} (${origin.nameEn})`}
-        aspectClass="aspect-[2/3] sm:aspect-[16/9]"
+        aspectClass="aspect-video"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}
         overlay={{ title: origin.nameKo, meta: "1998 · Vibe" }}

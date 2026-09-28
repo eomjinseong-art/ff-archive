@@ -8,7 +8,7 @@ import { NationalityLine } from "@/components/NationalityLine";
 import { directorDetails } from "@/data/directorDetails";
 import { directors } from "@/data/directors";
 import { displayFilmTitle, films } from "@/data/films";
-import { portraitOrAtmosphere } from "@/data/licensedImages";
+import { directorImage, portraitOrAtmosphere } from "@/data/licensedImages";
 import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -39,14 +39,15 @@ export default async function DirectorDetailPage({
   const director = directors.find((d) => d.slug === slug);
   const detail = directorDetails[slug];
   if (!director || !detail) notFound();
+  const portrait = director.image ?? directorImage(director.slug);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-8">
       <CreditedMedia
-        image={portraitOrAtmosphere(director.image)}
+        image={portraitOrAtmosphere(portrait)}
         tone={director.posterTone}
-        alt={director.image?.alt ?? `${director.nameKo} (${director.nameEn})`}
-        aspectClass="aspect-[2/3] sm:aspect-[16/9]"
+        alt={portrait?.alt ?? `${director.nameKo} (${director.nameEn})`}
+        aspectClass="aspect-[3/4] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}
       />

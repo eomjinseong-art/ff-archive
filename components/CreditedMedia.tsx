@@ -1,6 +1,9 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { ImageCredit } from "@/components/ImageCredit";
+import { SafeImage } from "@/components/SafeImage";
 import type { LicensedImage } from "@/data/types";
 
 export function CreditedMedia({
@@ -24,25 +27,24 @@ export function CreditedMedia({
   href?: string;
   priority?: boolean;
 }) {
-  const showOverlay = Boolean(overlay) && (!image || image.isPlaceholder);
+  const [failed, setFailed] = useState(false);
+  const creditImage =
+    image && (failed || image.isSiteDefault)
+      ? { ...image, isSiteDefault: true, isPlaceholder: false }
+      : image;
+  const showOverlay = Boolean(overlay) && (!image || image.isPlaceholder) && !failed;
 
   const frame = (
     <div className={`relative overflow-hidden rounded-md ${aspectClass}`}>
       <div className="absolute inset-0" style={{ background: tone }} />
       {image ? (
-        <Image
+        <SafeImage
           src={image.src}
           alt={alt}
-          fill
-          className="object-cover"
           sizes={sizes}
           priority={priority}
-          loading={priority ? "eager" : "lazy"}
-          style={
-            image.objectPosition
-              ? { objectPosition: image.objectPosition }
-              : undefined
-          }
+          objectPosition={image.objectPosition}
+          onFallback={() => setFailed(true)}
         />
       ) : null}
       {showOverlay ? (
@@ -70,7 +72,7 @@ export function CreditedMedia({
       ) : (
         frame
       )}
-      {image ? <ImageCredit image={image} compact={compactCredit} /> : null}
+      {creditImage ? <ImageCredit image={creditImage} compact={compactCredit} /> : null}
     </figure>
   );
 }
