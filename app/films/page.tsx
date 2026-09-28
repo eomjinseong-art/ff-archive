@@ -71,6 +71,7 @@ export default function FilmsPage() {
                   tone={film.posterTone}
                   href={`/films/${film.slug}`}
                   image={filmImages[film.slug] ?? atmospherePlaceholder}
+                  aspect="video"
                   overlayOnImage={!filmImages[film.slug]}
                 />
               ))}

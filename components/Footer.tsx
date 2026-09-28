@@ -16,7 +16,15 @@ export function Footer() {
           <p>{FAN_SITE_DISCLAIMER}</p>
           <p>
             본문은 바깥 자료를 참고한 재서술입니다. 출처는 각 페이지 하단에
-            있습니다. 포스터와 영화 스틸은 쓰지 않습니다.
+            있습니다. 포스터와 영화 스틸은 쓰지 않습니다. 차량·인물 사진은
+            위키미디어 공용의 자유 이용 라이선스만 쓰며, 각 사진 아래에 저작자와
+            라이선스를 적습니다.{" "}
+            <Link
+              href="/credits"
+              className="underline decoration-line underline-offset-4 hover:text-gold"
+            >
+              사진 출처
+            </Link>
           </p>
           <p>권리자의 요청이 있으면 해당 내용을 삭제하거나 고칩니다.</p>
         </div>

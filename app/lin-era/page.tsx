@@ -4,7 +4,7 @@ import { CreditedMedia } from "@/components/CreditedMedia";
 import { Sources } from "@/components/Sources";
 import { displayFilmTitle, getFilm } from "@/data/films";
 import { linEra, linFilmSlugs, linSections, linSources } from "@/data/linEra";
-import { portraitOrAtmosphere } from "@/data/licensedImages";
+import { directorImage, portraitOrAtmosphere } from "@/data/licensedImages";
 
 import { pageMetadata } from "@/lib/seo";
 
@@ -19,13 +19,12 @@ export default function LinEraPage() {
     <article className="mx-auto max-w-3xl px-4 py-8">
       <p className="text-[11px] uppercase tracking-wide text-gold">{linEra.years}</p>
       <CreditedMedia
-        image={portraitOrAtmosphere()}
+        image={portraitOrAtmosphere(directorImage("justin-lin"))}
         tone="linear-gradient(165deg,#1a2030 0%,#0B0D10 48%,#8a734033 100%)"
-        alt="저스틴 린"
-        aspectClass="aspect-[2/3] sm:aspect-[16/9]"
+        alt={directorImage("justin-lin")?.alt ?? "저스틴 린 감독 초상"}
+        aspectClass="aspect-[3/4] sm:aspect-[16/9]"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}
-        overlay={{ title: "저스틴 린", meta: linEra.years }}
       />
       <h1 className="mt-4 font-serif text-3xl text-paper sm:text-4xl">
         {linEra.titleKo} ({linEra.titleEn})

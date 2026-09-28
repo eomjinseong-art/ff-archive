@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ImageCredit } from "@/components/ImageCredit";
+import { SafeImage } from "@/components/SafeImage";
 import type { LicensedImage } from "@/data/types";
 
 export function CreditedMedia({
@@ -30,19 +30,12 @@ export function CreditedMedia({
     <div className={`relative overflow-hidden rounded-md ${aspectClass}`}>
       <div className="absolute inset-0" style={{ background: tone }} />
       {image ? (
-        <Image
+        <SafeImage
           src={image.src}
           alt={alt}
-          fill
-          className="object-cover"
           sizes={sizes}
           priority={priority}
-          loading={priority ? "eager" : "lazy"}
-          style={
-            image.objectPosition
-              ? { objectPosition: image.objectPosition }
-              : undefined
-          }
+          objectPosition={image.objectPosition}
         />
       ) : null}
       {showOverlay ? (

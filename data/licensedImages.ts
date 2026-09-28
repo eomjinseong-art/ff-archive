@@ -1,5 +1,7 @@
 import type { LicensedImage } from "./types";
 import { carPhotos } from "./carPhotos";
+import { filmPhotos } from "./filmPhotos";
+import { directorPortraits, personPortraits } from "./portraits";
 
 /** Abstract stand-in. Not a film still. */
 export const atmospherePlaceholder: LicensedImage = {
@@ -22,11 +24,15 @@ export function portraitOrAtmosphere(image?: LicensedImage): LicensedImage {
 
 export const placeImages: Record<string, LicensedImage> = {};
 
-export const filmImages: Record<string, LicensedImage> = {};
+export const filmImages: Record<string, LicensedImage> = filmPhotos;
 
-export const directorImages: Record<string, LicensedImage> = {};
+export const directorImages: Record<string, LicensedImage> = directorPortraits;
 
-export const personImages: Record<string, LicensedImage> = {};
+export const personImages: Record<string, LicensedImage> = personPortraits;
+
+export function directorImage(slug: string) {
+  return directorImages[slug];
+}
 
 export const carImages: Record<string, LicensedImage> = carPhotos;
 

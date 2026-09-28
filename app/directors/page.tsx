@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PosterCard } from "@/components/PosterCard";
 import { directors } from "@/data/directors";
-import { portraitOrAtmosphere } from "@/data/licensedImages";
+import { directorImage, portraitOrAtmosphere } from "@/data/licensedImages";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -27,7 +27,7 @@ export default function DirectorsPage() {
             meta={`${director.nationalityKo} · ${director.years} · ${director.filmCount}편`}
             tone={director.posterTone}
             href={`/directors/${director.slug}`}
-            image={portraitOrAtmosphere(director.image)}
+            image={portraitOrAtmosphere(director.image ?? directorImage(director.slug))}
           />
         ))}
       </div>
