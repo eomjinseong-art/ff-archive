@@ -73,7 +73,13 @@ export function FilmDetailView({ detail }: { detail: FilmDetail }) {
       <CreditedMedia
         image={hero}
         tone={film.posterTone}
-        alt={hero.isPlaceholder ? placeholderAlt(displayFilmTitle(film)) : hero.alt}
+        alt={
+          hero.isSiteDefault
+            ? displayFilmTitle(film)
+            : hero.isPlaceholder
+              ? placeholderAlt(displayFilmTitle(film))
+              : hero.alt
+        }
         aspectClass="aspect-video"
         sizes="(max-width: 768px) 100vw, 768px"
         priority

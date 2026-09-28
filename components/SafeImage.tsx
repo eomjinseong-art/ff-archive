@@ -3,39 +3,48 @@
 import Image from "next/image";
 import { useState } from "react";
 
+export const SITE_DEFAULT_SRC = "/images/default-car.webp";
+
 export function SafeImage({
   src,
   alt,
   sizes,
   priority = false,
   objectPosition,
+  onFallback,
 }: {
   src: string;
   alt: string;
   sizes: string;
   priority?: boolean;
   objectPosition?: string;
+  onFallback?: () => void;
 }) {
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <div className="absolute inset-0 flex items-end bg-black/25 p-3">
-        <p className="text-[11px] leading-4 text-paper/90">사진을 불러오지 못했습니다.</p>
-      </div>
-    );
-  }
+  const [useDefault, setUseDefault] = useState(false);
+  const showingDefault = useDefault && src !== SITE_DEFAULT_SRC;
 
   return (
     <Image
-      src={src}
+      key={showingDefault ? SITE_DEFAULT_SRC : src}
+      src={showingDefault ? SITE_DEFAULT_SRC : src}
       alt={alt}
       fill
       className="object-cover"
       sizes={sizes}
-      {...(priority ? { priority: true } : { loading: "lazy" as const })}
-      onError={() => setFailed(true)}
-      style={objectPosition ? { objectPosition } : undefined}
+      {...(priority && !showingDefault ? { priority: true } : { loading: "lazy" as const })}
+      onError={() => {
+        if (!useDefault && src !== SITE_DEFAULT_SRC) {
+          setUseDefault(true);
+          onFallback?.();
+        }
+      }}
+      style={
+        showingDefault
+          ? { objectPosition: "center" }
+          : objectPosition
+            ? { objectPosition }
+            : undefined
+      }
     />
   );
 }

@@ -40,8 +40,10 @@ export default async function GadgetPage({ params }: { params: Promise<{ slug: s
       <CreditedMedia
         image={image}
         tone={gadget.posterTone}
-        alt={image.alt}
-        aspectClass="aspect-[2/3] sm:aspect-[16/9]"
+        alt={
+          image.isSiteDefault ? `${gadget.nameKo} (${gadget.nameEn})` : image.alt
+        }
+        aspectClass="aspect-video"
         sizes="(max-width: 768px) 100vw, 768px"
         compactCredit={false}
         overlay={image.isPlaceholder ? { title: gadget.nameKo, meta: gadget.nameEn } : undefined}

@@ -208,7 +208,11 @@ export default function CreditsPage() {
         })}
       </ul>
       <section className="mt-10">
-        <h2 className="font-serif text-xl text-gold">아직 사진이 없는 항목</h2>
+        <h2 className="font-serif text-xl text-gold">대표 이미지를 쓰는 항목</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
+          자유 이용 사진이 없는 칸은 사이트 대표 이미지(밤의 젖은 도로 위 스포츠카)를
+          씁니다. 제삼자 출처는 적지 않습니다.
+        </p>
         <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
           {stillMissing.map((item) => (
             <li key={item.href}>

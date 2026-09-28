@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { PosterCard } from "@/components/PosterCard";
 import { gadgets, type GadgetBadge } from "@/data/gadgets";
-import { gadgetImages } from "@/data/licensedImages";
+import { defaultCarImage, gadgetImages } from "@/data/licensedImages";
 
 const FILTERS = ["전체", "장비", "스턴트"] as const;
 
@@ -34,18 +34,25 @@ export function GadgetExplorer() {
       </div>
       <p className="mt-3 text-xs text-muted">{visible.length}개</p>
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((item) => (
-          <PosterCard
-            key={item.slug}
-            title={`${item.nameKo} (${item.nameEn})`}
-            meta={`${item.badges.join(" · ")} · ${item.filmTitleKo}`}
-            tone={item.posterTone}
-            image={gadgetImages[item.slug]}
-            aspect="video"
-            overlayOnImage={!gadgetImages[item.slug]}
-            href={item.hasL2 ? `/gadgets/${item.slug}` : undefined}
-          />
-        ))}
+        {visible.map((item) => {
+          const licensed = gadgetImages[item.slug];
+          const image = licensed ?? {
+            ...defaultCarImage,
+            alt: `${item.nameKo} (${item.nameEn})`,
+          };
+          return (
+            <PosterCard
+              key={item.slug}
+              title={`${item.nameKo} (${item.nameEn})`}
+              meta={`${item.badges.join(" · ")} · ${item.filmTitleKo}`}
+              tone={item.posterTone}
+              image={image}
+              aspect="video"
+              overlayOnImage={false}
+              href={item.hasL2 ? `/gadgets/${item.slug}` : undefined}
+            />
+          );
+        })}
       </div>
     </div>
   );

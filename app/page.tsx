@@ -378,7 +378,10 @@ export default function HomePage() {
               <CreditedMedia
                 image={gadgetImages[item.slug] ?? atmospherePlaceholder}
                 tone={item.posterTone}
-                alt={gadgetImages[item.slug]?.alt ?? item.nameKo}
+                alt={
+                  gadgetImages[item.slug]?.alt ??
+                  `${item.nameKo} (${item.nameEn})`
+                }
                 href={`/gadgets/${item.slug}`}
                 overlay={
                   gadgetImages[item.slug]

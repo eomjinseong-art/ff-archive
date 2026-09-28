@@ -47,6 +47,8 @@ export type LicensedImage = {
   sourceUrl: string;
   sourceLabel: string;
   isPlaceholder?: boolean;
+  /** Site-owned stand-in. No third-party credit. */
+  isSiteDefault?: boolean;
   objectPosition?: string;
   /** Shown when the photo is a nearby model, not the film car's exact variant. */
   referenceNote?: string;

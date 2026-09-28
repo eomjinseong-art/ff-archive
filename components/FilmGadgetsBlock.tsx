@@ -41,7 +41,10 @@ export function FilmGadgetsBlock({
           {rows.map(({ gadget, slug }) => (
             <article key={slug} className="rounded-lg border border-line p-3">
               <CreditedMedia
-                image={portraitOrAtmosphere(gadgetImages[slug])}
+                image={portraitOrAtmosphere(
+                  gadgetImages[slug],
+                  `${gadget.nameKo} (${gadget.nameEn})`,
+                )}
                 tone={gadget.posterTone}
                 alt={gadgetImages[slug]?.alt ?? `${gadget.nameKo} (${gadget.nameEn})`}
                 aspectClass="aspect-video"
