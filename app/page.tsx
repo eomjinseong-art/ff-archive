@@ -35,11 +35,13 @@ import { villains } from "@/data/villains";
 import { women } from "@/data/women";
 import { personLookQuery } from "@/lib/googleImages";
 import { jsonLd, pageMetadata, websiteLd } from "@/lib/seo";
+import { FILM_ARCHIVES } from "@/data/filmArchives";
 import {
   BOND_ARCHIVE_LABEL,
   MI_ARCHIVE_LABEL,
   TF_ARCHIVE_LABEL,
   SITE_NAME,
+  archiveNetworkUrl,
   SITE_SUB,
   SITE_TAGLINE,
   bondArchiveUrl,
@@ -550,10 +552,11 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-12 pt-4">
         <p className="text-[11px] tracking-[0.22em] text-gold">영화 속 자동차</p>
-        <h2 className="mt-2 font-serif text-2xl text-paper sm:text-3xl">세 아카이브</h2>
+        <h2 className="mt-2 font-serif text-2xl text-paper sm:text-3xl">자매 아카이브</h2>
         <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
-          이 사이트는 분노의 질주 차량을 모은 허브입니다. 같은 네트워크에 007과 미션 임파서블
-          아카이브가 있고, 브랜드가 겹치는 차만 상세 페이지에서 잇습니다.
+          이 사이트는 분노의 질주 차량을 모은 허브입니다. 같은 네트워크에 007, 미션 임파서블,
+          트랜스포머, 포드 V 페라리, 러쉬, 그란 투리스모 아카이브가 있고, 브랜드가 겹치는 차만
+          상세 페이지에서 잇습니다.
         </p>
         <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <a
@@ -586,6 +589,17 @@ export default function HomePage() {
               오토봇과 디셉티콘이 변신한 실제 차량. 카마로, 피터빌트, 람보르기니가 이어집니다.
             </p>
           </a>
+          {FILM_ARCHIVES.map((site) => (
+            <a
+              key={site.id}
+              href={archiveNetworkUrl(site.url, "/", "home")}
+              className="rounded-xl border border-line bg-card p-5 hover:border-gold/60"
+            >
+              <p className="text-[11px] text-gold">자매 아카이브</p>
+              <h3 className="mt-2 font-serif text-xl text-paper">{site.label}</h3>
+              <p className="mt-3 text-sm leading-7 text-muted">{site.blurb}</p>
+            </a>
+          ))}
         </div>
       </section>
     </div>
