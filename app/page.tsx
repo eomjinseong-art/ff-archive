@@ -38,11 +38,13 @@ import { jsonLd, pageMetadata, websiteLd } from "@/lib/seo";
 import {
   BOND_ARCHIVE_LABEL,
   MI_ARCHIVE_LABEL,
+  TF_ARCHIVE_LABEL,
   SITE_NAME,
   SITE_SUB,
   SITE_TAGLINE,
   bondArchiveUrl,
   miArchiveUrl,
+  tfArchiveUrl,
 } from "@/lib/site";
 
 const homeDescription =
@@ -553,7 +555,7 @@ export default function HomePage() {
           이 사이트는 분노의 질주 차량을 모은 허브입니다. 같은 네트워크에 007과 미션 임파서블
           아카이브가 있고, 브랜드가 겹치는 차만 상세 페이지에서 잇습니다.
         </p>
-        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <a
             href={bondArchiveUrl("home")}
             className="rounded-xl border border-line bg-card p-5 hover:border-gold/60"
@@ -572,6 +574,16 @@ export default function HomePage() {
             <h3 className="mt-2 font-serif text-xl text-paper">{MI_ARCHIVE_LABEL}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">
               미션 임파서블의 차량. 혼다와 람보르기니처럼 확인된 페이지만 연결합니다.
+            </p>
+          </a>
+          <a
+            href={tfArchiveUrl("home")}
+            className="rounded-xl border border-line bg-card p-5 hover:border-gold/60"
+          >
+            <p className="text-[11px] text-gold">자매 아카이브</p>
+            <h3 className="mt-2 font-serif text-xl text-paper">{TF_ARCHIVE_LABEL}</h3>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              오토봇과 디셉티콘이 변신한 실제 차량. 카마로, 피터빌트, 람보르기니가 이어집니다.
             </p>
           </a>
         </div>
