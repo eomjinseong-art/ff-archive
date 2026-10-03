@@ -15,6 +15,9 @@ export const BOND_ARCHIVE_URL =
 export const MI_ARCHIVE_URL =
   process.env.NEXT_PUBLIC_MI_ARCHIVE_URL ?? "https://mi-archive.vercel.app";
 
+export const TF_ARCHIVE_URL =
+  process.env.NEXT_PUBLIC_TF_ARCHIVE_URL ?? "https://transformers-archive.vercel.app";
+
 export const SISTER_SITE_URL =
   process.env.NEXT_PUBLIC_SISTER_SITE_URL ?? "https://car-parts-cpang.vercel.app";
 
@@ -24,6 +27,7 @@ export const USA_MOTORS_URL =
 
 export const BOND_ARCHIVE_LABEL = "007 본드 아카이브";
 export const MI_ARCHIVE_LABEL = "미션 임파서블 아카이브";
+export const TF_ARCHIVE_LABEL = "트랜스포머 아카이브";
 export const USA_MOTORS_LABEL = "미국차 컬렉션";
 export const AUTOPIX_LABEL = "오토픽스";
 export const FF_CAR_CTA_LABEL = "이 차량 용품 보러 가기 · 오토픽스";
@@ -79,6 +83,10 @@ export function bondArchiveUrl(medium: "header" | "footer" | "home" | "car" = "h
 
 export function miArchiveUrl(medium: "header" | "footer" | "home" | "car" = "header") {
   return archiveNetworkUrl(MI_ARCHIVE_URL, "/", medium);
+}
+
+export function tfArchiveUrl(medium: "header" | "footer" | "home" | "car" = "header") {
+  return archiveNetworkUrl(TF_ARCHIVE_URL, "/", medium);
 }
 
 export function usaMotorsCarUrl(path: string) {

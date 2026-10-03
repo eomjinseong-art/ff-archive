@@ -3,8 +3,10 @@ import {
   BOND_ARCHIVE_LABEL,
   MI_ARCHIVE_LABEL,
   SITE_NAME,
+  TF_ARCHIVE_LABEL,
   bondArchiveUrl,
   miArchiveUrl,
+  tfArchiveUrl,
 } from "@/lib/site";
 
 const linkClass =
@@ -27,6 +29,9 @@ export function NetworkStrip({
         </a>
         <a href={miArchiveUrl(medium)} className={linkClass}>
           {MI_ARCHIVE_LABEL}
+        </a>
+        <a href={tfArchiveUrl(medium)} className={linkClass}>
+          {TF_ARCHIVE_LABEL}
         </a>
       </div>
     </div>
