@@ -5,6 +5,7 @@ import {
   MI_ARCHIVE_URL,
   archiveNetworkUrl,
 } from "@/lib/site";
+import { filmArchiveCarsForBrand } from "./filmArchives";
 
 export type SisterCarLink = {
   brand: string;
@@ -62,5 +63,13 @@ export function sisterCarsForBrand(brand: string): SisterCarLink[] {
     nameKo: car.nameKo,
     nameEn: car.nameEn,
     href: archiveNetworkUrl(car.base, `/cars/${car.slug}`, "car"),
-  }));
+  })).concat(
+    filmArchiveCarsForBrand(brand).map(({ brand: b, siteLabel, nameKo, nameEn, href }) => ({
+      brand: b,
+      siteLabel,
+      nameKo,
+      nameEn,
+      href,
+    })),
+  );
 }
