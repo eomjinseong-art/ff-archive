@@ -10,6 +10,8 @@ import { UsaMotorsLink } from "@/components/UsaMotorsLink";
 import { SisterCta } from "@/components/SisterCta";
 import { Fn, Sources } from "@/components/Sources";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
+import { YoutubeLink } from "@/components/YoutubeLink";
+import { carVideoFallbacks, carVideos } from "@/data/youtube";
 import { ERA_LABEL, carDetails, getCar } from "@/data/cars";
 import { atmospherePlaceholder, carImages } from "@/data/licensedImages";
 import { FF_CAR_CTA_LABEL, SITE_URL } from "@/lib/site";
@@ -116,6 +118,10 @@ export default async function CarDetailPage({
         sizes="(max-width: 768px) 100vw, 768px"
         priority
         compactCredit={false}
+      />
+      <YoutubeLink
+        video={carVideos[car.slug]}
+        fallbackQuery={carVideoFallbacks[car.slug] ?? `${car.nameEn} Fast and Furious`}
       />
       <div className="mt-4 flex flex-wrap gap-2">
         {car.badges.map((badge) => (
