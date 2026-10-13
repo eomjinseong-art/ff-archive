@@ -5,6 +5,7 @@ import { GossipBoard } from "@/components/GossipBoard";
 import { Sources } from "@/components/Sources";
 import { getIssue, issues } from "@/data/issues";
 import { pageMetadata } from "@/lib/seo";
+import { CoupangCard } from "@/components/CoupangCard";
 
 export function generateStaticParams() {
   return issues.map((issue) => ({ slug: issue.slug }));
@@ -82,6 +83,7 @@ export default async function IssueDetailPage({
         </div>
       </section>
       <Sources sources={issue.sources} />
+      <CoupangCard />
     </article>
   );
 }

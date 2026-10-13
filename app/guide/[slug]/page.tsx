@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { guides } from "@/data/guides";
 import { pageMetadata } from "@/lib/seo";
+import { CoupangCard } from "@/components/CoupangCard";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -63,6 +64,7 @@ export default async function GuideDetailPage({
           </li>
         ))}
       </ol>
+      <CoupangCard />
     </article>
   );
 }
