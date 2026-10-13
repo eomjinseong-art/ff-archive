@@ -24,6 +24,7 @@ import {
   pageMetadata,
   placeholderAlt,
 } from "@/lib/seo";
+import { CoupangCard } from "@/components/CoupangCard";
 
 export function generateStaticParams() {
   return Object.keys(carDetails).map((slug) => ({ slug }));
@@ -266,6 +267,7 @@ export default async function CarDetailPage({
       </p>
 
       <Sources sources={detail.sources} footnotes={detail.footnotes} />
+      <CoupangCard />
     </article>
   );
 }

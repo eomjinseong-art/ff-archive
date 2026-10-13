@@ -48,6 +48,7 @@ import {
   miArchiveUrl,
   tfArchiveUrl,
 } from "@/lib/site";
+import { CoupangCard } from "@/components/CoupangCard";
 
 const homeDescription =
   "분노의 질주 시리즈 순서, 차 종류, 등장인물과 악당을 모은 비공식 아카이브. 2001년 분노의 질주부터 2023년 라이드 오어 다이까지.";
@@ -104,6 +105,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <CoupangCard />
       <section className="border-b border-line bg-card/40">
         <div className="mx-auto grid max-w-6xl grid-cols-3 gap-px bg-line sm:grid-cols-6">
           {stats.map((stat) => (
