@@ -22,6 +22,7 @@ import { getVillain } from "@/data/villains";
 import { getWoman } from "@/data/women";
 import { secondaryRelated } from "@/lib/relatedLinks";
 import { breadcrumbLd, jsonLd, movieLd, placeholderAlt } from "@/lib/seo";
+import { CoupangCard } from "@/components/CoupangCard";
 
 function castHref(person: CastChip) {
   if (!person.slug || !person.kind) return undefined;
@@ -119,6 +120,8 @@ export function FilmDetailView({ detail }: { detail: FilmDetail }) {
           ))}
         </div>
       </section>
+
+      <CoupangCard />
 
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">출연</h2>
