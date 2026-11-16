@@ -7,6 +7,8 @@ import { displayFilmTitle, films, filmsByDirector } from "@/data/films";
 import { atmospherePlaceholder, filmImages } from "@/data/licensedImages";
 import { SERIES_FRAMING, SERIES_FRAMING_NOTE, SERIES_TOTAL, SERIES_WITH_SPINOFF } from "@/data/series";
 import { itemListLd, jsonLd, pageMetadata } from "@/lib/seo";
+import { Fragment } from "react";
+import { CoupangCard } from "@/components/CoupangCard";
 
 export const metadata: Metadata = pageMetadata({
   title: "분노의 질주 시리즈",
@@ -51,8 +53,9 @@ export default function FilmsPage() {
       </p>
 
       <div className="mt-10 space-y-10">
-        {byDirector.map((group) => (
-          <section key={group.directorSlug}>
+        {byDirector.map((group, index) => (
+          <Fragment key={group.directorSlug}>
+          <section>
             <div className="mb-4 flex items-end justify-between gap-3">
               <h2 className="font-serif text-xl text-paper">
                 {group.directorKo} ({group.directorEn})
@@ -77,6 +80,8 @@ export default function FilmsPage() {
               ))}
             </div>
           </section>
+          {index === 0 ? <CoupangCard /> : null}
+          </Fragment>
         ))}
       </div>
     </div>
