@@ -22,6 +22,12 @@ export const FILM_ARCHIVES = [
     url: process.env.NEXT_PUBLIC_GT_ARCHIVE_URL ?? "https://granturismo-archive.vercel.app",
     blurb: "《그란 투리스모》(2023). 게이머 출신 레이서의 실화와 닛산 GT-R GT3, 르망의 차.",
   },
+  {
+    id: "jw",
+    label: "존 윅 아카이브",
+    url: process.env.NEXT_PUBLIC_JW_ARCHIVE_URL ?? "https://johnwick-archive.vercel.app",
+    blurb: "《존 윅》 시리즈(2014–2025). 1969 머스탱 마하 1, 1970 셰벨 SS, 4편의 1971 쿠다, 키아누 리브스 전기.",
+  },
 ] as const;
 
 export type FilmArchiveId = (typeof FILM_ARCHIVES)[number]["id"];
