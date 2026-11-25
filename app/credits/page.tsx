@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CreditedMedia } from "@/components/CreditedMedia";
@@ -148,6 +149,7 @@ export default function CreditsPage() {
           </li>
         ))}
       </ul>
+      <NadooAd inline />
       <h2 className="mt-12 font-serif text-xl text-gold">영화</h2>
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
         각 편의 대표 양산 차량입니다. 같은 파일은 차량 칸에도 있습니다.

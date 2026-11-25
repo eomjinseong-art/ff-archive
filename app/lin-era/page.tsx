@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CreditedMedia } from "@/components/CreditedMedia";
@@ -30,6 +31,7 @@ export default function LinEraPage() {
         {linEra.titleKo} ({linEra.titleEn})
       </h1>
       <p className="mt-4 text-base leading-relaxed text-paper">{linEra.oneLiner}</p>
+      <NadooAd inline />
       <p className="mt-3 text-sm">
         <Link href="/directors/justin-lin" className="text-gold">
           감독 상세

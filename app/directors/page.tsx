@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PosterCard } from "@/components/PosterCard";
@@ -19,6 +20,7 @@ export default function DirectorsPage() {
       <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
         본편과 스핀오프의 감독 일곱 사람. 본편을 두 편 이상 맡은 사람은 저스틴 린뿐입니다.
       </p>
+      <NadooAd inline />
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {directors.map((director) => (
           <PosterCard

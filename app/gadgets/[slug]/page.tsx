@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -90,6 +91,7 @@ export default async function GadgetPage({ params }: { params: Promise<{ slug: s
         </ol>
       </section>
 
+      <NadooAd inline />
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">화면에서</h2>
         <div className="mt-3 space-y-4">

@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { PosterCard } from "@/components/PosterCard";
@@ -31,6 +32,7 @@ export default function VillainsPage() {
       <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
         편마다의 상대입니다. 데커드는 패밀리 칸에도 있고, 악당 칸에는 더 세븐의 적대 역할만 둡니다.
       </p>
+      <NadooAd inline />
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {villains.map((person) => {
           const image = personImage(person.slug);

@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -68,6 +69,7 @@ export default async function IssueDetailPage({
           </div>
         </section>
       )}
+      <NadooAd inline />
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">관련</h2>
         <div className="mt-3 flex flex-wrap gap-2">

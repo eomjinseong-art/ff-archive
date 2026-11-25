@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
@@ -36,6 +37,7 @@ export default function FilmsPage() {
       />
       <h1 className="font-serif text-3xl text-paper">분노의 질주 시리즈</h1>
       <p className="mt-3 max-w-3xl text-sm leading-7 text-paper">{SERIES_FRAMING}</p>
+      <NadooAd inline />
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">{SERIES_FRAMING_NOTE}</p>
       <p className="mt-3 text-sm text-muted">
         본편 {SERIES_TOTAL}편 · 스핀오프 포함 {SERIES_WITH_SPINOFF}편 ·{" "}

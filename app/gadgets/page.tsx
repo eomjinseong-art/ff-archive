@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import { GadgetExplorer } from "@/components/GadgetExplorer";
 import { pageMetadata } from "@/lib/seo";
@@ -16,6 +17,7 @@ export default function GadgetsPage() {
       <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
         니트로스 사출 좌석, 금고, 나이트셰이드, 갓스 아이. 추격 차량은 영화 속 차량 칸에 있습니다.
       </p>
+      <NadooAd inline />
       <div className="mt-8">
         <GadgetExplorer />
       </div>
