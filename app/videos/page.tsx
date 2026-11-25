@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
@@ -56,6 +57,7 @@ export default function VideosPage() {
         </div>
       </section>
 
+      <NadooAd inline />
       <section className="mt-10">
         <h2 className="font-serif text-xl text-gold">채널 안 공식 분류</h2>
         <p className="mt-2 text-xs text-muted">

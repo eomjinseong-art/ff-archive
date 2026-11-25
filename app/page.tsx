@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import Link from "next/link";
 import { AutopixBanner } from "@/components/AutopixBanner";
 import { JsonLd } from "@/components/JsonLd";
@@ -304,6 +305,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <NadooAd inline />
       <section className="mx-auto max-w-6xl px-4 py-6">
         <div className="mb-4 flex items-end justify-between gap-3">
           <h2 className="font-serif text-xl text-gold">여성 {homeWomen.length}</h2>

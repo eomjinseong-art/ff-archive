@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import { AutopixBanner } from "@/components/AutopixBanner";
 import { CarExplorer } from "@/components/CarExplorer";
@@ -33,6 +34,7 @@ export default function CarsPage() {
         갈리거나 배경으로만 스친 차는 빼 두었습니다. 주요 차량은 아이콘·브랜드·시대로
         볼 수 있습니다. 사진은 촬영 차량이 아닙니다.
       </p>
+      <NadooAd inline />
       <div className="mt-6">
         <AutopixBanner />
       </div>

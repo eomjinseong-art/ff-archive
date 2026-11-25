@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { issues } from "@/data/issues";
@@ -16,6 +17,7 @@ export default function IssuesPage() {
       <p className="mt-2 text-sm leading-7 text-muted">
         도쿄 드리프트의 순서, 폴 워커와 더 세븐, 제목 라이선스, 편별 흥행.
       </p>
+      <NadooAd inline />
       <div className="mt-8 grid grid-cols-1 gap-4">
         {issues.map((issue) => (
           <Link

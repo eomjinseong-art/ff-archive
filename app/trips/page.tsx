@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { displayFilmTitle, getFilm } from "@/data/films";
@@ -25,6 +26,7 @@ export default function TripsPage() {
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
         화면에 남은 도시를 걷는 짧은 코스입니다. 스턴트 지점에 올라가는 안내가 아닙니다.
       </p>
+      <NadooAd inline />
       <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
         {trips.map((trip) => {
           const stops = trip.stopSlugs

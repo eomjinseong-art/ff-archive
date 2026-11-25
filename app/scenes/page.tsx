@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { fanClips, officialScenes } from "@/data/scenes";
@@ -20,6 +21,7 @@ export default function ScenesPage() {
         공식 영상 {officialScenes.length}편 · 채널 링크 {fanClips.length}건
       </p>
 
+      <NadooAd inline />
       <div className="mt-8 space-y-10">
         {officialScenes.map((scene) => (
           <section key={scene.filmSlug}>

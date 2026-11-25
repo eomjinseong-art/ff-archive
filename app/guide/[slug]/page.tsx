@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -42,6 +43,7 @@ export default async function GuideDetailPage({
         {guide.titleKo} ({guide.titleEn})
       </h1>
       <p className="mt-3 text-sm leading-7 text-muted">{guide.summary}</p>
+      <NadooAd inline />
       <ol className="mt-8 space-y-4">
         {guide.steps.map((step, i) => (
           <li key={step.filmSlug} className="rounded-lg border border-line p-5">

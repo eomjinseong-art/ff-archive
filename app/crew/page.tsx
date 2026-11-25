@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
@@ -32,6 +33,7 @@ export default function CrewPage() {
       <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
         돔의 사람들과, 그 옆에 선 홉스·데커드. 데커드는 악당 칸에도 있습니다. 배우는 배역을 알리는 데만 적습니다.
       </p>
+      <NadooAd inline />
       <p className="mt-4">
         <Link href="/lin-era" className="inline-flex rounded-full border border-gold/50 px-3 py-1 text-xs text-gold hover:bg-gold/10">
           린의 다섯 편

@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { quoteGroups } from "@/data/quotes";
@@ -18,6 +19,7 @@ export default function QuotesPage() {
       <p className="mt-2 text-sm text-muted">
         위키백과 줄거리가 따옴표로 적은 문장만 모았습니다. 한국어는 그 문장의 번역입니다.
       </p>
+      <NadooAd inline />
       <p className="mt-2 text-xs text-muted">
         {quoteGroups.length}개 그룹 · {itemCount}개 인용
       </p>

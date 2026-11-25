@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -187,6 +188,7 @@ export default async function CarDetailPage({
         />
       </section>
 
+      <NadooAd inline />
       <section className="mt-8">
         <h2 className="font-serif text-xl text-gold">가십 보드</h2>
         <p className="mt-2 text-xs text-muted">

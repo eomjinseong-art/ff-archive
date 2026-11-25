@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { guides } from "@/data/guides";
@@ -21,6 +22,7 @@ export default function GuidePage() {
         </Link>
         에서 두 순서를 나란히 봅니다.
       </p>
+      <NadooAd inline />
       <div className="mt-8 grid grid-cols-1 gap-4">
         {guides.map((guide) => (
           <Link

@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Sources } from "@/components/Sources";
@@ -80,6 +81,7 @@ export default function RecordsPage() {
         </ul>
       </section>
 
+      <NadooAd inline />
       <section className="mt-12">
         <h2 className="font-serif text-2xl text-gold">세계 흥행 · 명목</h2>
         <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">{boxOfficeNote}</p>

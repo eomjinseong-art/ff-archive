@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -41,6 +42,7 @@ export default function WatchOrderPage() {
       />
       <h1 className="mt-3 font-serif text-3xl text-paper sm:text-4xl">{title}</h1>
       <p className="mt-3 text-sm leading-7 text-paper">{description}</p>
+      <NadooAd inline />
       <p className="mt-3 text-sm leading-7 text-muted">
         작품으로 이어지는 목록은{" "}
         <Link href="/guide/release" className="text-gold hover:underline">

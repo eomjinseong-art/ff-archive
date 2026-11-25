@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LandmarkList } from "@/components/PlaceLists";
@@ -47,6 +48,7 @@ export default function LocationsPage() {
         </div>
       </section>
 
+      <NadooAd inline />
       <section className="mt-12">
         <h2 className="font-serif text-xl text-gold">도시·국가</h2>
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
